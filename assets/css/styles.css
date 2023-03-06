@@ -41,6 +41,19 @@ body{
         padding: 75px 25px;
     }
 
+    .error{
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .box h1 {
+        font-size:10px;
+        display: flex;
+        justify-content: center;
+
+    }
+
  
 }
 
@@ -57,7 +70,7 @@ body{
     font-size: 35px;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
 
 .box form label {
@@ -135,6 +148,16 @@ body{
 .box .forgot {
     margin-top: 35px;
     float: right;
+}
+
+.error{
+    background-color: rgb(237, 99, 99);
+    color: black;
+    padding: 3px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 0 auto;
+
 }
 
 

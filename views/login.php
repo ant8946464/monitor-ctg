@@ -11,8 +11,16 @@
 <?php   require_once '../config/config.php' ?>
 <div class="container">
         <div class="box">
+            <?php   
+              if(isset($_GET['error'])){
+            ?>            
+            <span class='error'><?php echo $_GET['error']  ?> </span>    
+            <?php         
+                }
+            ?>
             <h1>Bienvenido</h1>
-            <form action="<?php echo constant('URL'); ?>/libs/loginValidator.php"  method="POST">
+            <form action="<?php echo constant('URL'); ?>libs/loginValidator.php"  method="POST">
+               
                 <label>Usuario</label>
                 <div>
                     <input type="text" name="user" required>
@@ -25,6 +33,7 @@
             </form>
             <a href="#" class="sign-up">Registrate</a>
             <a href="#" class="forgot">¿Se te olvido la contraseña?</a>
+            
         </div>
     </div>
 </body>

@@ -30,6 +30,8 @@ class Errors{
 
     private $errorsList = [];
 
+    private $messageError = '';
+
     public function __construct()
     {
         $this->errorsList = [
@@ -65,6 +67,18 @@ class Errors{
         }else{
             return false;
         }
+    }
+
+    function setMessegesError($msg){
+        $this->messageError = $msg;
+    }
+
+    function cleanMessages(){
+        $this->messageError = '';
+    }
+
+    function getcleanMessages(){
+       return  $this->messageError;
     }
 }
 ?>
