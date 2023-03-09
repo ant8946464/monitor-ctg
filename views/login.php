@@ -7,19 +7,21 @@
     <title>Sistema de Monitoreo CTG</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <script  type="text/javascript" src="../assets/css/styles.css"> </script>
-   
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script  type="text/javascript"  src="../assets/js/script.js"></script>
 </head>
 <body  background="../assets/images/background.jpg">
+<?php   
+              if(isset($_GET['error'])){
+            ?>            
+            <div class="error"><b><?php echo $_GET['error']  ?></b></div>   
+            <?php         
+            }
+            ?>
 <?php   require_once '../config/config.php' ?>
 <div class="container">
         <div class="box">
-            <?php   
-              if(isset($_GET['error'])){
-            ?>            
-            <span class='error'><?php echo $_GET['error']  ?> </span>    
-            <?php         
-                }
-            ?>
+           
             <h1>Bienvenido</h1>
             <form action="<?php echo constant('URL'); ?>libs/loginValidator.php"  method="POST">
                
@@ -37,7 +39,6 @@
             <a href="#" class="forgot">¿Se te olvido la contraseña?</a>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script  type="text/javascript"  src="../assets/js/script.js"></script>
+   
 </body>
 </html>
