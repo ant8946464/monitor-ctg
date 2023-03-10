@@ -1,0 +1,126 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image:url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  color:  deepskyblue;
+  text-align: center;
+}
+
+.form-register{
+
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  padding: 30px 30px 30px 30px;
+  background: white;
+  border-radius: 7px;
+
+  margin-top: 100px;
+
+}
+
+.form-titulo{ 
+  color:  #0077b6;
+  text-align: center;
+
+}
+
+
+.contenedor-inputs{
+  padding: 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+  
+}
+
+input{
+  margin-bottom: 15px;
+  padding:10px;
+  width: 45%;
+  border-radius: 7px;
+  border: 1px solid darkgray;
+}
+
+.btn-enviar{
+    background:  #0077b6;
+    color: #fff;
+    width: 100%;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-enviar{
+ transform: scale(1.05);
+}
+
+.form_link{
+  width: 100%;
+  margin: 7;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.content-select select::-ms-expand {
+  display: none;
+}
+
+.content-select{
+	max-width: 300px;
+	position: relative;
+}
+ 
+.content-select select{
+   width: 100%;
+	 cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+   
+    transition: all 0.25s ease;
+}
+
+
+
+ 
+
+ 
+.content-select:hover i{
+	margin-top: 3px;
+} 

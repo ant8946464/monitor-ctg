@@ -5,3 +5,4 @@ $(document).ready(function() {
         $(".error").fadeOut(1500);
     },1000);
 });
+

@@ -3,7 +3,7 @@
     require_once ("../classes/errors.php");
     require_once ("UserModel.php");
 
-    $userCorporate = $_POST['userCorporate'];
+    $userCorporate = $_POST['usuario_corporate'];
     $password = $_POST['password'];
     $error = new Errors();
     $userModel = new UserModel();
