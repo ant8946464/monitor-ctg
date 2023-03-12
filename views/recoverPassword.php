@@ -11,7 +11,7 @@
     <form class="form-register" method="post">
     <h1 class="form-titulo">Recuperar Password</h1>
       <div class="contenedor-inputs">
-          <input type="email" name="emal" placeholder="Ingresa tu correo" required >
+          <input type="email" name="emal" placeholder="Ingresa el correo" style="width: 120%;" required >
           <input type="submit"  value="Enviar" class="btn-enviar">
           <p class="form_link"> <a href="<?php echo constant('URL'); ?>views/login.php">Regresar a la pagina de inicio</a></p>
       </div>
