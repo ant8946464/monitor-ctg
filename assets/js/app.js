@@ -1,23 +1,3 @@
-
-
-
-
-
-
-
-$(document).ready(function() {
-setTimeout(function() {
-    $(".info").fadeOut(1500);
-},1000);
-});
-
-$(document).ready(function() {
-    setTimeout(function() {
-        $(".error").fadeOut(1500);
-    },1000);
-});
-
-
 (function(){
     const listElements = document.querySelectorAll('.menu__item--show');
     const list = document.querySelector('.menu__links');
@@ -75,6 +55,4 @@ $(document).ready(function() {
 
 
 })();
-
-
 

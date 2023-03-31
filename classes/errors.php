@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes;
+
 class Errors{
     //ERROR|SUCCESS
     //Controller
@@ -15,6 +17,8 @@ class Errors{
     const ERROR_SIGNUP_NEWUSER                   = "1fdce6bbf47d6b26a9cd809ea1910222";
     const ERROR_SIGNUP_NEWUSER_PASSWORD          = "89ns26a9cd81fdce6bbf47d6bDl9aysh";
     const ERROR_SIGNUP_NEWUSER_LENGHT            = "89ns26a65fv65grdd8dflp349cd81fdL";
+    const ERROR_USER_NOT_EXIST                   = "dkijud26e06d01g56610952678cf3sde";
+    const ERROR_USER_NOT_EX                      = "ujfds58op96nbgd65jsfkijngt12wsedg";
 
 
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
@@ -36,7 +40,7 @@ class Errors{
     
    
     
-    const ERROR_USER_NOT_EXIST                   = "dkijud26e06d01g56610952678cf3sde";
+   
 
 
     private $errorsList = [];
@@ -53,6 +57,8 @@ class Errors{
             Errors::ERROR_SIGNUP_NEWUSER            => 'Hubo un error al intentar registrarte. Intenta de nuevo',
             Errors::ERROR_SIGNUP_NEWUSER_PASSWORD  => 'La contraseña debe de contener Mayuscula, minusculas, numeros y caracteres.Maximo 8 de longuitud',
             Errors::ERROR_SIGNUP_NEWUSER_LENGHT  => 'El usuario de red debe de tener 8 caracteres.',
+            Errors::ERROR_USER_NOT_EXIST            => 'El usuario no se encuentra registrado.',
+            Errors::ERROR_USER_NOT_EX               => 'El usuario no es valido.',
 
             Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',
             Errors::ERROR_EXPENSES_DELETE           => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',
@@ -73,7 +79,7 @@ class Errors{
            
            
             
-            Errors::ERROR_USER_NOT_EXIST            => 'El usuario no se encuentra registrado.',
+          
             
         ];
     }

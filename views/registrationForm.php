@@ -10,52 +10,72 @@
     <script  type="text/javascript"  src="../assets/js/script.js"></script>
 </head>
 <body >
-<?php   
-      if(isset($_GET['error'])){
+<?php
+    if(isset($error)){
   ?>            
-    <div class="error"  style="marguin-top:100px"><b><?php echo $_GET['error']  ?></b></div>   
-  <?php         
+    <div class="error"><b><?=  $error ?></b></div>   
+  <?php    
       }
   ?>
-<?php   require_once '../config/config.php' ?>
-    <form class="form-register" method="post" action="<?php echo constant('URL'); ?>libs/recordValidation.php">
+  <?php
+    if(isset($success)){
+  ?>            
+    <div class="success"><b><?=  $success ?></b></div>   
+  <?php    
+      }
+  ?>
+
+    <form class="form-register" method="post" action="/registrate-validador">
     <h1 class="form-titulo">Crea tu cuenta</h1>
       <div class="contenedor-inputs">
-          <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" required>
-          <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" required>
-          <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" required>
-          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" required>
-          <input type="email" name="email" placeholder="Correo" maxlength="50" required>
-          <input type="text" name="phone" placeholder="Teléfono" maxlength="8" required>
+          <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php if(isset($userName)){?><?=$userName ?> <?php }  ?>" required>
+          <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php if(isset($first_name)){?><?=$first_name ?> <?php }  ?>" required>
+          <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php if(isset($last_name)){?><?=$last_name ?> <?php }  ?>" required>
+          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php if(isset($user_corporate)){?><?=$user_corporate ?> <?php }  ?>" required>
+          <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php if(isset($email)){?><?=$email ?> <?php }  ?>" required>
+          <input type="text" name="phone" placeholder="Teléfono" maxlength="8" value="<?php if(isset($phone)){?><?=$phone ?> <?php }  ?>" required>
           <input type="password" name="password" placeholder="Password" maxlength="8" required>
           <input type="password" name="confirmpassword" placeholder="Confirma password" required>
           <?php
-              require('../models/UserModel.php');
-              $userModel = new UserModel();
-          
+              use App\Models\Area;
+              use App\Models\Job;
+              use App\Models\AreaManager;
+              $elementArea = new Area();
+              $elementJob = new Job();
+              $elementManager = new AreaManager();
           ?>
-          <div class="content-select" required>
-                <select name="area">
-                <option selected="selected" disabled>Selecciona el Area</option>
-                <?php foreach($userModel->getAreaDB() as $area ): ?>
-                    <option value="<?php echo $area['id']?>"><?php echo $area['area']?></option>
-                <?php endforeach ?>
-                </select>
+          <div>
+                <div class="content-select" required>
+                      <select name="area">
+                        <option value="ssssss" selected="selected" disabled>Selecciona el Area</option>
+                        <?php foreach($elementArea->getItemColumns('area') as $area ): ?>
+                            <option value="<?php echo $area['id']?>"><?php echo $area['area']?></option>
+                        <?php endforeach ?>
+                      </select>
+                </div>
+
+                <div class="content-select" style="padding-top: 10px;" required>
+                  <select name="rol">
+                    <option value="ssssss" selected="selected" disabled>Selecciona el Puesto</option>
+                    <?php foreach($elementJob->getItemColumns('role') as $role ): ?>
+                        <option value="<?php echo$role['id']?>"><?php echo$role['role']?></option>
+                      <?php endforeach ?>
+                  </select>
+                </div>
+
           </div>
-
-
-          <div class="content-select" required>
-            <select name="rol">
-              <option selected="selected" disabled>Seleccion el Puesto</option>
-              <?php foreach($userModel->getJob() as $role ): ?>
-                  <option value="<?php echo$role['id']?>"><?php echo$role['job']?></option>
-                <?php endforeach ?>
-            </select>
+          <div>
+                <div class="content-select" required>
+                      <select name="responsable">
+                        <option value="ssssss" selected="selected" disabled>Selecciona  Responsable</option>
+                        <?php foreach($elementManager->getItemColumns('manager_name') as $resp): ?>
+                            <option value="<?php echo $resp['id']?>"><?php echo $resp['manager_name']?></option>
+                        <?php endforeach ?>
+                      </select>
+                </div>
           </div>
-
-
-          <input type="submit"  value="Registrar" class="btn-enviar">
-          <p class="form_link">¡Ya tienes cuenta? <a href="<?php echo constant('URL'); ?>views/login.php" class="sign-up">Ingresa aqui</a> </p>
+          <input type="submit"  value="Registrate" class="btn-enviar">
+          <p class="form_link">¿Ya tienes cuenta? <a href="/" class="sign-up">Ingresa aqui</a> </p>
       </div>
     </form>
     

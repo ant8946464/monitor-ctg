@@ -1,19 +1,13 @@
 <?php
-   require_once 'config/session.php';
+
+    require_once 'autoloader.php';
+    require_once 'lib/Route.php';
+    require_once 'route/web.php';
+    require_once 'app/Models/Model.php';
+    require_once 'lib/abCrypt.php';
+    
+    require_once 'classes/errors.php';
 
 
-   error_reporting(0);
 
-    $session = new  Session();
-
-   $actualsesion = $session->getSessionParam('user');
-   if($actualsesion == null || $actualsesion == ''){
-      header('location: views/login.php');
-      
-   }else{
-        // header('location: views/usuarios/index.php');
-        echo 'entro';
-   }
-
- 
 ?>

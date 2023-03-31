@@ -1,7 +1,9 @@
 <?php
 
+    namespace Lib;
 
-    class abCrypt {
+
+    class AbCrypt {
   
         private $key = 'qkwjdiw239&&jdafweihbrhnan&^%$ggdnawhd4njshjwuuO';
 
