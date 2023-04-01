@@ -6,7 +6,7 @@
 
 
       public function view($route , $data =[]){
-         var_dump("views/{$route}.php");
+     var_dump($route );
          extract($data);
          $route = str_replace('.','/',$route);
          if(file_exists("views/{$route}.php")){

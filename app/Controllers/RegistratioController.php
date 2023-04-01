@@ -30,7 +30,7 @@
 
 
          public function validateForm(){
-            
+            var_dump('entro');
             $regexPassword = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8}$/';
            
             $success = new Success();
@@ -53,22 +53,22 @@
             $user = $userModels->findValue("user_corporate",$this->user_corporate);
            
             if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->password,$this->confirmpassword,$this->area,$this->rol,$this->responsible_boss))){
-                return $this->view('registrate',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed'));
+                return $this->view('registrationForm',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed'));
             }else if(!str_contains($this->user_corporate, 'EX')){
-                return $this->view('registrate',$this->createArrayFront('ujfds58op96nbgd65jsfkijngt12wsedg'));
+                return $this->view('registrationForm',$this->createArrayFront('ujfds58op96nbgd65jsfkijngt12wsedg'));
             }else if(strlen($this->user_corporate ) > 8){
-                return $this->view('registrate',$this->createArrayFront('27731b37e286a3c6429a1b8e44ef3ff6'));
+                return $this->view('registrationForm.',$this->createArrayFront('27731b37e286a3c6429a1b8e44ef3ff6'));
             }else if(strcmp($this->password, $this->confirmpassword) != 0 ){
-                return $this->view('registrate',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
+                return $this->view('registrationForm',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
             }else if(preg_match($regexPassword, $this->password) == 0 ){
-                return $this->view('registrate',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
+                return $this->view('registrationForm',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
             }else if(empty($user)){
-                return $this->view('registrate',$this->createArrayFront('a74accfd26e06d012266810952678cf3'));
+                return $this->view('registrationForm',$this->createArrayFront('a74accfd26e06d012266810952678cf3'));
             }else{
                 if($userModels->create($this->createArrayInsert())){
                     return $this->view('login', ["success" => $success->get('8281e04ed52ccfc13820d0f6acb0985a')]  );
                 }else{
-                    return $this->view('registrate',$this->createArrayFront('1fdce6bbf47d6b26a9cd809ea1910222'));
+                    return $this->view('registrationForm',$this->createArrayFront('1fdce6bbf47d6b26a9cd809ea1910222'));
                 }
             }
             

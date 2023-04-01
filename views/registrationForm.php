@@ -6,6 +6,7 @@
     <title>Registro</title>
     <link rel="stylesheet" href="../assets/css/formStyles.css">
     <link rel="stylesheet" href="../assets/css/stylesAlert.css">
+    <link rel="stylesheet" href="../assets/css/selectSyles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script  type="text/javascript"  src="../assets/js/script.js"></script>
 </head>
@@ -25,7 +26,7 @@
       }
   ?>
 
-    <form class="form-register" method="post" action="/registrate-validador">
+    <form class="form-register" method="post" action="/registratevalidador">
     <h1 class="form-titulo">Crea tu cuenta</h1>
       <div class="contenedor-inputs">
           <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php if(isset($userName)){?><?=$userName ?> <?php }  ?>" required>

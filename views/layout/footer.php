@@ -1,5 +1,5 @@
 
-<footer class="footer">
+    <footer class="footer">
         <section class="footer__copy container">
             <div class="footer__social">
                 <a href="#" class="footer__icons"><img src="../assets/images/facebook.svg" class="footer__img"></a>

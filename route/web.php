@@ -12,10 +12,10 @@
     Route::post('/login-validador',[LoginController::class ,'validateLogin']);
 
 
-    Route::get('/registrate', [RegistratioController::class ,'index']);
+    Route::get('/formrRegistrate', [RegistratioController::class ,'index']);
 
 
-    Route::post('/registrate-validador',[RegistratioController::class ,'validateForm']);
+    Route::post('/registratevalidador',[RegistratioController::class ,'validateForm']);
 
 
     Route::get('/portalmonitor', [PortalController::class ,'index']);
@@ -24,25 +24,6 @@
         return 'pagina curso es  '.$test;
     });
 
-
-
-    Route::get('/contact',function(){
-        return 'pagina contac';
-    });
-
-
-    Route::get('/about',function(){
-        return 'pagina about';
-    });
-
-
-    Route::post('/',function(){
-        return 'hello word';
-    });
-
-    Route::get('/curso/:test',function($test){
-        return 'pagina curso es  '.$test;
-    });
 
     Route::dispacth();
 
