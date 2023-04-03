@@ -5,7 +5,10 @@
     use App\Controllers\LoginController;
     use App\Controllers\RegistratioController;
     use App\Controllers\PortalController;
+    use App\Controllers\TableController;
+    use App\Controllers\ResponsibleController;
 
+   
     Route::get('/',[LoginController::class ,'index']);
 
 
@@ -20,9 +23,15 @@
 
     Route::get('/portalmonitor', [PortalController::class ,'index']);
 
-    Route::get('/formloginErrror/:test',function($test){
-        return 'pagina curso es  '.$test;
-    });
+    Route::post('/tableusuario', [TableController::class ,'index']);
+
+
+    Route::get('/responsible', [ResponsibleController::class ,'index']);
+
+
+    Route::post('/add', [ResponsibleController::class ,'validResponsable']);
+
+   
 
 
     Route::dispacth();

@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/styleNabvar.css">
     <link rel="stylesheet" href="../../assets/css/selectSyles.css">
+    <link rel="stylesheet" href="../../assets/css/formStyles.css">
+    <link rel="stylesheet" href="../../assets/css/stylesAlert.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 </head>
-<body>
+<body style="background: #f1f3f4;">
+    <?php 
+        use Classes\Session;
+
+        $session = new Session();
+    ?>
     <nav class="menu">
         <section class="menu__container">
-            <h1 class="menu__logo">Bienvenido <?php echo $_SESSION['username'] ?></h1>
+       
+        <img src="../../assets/images/logoTelcelBlue.jpg" width="170" height="60" />
 
             <ul class="menu__links">
                 <li class="menu__item menu__item--show">
@@ -18,7 +27,7 @@
         
                         <ul class="menu__nesting">
                             <li class="menu__inside">
-                                <a href="#" class="menu__link menu__link--inside">About 1</a>
+                                <a href="/responsible" class="menu__link menu__link--inside">Responsable</a>
                             </li>
                             <li class="menu__inside">
                                 <a href="#" class="menu__link menu__link--inside">About 2</a>
@@ -30,43 +39,44 @@
                     </li>
     
                 <li class="menu__item menu__item--show">
-                    <a href="#" class="menu__link">About <img src="assets/images/arrow.svg" class="menu__arrow"></a>
+                    <a href="#" class="menu__link">Construccion <img src="assets/images/arrow.svg" class="menu__arrow"></a>
     
                     <ul class="menu__nesting">
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 1</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 2</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 3</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                     </ul>
                 </li>
     
                 <li class="menu__item  menu__item--show">
-                    <a href="#" class="menu__link">Projects  <img src="assets/images/arrow.svg" class="menu__arrow"></a>
+                    <a href="#" class="menu__link">Construccion  <img src="assets/images/arrow.svg" class="menu__arrow"></a>
     
                     <ul class="menu__nesting">
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Projects 1</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Projects 2</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Projects 3</a>
+                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
                         </li>
                     </ul>
                 </li>
     
                 <li class="menu__item">
-                    <a href="#" class="menu__link">Contact</a>
+                    <a href="#" class="menu__link">Construccion</a>
                 </li>
     
             </ul>
 
+            <h1 class="menu__logo">Bienvenido <?php echo $_SESSION['username'] ?></h1>
             <div class="menu__hamburguer">
                 <img src="../../assets/images/menu.svg" class="menu__img">
             </div>

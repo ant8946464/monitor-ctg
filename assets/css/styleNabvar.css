@@ -12,6 +12,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background: #f1f3f4;
 }
 
 
@@ -20,14 +21,10 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 20vh;
- 
-  
- 
-
 }
 
 .menu{
-    background-color:  #0077b6;
+    background-color:   #0A3D7E;
     color: #fff;
     height: 70px;
 }
@@ -46,6 +43,7 @@ body {
     height: 100%;
     transition: transform .5s;
     display: flex;
+    z-index: 999;
 }
 
 .menu__item{
@@ -91,7 +89,7 @@ body {
     bottom: 0;
     width: max-content;
     transform: translateY(100%);
-    background-color: #000;
+    background-color: #898b8f;
 }
 
 .menu__link--inside{
@@ -99,7 +97,7 @@ body {
 }
 
 .menu__link--inside:hover{
-    background-color: #798499;
+    background-color: #0077b6;
 }
 
 .menu__hamburguer{
@@ -189,8 +187,13 @@ body {
 /* Footer */
 
 .footer{
-  background-color: #0077b6;
-}
+  background-color: #0A3D7E;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }
+
 
 .footer__title{
   font-weight: 300;
@@ -249,7 +252,7 @@ body {
   display: inline-block;
   height: 50px;
   padding: 0 20px ;
-  background-color: #2091F9;
+  background-color:#00529b;
   border: none;
   font-size: 1rem;
   color: #fff;
@@ -351,7 +354,7 @@ body {
 
 
 .container {
-    border: solid 1px rgba(255, 255, 255, 0.2);
+    border: solid 1px #fff;
 }
 
 table {
@@ -359,23 +362,26 @@ table {
     font-size: 14px;
     table-layout: fixed;
     border-collapse: collapse;
+    border: solid 1px #fff;
 }
 
 thead {
-    background: rgba(140, 179, 243, 0.4);
+    background: #0A3D7E;
 }
 
 th {
     padding: 20px 15px ;
     font-weight: 700;
     text-transform: uppercase;
-    color: black;
+    color: #fff;;
 }
 
 td {
     padding: 15px;
-    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    border-bottom: solid 1px  #fff;
     color: black;
+    background:  #e0e0e0;
+   
 }
 
 
@@ -384,5 +390,91 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background: rgba(53, 90, 223, 0.4);
+    background: rgba(5, 30, 120, 0.4);
 }
+
+/* tabs codigo*/
+
+/* parámetros para configurar las pestañas */
+:root {
+    --tabs-border-color: #ABCDEF;
+    --tabs-border-size: 3px;
+    --tabs-text-color: white;
+    --tabs-dark-color: #012345;
+    --tabs-lite-color: #345678;
+    --tabs-width: 120px;
+    --tabs-height: 40px;
+  }
+  
+  /* aspecto básico */
+  body {
+    font-family: sans-serif;
+    line-height: 1.2;
+  }
+  h2, p {
+    margin: 0;
+  } 
+  a {
+    color: inherit;
+    text-decoration: none;
+  } 
+  .tabs * {
+    box-sizing: border-box;
+  }
+.tab-content {
+  display: none;
+}
+
+.tab:target .tab-content, .tab:last-of-type .tab-content {
+  display: block;
+}
+
+.tab:target ~ .tab:last-of-type .tab-content {
+  display: none;
+}
+
+
+/* esto es para posicionar las pestañas correctamente */
+.tab-container {
+    position: relative;
+    padding-top: var(--tabs-height); /* en esta zona colocaremos las pestañas */
+  } 
+  #tab1>a { --tabs-position: 0; }
+  #tab2>a { --tabs-position: 1; }
+  .tab>a {
+    text-align: center;
+    position: absolute;
+    width: calc(var(--tabs-width));
+    height: calc(var(--tabs-height) + var(--tabs-border-size)); 
+    top: 0;
+    left: calc(var(--tabs-width) * var(--tabs-position)); /* posición de cada pestaña */
+  }
+
+  /* más aspecto */
+.tabs { 
+    padding: 10px;
+    color: var(--tabs-text-color);
+  }
+  .tab-content {
+    background-color: var(--tabs-lite-color); 
+    padding: 20px;
+    border: var(--tabs-border-size) solid var(--tabs-border-color);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: 100;
+  }
+  .tab>a {
+    background-color: var(--tabs-dark-color); 
+    padding: 10px;
+    border: var(--tabs-border-size) solid var(--tabs-border-color);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 0;
+  }
+  .tab:target>a, .tab:last-of-type>a {
+    background-color: var(--tabs-lite-color); 
+    z-index: 200;
+  }
+  .tab:target ~ .tab:last-of-type>a {
+    background-color: var(--tabs-dark-color); 
+    z-index: 0; 
+  }

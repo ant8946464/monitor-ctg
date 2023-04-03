@@ -44,12 +44,20 @@ h1{
   
 }
 
-input{
+input ,textarea{
   margin-bottom: 15px;
   padding:10px;
   width: 45%;
   border-radius: 7px;
   border: 1px solid darkgray;
+}
+
+textarea{
+
+  width: 100%;
+  resize: none;
+  height: 100px;
+
 }
 
 .btn-enviar{

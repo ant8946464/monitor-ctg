@@ -7,10 +7,11 @@
                 <a href="#" class="footer__icons"><img src="../assets/images/youtube.svg" class="footer__img"></a>
             </div>
 
-            <h3 class="footer__copyright">Derechos reservados &copy; Jordan Alexander</h3>
+            <h3 class="footer__copyright">Derechos reservados &copy;2023 Radiomóvil Dipsa S.A. de C.V.</h3>
         </section>
     </footer>
 
     <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

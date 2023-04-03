@@ -33,10 +33,10 @@
         }
 
 
-        public function findValue($colum, $value){
-        
+        public function findValue($colum, $value, $selectColumn){
+ 
             try{
-                $sql = "SELECT * FROM {$this->table}  WHERE {$colum} = :{$colum}";
+                $sql = "SELECT {$selectColumn} FROM {$this->table}  WHERE {$colum} = :{$colum}";
                 $query = $this->databases->connect()->prepare($sql);
                 $query->execute([ $colum => $value]);  
                 return  $query->fetch(PDO::FETCH_ASSOC);
@@ -46,17 +46,19 @@
             }
         }
 
-        public function getItemColumns($column){
+
+
+
+        public function getItemColumns($column ,$columnId){
             $items = [];
             try{
                 $sql = "SELECT * FROM {$this->table}";
                 $query = $this->databases->connect()->prepare($sql);  
                 $query->execute();
                  while($p = $query->fetch(PDO::FETCH_ASSOC)){
-                    $item = ['id'=> $p['id'],
-                            $column=> $p[$column]
-                    ];
-                 array_push( $items,$item);
+                    $item = ['id' => $p[$columnId],
+                             $column => $p[$column]];
+                    array_push( $items,$item);
                 }
                 return $items;
             }catch(PDOException $e){
@@ -84,7 +86,66 @@
         }
 
 
+        
+        public function getallColumn(){
+            $items = [];
+            try{
+                $sql = "SELECT * FROM {$this->table}";
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
 
+        public function getallJoin(){
+
+            $items = [];
+            try{
+                $sql = "SELECT id_event,activity, event_date, user_corporate , name FROM d29_user_event 
+                INNER JOIN d29_user ON d29_user_event.id_event=d29_user.id_user 
+                INNER JOIN d29_server_ctg ON d29_user_event.id_event=d29_server_ctg.id_ctg";
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+        public function getallJoinWhere($colum , $value){
+
+            $items = [];
+            try{
+                $sql = "SELECT id_event,activity, event_date, user_corporate , name FROM d29_user_event 
+                INNER JOIN d29_user ON d29_user_event.id_event=d29_user.id_user 
+                INNER JOIN d29_server_ctg ON d29_user_event.id_event=d29_server_ctg.id_ctg WHERE {$colum}='{$value}'";      
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+     
+        
 
         public function comparePasswords($passFront, $passDB){
             $encrip = new AbCrypt();

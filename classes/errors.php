@@ -19,7 +19,9 @@ class Errors{
     const ERROR_SIGNUP_NEWUSER_LENGHT            = "89ns26a65fv65grdd8dflp349cd81fdL";
     const ERROR_USER_NOT_EXIST                   = "dkijud26e06d01g56610952678cf3sde";
     const ERROR_USER_NOT_EX                      = "ujfds58op96nbgd65jsfkijngt12wsedg";
+    const ERROR_RESPONSABLE_EXIT                 = "SLqKHI3FPfxd8n3Dz6jh2+ZzRChr91X4N";
 
+    
 
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
     const ERROR_EXPENSES_DELETE                 = "8f48a0845b4f8704cb7e8b00d4981233";
@@ -50,31 +52,33 @@ class Errors{
     public function __construct()
     {
         $this->errorsList = [
-            Errors::ERROR_SIGNUP_NEWUSER_EMPTY      => 'Los campos no pueden estar vacíos',
-            Errors::ERROR_LOGIN_AUTHENTICATE_DATA   => 'Usuario y/o password incorrectos',
-            Errors::ERROR_USER_UPDATEPASSWORD_ISNOTTHESAME => 'Los passwords no coinciden.',
-            Errors::ERROR_SIGNUP_NEWUSER_EXISTS     => 'El nombre de usuario ya existe.',
-            Errors::ERROR_SIGNUP_NEWUSER            => 'Hubo un error al intentar registrarte. Intenta de nuevo',
-            Errors::ERROR_SIGNUP_NEWUSER_PASSWORD  => 'La contraseña debe de contener Mayuscula, minusculas, numeros y caracteres.Maximo 8 de longuitud',
-            Errors::ERROR_SIGNUP_NEWUSER_LENGHT  => 'El usuario de red debe de tener 8 caracteres.',
-            Errors::ERROR_USER_NOT_EXIST            => 'El usuario no se encuentra registrado.',
-            Errors::ERROR_USER_NOT_EX               => 'El usuario no es valido.',
+            Errors::ERROR_SIGNUP_NEWUSER_EMPTY              => 'Los campos no pueden estar vacíos',
+            Errors::ERROR_LOGIN_AUTHENTICATE_DATA           => 'Usuario y/o password incorrectos',
+            Errors::ERROR_USER_UPDATEPASSWORD_ISNOTTHESAME  => 'Los passwords no coinciden.',
+            Errors::ERROR_SIGNUP_NEWUSER_EXISTS             => 'El nombre de usuario ya existe.',
+            Errors::ERROR_SIGNUP_NEWUSER                    => 'Hubo un error al intentar al enviar los datos. Intenta de nuevo más tardes.',
+            Errors::ERROR_SIGNUP_NEWUSER_PASSWORD           => 'La contraseña debe de contener Mayuscula, minusculas, numeros y caracteres.Maximo 8 de longuitud',
+            Errors::ERROR_SIGNUP_NEWUSER_LENGHT             => 'El usuario de red debe de tener 8 caracteres.',
+            Errors::ERROR_USER_NOT_EXIST                    => 'El usuario no se encuentra registrado.',
+            Errors::ERROR_USER_NOT_EX                       => 'El usuario no es valido.',
+            Errors::ERROR_RESPONSABLE_EXIT                  => 'El responsable ya existe.',
 
-            Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',
-            Errors::ERROR_EXPENSES_DELETE           => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',
-            Errors::ERROR_EXPENSES_NEWEXPENSE       => 'Hubo un problema al crear el gasto, inténtalo de nuevo',
-            Errors::ERROR_EXPENSES_NEWEXPENSE_EMPTY => 'Los campos no pueden estar vacíos',
-            Errors::ERROR_USER_UPDATEBUDGET         => 'No se puede actualizar el presupuesto',
-            Errors::ERROR_USER_UPDATEBUDGET_EMPTY   => 'El presupuesto no puede estar vacio o ser negativo',
-            Errors::ERROR_USER_UPDATENAME_EMPTY     => 'El nombre no puede estar vacio o ser negativo',
-            Errors::ERROR_USER_UPDATENAME           => 'No se puede actualizar el nombre',
-            Errors::ERROR_USER_UPDATEPASSWORD       => 'No se puede actualizar la contraseña',
-            Errors::ERROR_USER_UPDATEPASSWORD_EMPTY => 'El nombre no puede estar vacio o ser negativo',
+
+            Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS          => 'El nombre de la categoría ya existe, intenta otra',
+            Errors::ERROR_EXPENSES_DELETE                   => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',
+            Errors::ERROR_EXPENSES_NEWEXPENSE               => 'Hubo un problema al crear el gasto, inténtalo de nuevo',
+            Errors::ERROR_EXPENSES_NEWEXPENSE_EMPTY         => 'Los campos no pueden estar vacíos',
+            Errors::ERROR_USER_UPDATEBUDGET                 => 'No se puede actualizar el presupuesto',
+            Errors::ERROR_USER_UPDATEBUDGET_EMPTY           => 'El presupuesto no puede estar vacio o ser negativo',
+            Errors::ERROR_USER_UPDATENAME_EMPTY             => 'El nombre no puede estar vacio o ser negativo',
+            Errors::ERROR_USER_UPDATENAME                   => 'No se puede actualizar el nombre',
+            Errors::ERROR_USER_UPDATEPASSWORD               => 'No se puede actualizar la contraseña',
+            Errors::ERROR_USER_UPDATEPASSWORD_EMPTY         => 'El nombre no puede estar vacio o ser negativo',
             
-            Errors::ERROR_USER_UPDATEPHOTO          => 'Hubo un error al actualizar la foto',
-            Errors::ERROR_USER_UPDATEPHOTO_FORMAT   => 'El archivo no es una imagen',
-            Errors::ERROR_LOGIN_AUTHENTICATE        => 'Hubo un problema al autenticarse',
-            Errors::ERROR_LOGIN_AUTHENTICATE_EMPTY  => 'Los parámetros para autenticar no pueden estar vacíos',
+            Errors::ERROR_USER_UPDATEPHOTO                  => 'Hubo un error al actualizar la foto',
+            Errors::ERROR_USER_UPDATEPHOTO_FORMAT           => 'El archivo no es una imagen',
+            Errors::ERROR_LOGIN_AUTHENTICATE                => 'Hubo un problema al autenticarse',
+            Errors::ERROR_LOGIN_AUTHENTICATE_EMPTY          => 'Los parámetros para autenticar no pueden estar vacíos',
             
            
            

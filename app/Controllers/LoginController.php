@@ -23,7 +23,7 @@
             return $this->view('login',['error'=> $error->get('a5bcd7089d83f45e17e989fbc86003ed') ]);
          }else{
             $userModels = new User();
-            $user = $userModels->findValue("user_corporate", $userCorporate);
+            $user = $userModels->findValue("user_corporate", $userCorporate,'*');
             if(!empty($user)){
                if($userModels->comparePasswords($password,  $user['password']) == 0){
                 $session = new Session();
@@ -31,7 +31,7 @@
                  $session->setSessionName('username',$user['username']);
                  $session->setSessionName('email',$user['email']);
                  $session->setSessionName('user',$user['user_corporate']);
-                 $session->setSessionName('id_rol',$user['id_rol']);
+                 $session->setSessionName('d29_role_id',$user['d29_role_id']);
                  $session->setSessionName('role_authorization',$user['role_authorization']);           
                   return $this->view('portal');
 

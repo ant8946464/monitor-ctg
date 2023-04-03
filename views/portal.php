@@ -2,34 +2,46 @@
 
      <?php
           use App\Models\User;
-          $UserModel = new User();
+          use App\Models\Activitylog;
+          use App\Models\Servidor;
+          $userModel = new User();
+          $server = new Servidor();
+          $actitivy = new Activitylog();
+
           require 'layout/navbar.php';
      ?>
+      <div class="spanMsgInfo">
+        <span >En este módulo el administrador podra realizar el filtrado de lista y exportarla. </span>
+     </div>
      <div class="spanFilter">
-     <span >Seleccione el filtrado </span>
+            <span >Seleccione el filtrado </span>
      </div>
       
-
      <div class="select-dis">
-
-     <div class="content-select select-center"  required>
-            
-                <select name="area">
-                        <option  selected="selected" disabled>Selecciona el Usuario</option>
-                        <?php foreach($UserModel->getItemColumns('user_corporate') as $area ): ?>
-                            <option value="<?php echo $area['user_corporate']?>"><?php echo $area['user_corporate']?></option>
+        <div class="content-select select-center"  >
+                <select name="userSelect" id="userSelect" onchange="selectView(this.id)"  required>
+                        <option  selected="selected" disabled> Usuario</option>
+                        <?php foreach($userModel->getItemColumns('user_corporate','') as $user ): ?>
+                            <option value="<?php echo $user['user_corporate']?>"><?php echo $user['user_corporate']?></option>
                         <?php endforeach ?>
                       </select>
                 </div>
-                <div class="content-select select-center" required>
-            
-                <select name="area">
-                        <option  selected="selected" disabled>Selecciona el Nombre</option>
-                        <?php foreach($UserModel->getItemColumns('first_name') as $area ): ?>
-                            <option value="<?php echo $area['first_name']?>"><?php echo $area['first_name']?></option>
+                <div class="content-select select-center" >
+                <select name="serverSelect" id="serverSelect"  onchange="selectView(this.id)" required>
+                        <option  selected="selected" disabled>Servidor</option>
+                        <?php foreach($server->getItemColumns('name','') as $server ): ?>
+                            <option value="<?php echo $server['name']?>"><?php echo $server['name']?></option>
                         <?php endforeach ?>
                       </select>
                 </div>
+                <div class="content-select select-center"  >
+                <select name="activitySelect" id="activitySelect"  onchange="selectView(this.id)" required>
+                        <option  selected="selected" disabled>Actvidad</option>
+                        <?php foreach($actitivy->getItemColumns('activity','') as $activity ): ?>
+                            <option value="<?php echo $activity['activity']?>"><?php echo $activity['activity']?></option>
+                        <?php endforeach ?>
+                      </select>
+         </div>
      </div>
    
      
@@ -47,12 +59,26 @@
                            </tr>
                        </thead>
                        <tbody>
+                            <?php
+                        
+                           $resul = $actitivy->getallJoin();
+                         
+                            foreach ($resul as $k => $v) {
+                                               
+                            ?>
                            <tr>
-                               <td>01</td>
-                               <td>Carlos</td>
-                               <td>Torres Paredes</td>
-                               <td>23</td>
-                               <td>34534624</td>
+                           
+                               <td><?php echo $v['id_event']  ?></td>     
+                               <td><?php echo $v['activity']  ?></td>
+                               <td><?php echo $v['name']  ?></td>
+                               <td><?php echo $v['user_corporate'] ?></td>
+                               <td><?php echo $v['event_date']  ?></td>
+                               <?php
+                        
+                                 }
+                                ?> 
+
+
                            </tr>
                            
                        </tbody>
