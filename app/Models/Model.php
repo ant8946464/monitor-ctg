@@ -34,11 +34,11 @@
 
 
         public function findValue($colum, $value, $selectColumn){
- 
+         
             try{
                 $sql = "SELECT {$selectColumn} FROM {$this->table}  WHERE {$colum} = :{$colum}";
                 $query = $this->databases->connect()->prepare($sql);
-                $query->execute([ $colum => $value]);  
+                $query->execute([ $colum => $value]); 
                 return  $query->fetch(PDO::FETCH_ASSOC);
             }catch(PDOException $e){
                 echo $e;
@@ -144,6 +144,20 @@
             }
         }
 
+
+        public function delete($idComun ,$value){
+
+            try{
+                $sql = "DELETE  FROM {$this->table} WHERE {$idComun } = :{$idComun }";
+                $query = $this->databases->connect()->prepare($sql);
+                $query->execute([ $idComun  => $value]);
+            }catch(PDOException $e){
+                echo $e;
+                return false;
+            }
+            
+        }
+
      
         
 
@@ -199,11 +213,7 @@
         }
 
 
-        public function delete($id){
-
-             $sql = "DELETE  {$this->table} WHERE id = '{$id }'";
-              $this->query( $sql );
-         }
+        
     }
 
 

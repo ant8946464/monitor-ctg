@@ -23,6 +23,7 @@
 
     Route::get('/portalmonitor', [PortalController::class ,'index']);
 
+
     Route::post('/tableusuario', [TableController::class ,'index']);
 
 
@@ -31,7 +32,12 @@
 
     Route::post('/add', [ResponsibleController::class ,'validResponsable']);
 
-   
+
+    Route::post('/tableDeleteRespon', [ResponsibleController::class ,'tableDeleteRespon']);
+
+
+    Route::post('/deleteResponse', [ResponsibleController::class ,'deleteby']);
+    
 
 
     Route::dispacth();

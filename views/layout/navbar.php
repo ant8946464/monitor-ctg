@@ -27,10 +27,10 @@
         
                         <ul class="menu__nesting">
                             <li class="menu__inside">
-                                <a href="/responsible" class="menu__link menu__link--inside">Responsable</a>
+                                <a href="/responsible" class="menu__link menu__link--inside">responsable</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="#" class="menu__link menu__link--inside">About 2</a>
+                                <a href="/portalmonitor" class="menu__link menu__link--inside">eventos del servidor</a>
                             </li>
                             <li class="menu__inside">
                                 <a href="#" class="menu__link menu__link--inside">About 3</a>
@@ -82,3 +82,4 @@
             </div>
         </section>
     </nav>
+      

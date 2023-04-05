@@ -1,4 +1,20 @@
 
+
+
+<div id="modal1" class="modalmask">
+            <div class="modalbox movedown">
+                <div>
+                <p class="p-modal">¿Deseas elimininar el registro?</p>
+                </div>
+                
+               <a href="#close" style=" float: right" class="button-modal ">No</a>
+            
+               <div >
+               <a  href="#close" style="background: blue; float: left" onclick="deleteTableId()"  class="button-modal " class="button" >Si</a>
+            </div>
+        </div>
+    
+</div>
     <footer class="footer">
         <section class="footer__copy container">
             <div class="footer__social">
