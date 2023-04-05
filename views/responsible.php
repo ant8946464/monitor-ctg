@@ -37,10 +37,10 @@
 				</div>
 				<div class="select-dis">
 					<div class="content-select select-center">
-						<select name="managerSelect" id="managerSelect" onchange="selectView(this.id)" required>
-						<option selected="selected" disabled> Responsable de Área< option><?php foreach($AreaManager->getItemColumns('manager_name','') as $user ): ?>
-						<option value="<?php echo $user['manager_name']?>"><?php echo $user['manager_name']?>
-						</option>
+					<select name="managerSelect" id="managerSelect" onchange="selectView(this.id)" required>
+						<option selected="selected" disabled > Responsable de Área </option>
+						<?php foreach($AreaManager->getItemColumns('manager_name','') as $user ): ?>
+							<option value="<?php echo $user['manager_name']?>"><?php echo $user['manager_name']?></option>
                         <?php endforeach ?>
 					</select>
 				</div>
@@ -94,8 +94,8 @@
 					<h1>Agregar Responsable</h1>
 					<div class="contenedor-inputs">
 						<input style="width: 100%;" type="text" name="name" placeholder="Nombre" maxlength="50" value="<?php if(isset($userName)){?><?=$userName ?> <?php }  ?>" required>
-						<textarea type="text" placeholder="Agrega descripción" name="descripcion"/>
-						<input type="submit" value="Enviar" class="btn-enviar">
+						<textarea type="text" placeholder="Agrega descripción" name="descripcion" ></textarea>
+						<input type="submit" value="Enviar" class="btn-enviar"/>
                     </div>
 					</form>
 				</div>

@@ -40,7 +40,7 @@
                         <?php foreach($actitivy->getItemColumns('activity','') as $activity ): ?>
                             <option value="<?php echo $activity['activity']?>"><?php echo $activity['activity']?></option>
                         <?php endforeach ?>
-                      </select>
+            </select>
          </div>
      </div>
    
