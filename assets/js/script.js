@@ -1,5 +1,6 @@
 
 var ideliminar='';
+var pathDelete='';
 
 $(document).ready(function() {
 setTimeout(function() {
@@ -32,6 +33,9 @@ function selectView(element) {
     }else if('managerSelect' == element){
       request ='manager_name';
       path='/tableDeleteRespon';
+    }else if('areaSelect' == element){
+      request ='area';
+      path='/tableDeleteArea';
     }
     var first_select = document.getElementById(element).value;
     $(document).ready(function(){
@@ -51,18 +55,20 @@ function selectView(element) {
 }
 
 
-function asigID(id) {
+function asigID(id , path) {
   console.log(id);
   ideliminar = id;
+  pathDelete= path
 }
 
 
 
 function deleteTableId() {
   console.log(ideliminar);
+  console.log(pathDelete);
     $(document).ready(function(){
       $.ajax({
-          url:'/deleteResponse',
+          url:'/'+pathDelete,
           type:"POST",
           data:'request=' + ideliminar,
           beforeSend:function(){

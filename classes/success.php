@@ -37,6 +37,9 @@ class Success{
     }
 
     function get($hash){
+        if($hash == null){
+            return null;
+        }
         return $this->successList[$hash];
     }
 

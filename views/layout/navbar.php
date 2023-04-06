@@ -33,7 +33,7 @@
                                 <a href="/portalmonitor" class="menu__link menu__link--inside">eventos del servidor</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="#" class="menu__link menu__link--inside">About 3</a>
+                                <a href="/area" class="menu__link menu__link--inside">area</a>
                             </li>
                         </ul>
                     </li>
@@ -76,7 +76,7 @@
     
             </ul>
 
-            <h1 class="menu__logo">Bienvenido <?php echo $_SESSION['username'] ?></h1>
+            <h1 class="menu__logo" style="color: #f1f3f4;">Bienvenido <?php echo $_SESSION['username'] ?></h1>
             <div class="menu__hamburguer">
                 <img src="../../assets/images/menu.svg" class="menu__img">
             </div>

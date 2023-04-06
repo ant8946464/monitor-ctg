@@ -74,7 +74,6 @@
             $columns = implode(', ',$columns);
             $columnsValues = implode(', :', $columnsValues);
             $sql = "INSERT INTO {$this->table} ({$columns }) VALUES ( :{$columnsValues})";
-        
              try{
                 $query = $this->databases->connect()->prepare($sql);  
                 $query->execute($data);

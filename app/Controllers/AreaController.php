@@ -5,13 +5,13 @@
    use App\Controllers\Controller;
    use Classes\Errors;
    use Classes\Success;
-   use App\Models\AreaManager;
+   use App\Models\Area;
    use Lib\ValidatorFunctions;
    use App\Models\DescritionRegister;
   
 
 
-   class ResponsibleController extends Controller  {
+   class AreaController extends Controller  {
 
       public function index(){
          return $this->view('responsible', $this->createArrayInsert(null,null));
@@ -22,21 +22,19 @@
         $error = new Errors();
         $array = [
   
-            "msgInfo" => 'En este módulo el administrador podra dar de alta y baja al responsable del área.',
-            "modelo" => 'AreaManager',
+            "msgInfo" => 'En este módulo el administrador podra dar de alta y baja las áreas de la empresa.',
+            "modelo" => 'Area',
             "success" => $success->get($msgInfo),
-            "column" => 'manager_name', 
-            "idtable" => 'id_manager',
-            "nameHeader" => 'Nombre del responsable',
-            "tap2Header" => ' Responsable',
+            "column" => 'area', 
+            "idtable" => 'id_area',
+            "nameHeader" => 'Nombre de la Área',
+            "tap2Header" => ' Area',
             "error" => $error->get( $msgError),
-            "postIndex" => 'manager_name',
-            "search_id" => 'id_manager',
-            "path" => '/addResponse',
-            "pathDelete" => 'deleteResponse',
-            "selectName" => 'managerSelect',
-
-
+            "postIndex" => 'area',
+            "search_id" => 'id_area',
+            "path" => '/addArea',
+            "pathDelete" => 'deleteArea',
+            "selectName" => 'areaSelect',
         ];
 
         return $array ;
@@ -46,12 +44,12 @@
 
       public function validResponsable(){
          $validator = new ValidatorFunctions();
-         $areaManager = new AreaManager();
+         $areaManager = new Area();
          $register= new DescritionRegister();
 
         $name = $_POST['name'];
         $descripcion = $_POST['descripcion'];
-        $manager = $areaManager->findValue("manager_name",$name,'*');
+        $manager = $areaManager->findValue("area",$name,'*');
           
         if($validator->validateEmptyParameters(array($name, $descripcion))){
             return $this->view('responsible', $this->createArrayInsert(null , 'a5bcd7089d83f45e17e989fbc86003ed'));
@@ -60,7 +58,7 @@
         }else{
             if($register->create(["description" =>  $descripcion, "date_register" => date('Y-m-d')])){
 
-                if($areaManager->create(["manager_name" => $name, "id_descripcion" =>$register->findValue("description",$descripcion,'id')['id']])){
+                if($areaManager->create(["area" => $name, "id_descripcion" =>$register->findValue("description",$descripcion,'id')['id']])){
                    
                     return $this->view('responsible',$this->createArrayInsert('8281e04ed52ccfc13820d0f6acb0985a' , null)  );
                 }{

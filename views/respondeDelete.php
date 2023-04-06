@@ -1,18 +1,24 @@
 <?php
         use App\Models\AreaManager;
         use App\Models\DescritionRegister;
+        use App\Models\Area;
+
 
         $id = $_POST['request'];
-        $areaManager = new AreaManager();
-        $maneger = $areaManager->findValue('id_manager',$id,'*');
+        if($modelo == "AreaManager"){
+          $connectioDb = new AreaManager();
+         }else if($modelo == "Area"){
+            $connectioDb = new Area();
+         }
+        $result = $connectioDb->findValue($idtable,$id,'*');
         $items = [];
-        if(!empty( $maneger)){
-             foreach ($maneger as $k => $v) {
+        if(!empty( $result)){
+             foreach ($result as $k => $v) {
                         array_push( $items,$v);
              }
              $register= new DescritionRegister();
              $register->delete('id', $items[2]);
-             $areaManager->delete('id_manager',$id);
+             $connectioDb->delete($search_id,$id);
             
         }
 ?>
@@ -21,24 +27,24 @@
                         <div >
                             <?php
                             
-                                if(!empty($areaManager->getItemColumns('manager_name','id_manager') )){
+                                if(!empty($connectioDb->getItemColumns($column,$search_id) )){
                             ?>
                             <table >
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nombre del resposable</th>
+                                        <th><?php if(isset($nameHeader)){?><?=$nameHeader ?> <?php }  ?></th>
                                         <th>eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php 
-                                      foreach($areaManager->getItemColumns('manager_name','id_manager') as $user ):
+                                      foreach($connectioDb->getItemColumns($column,$search_id) as $user ):
                                   ?>       
                                     <tr>
                                         <td><?php echo $user['id']?></td>     
-                                        <td><?php echo $user['manager_name']?></td>
-                                        <td><a  class="button" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>)">eliminar</a</td>
+                                        <td><?php echo $user[$column]?></td>
+                                        <td><a  class="button" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>,'<?php echo $pathDelete ?>')">eliminar</a</td>
                                 <?php
                                        endforeach
                                   ?>

@@ -8,6 +8,10 @@
     use App\Controllers\TableController;
     use App\Controllers\ResponsibleController;
 
+    use App\Controllers\AreaController;
+
+    
+
    
     Route::get('/',[LoginController::class ,'index']);
 
@@ -27,17 +31,29 @@
     Route::post('/tableusuario', [TableController::class ,'index']);
 
 
+
     Route::get('/responsible', [ResponsibleController::class ,'index']);
 
 
-    Route::post('/add', [ResponsibleController::class ,'validResponsable']);
+    Route::post('/addResponse', [ResponsibleController::class ,'validResponsable']);
 
 
     Route::post('/tableDeleteRespon', [ResponsibleController::class ,'tableDeleteRespon']);
 
 
     Route::post('/deleteResponse', [ResponsibleController::class ,'deleteby']);
+
     
+    Route::get('/area', [AreaController::class ,'index']);
+
+
+    Route::post('/addArea', [AreaController::class ,'validResponsable']);
+
+
+    Route::post('/tableDeleteArea', [AreaController::class ,'tableDeleteRespon']);
+
+
+    Route::post('/deleteArea', [AreaController::class ,'deleteby']);
 
 
     Route::dispacth();

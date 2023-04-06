@@ -89,6 +89,9 @@ class Errors{
     }
 
     function get($hash){
+        if($hash == null){
+            return null;
+        }
         return $this->errorsList[$hash];
     }
 
