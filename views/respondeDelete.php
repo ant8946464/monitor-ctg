@@ -2,6 +2,7 @@
         use App\Models\AreaManager;
         use App\Models\DescritionRegister;
         use App\Models\Area;
+        use App\Models\Job;
 
 
         $id = $_POST['request'];
@@ -9,7 +10,10 @@
           $connectioDb = new AreaManager();
          }else if($modelo == "Area"){
             $connectioDb = new Area();
-         }
+         }else if($modelo == "Job"){
+          $connectioDb = new Job();
+          }
+          
         $result = $connectioDb->findValue($idtable,$id,'*');
         $items = [];
         if(!empty( $result)){

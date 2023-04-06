@@ -35,6 +35,9 @@
                             <li class="menu__inside">
                                 <a href="/area" class="menu__link menu__link--inside">area</a>
                             </li>
+                            <li class="menu__inside">
+                                <a href="/job" class="menu__link menu__link--inside">puesto laboral</a>
+                            </li>
                         </ul>
                     </li>
     

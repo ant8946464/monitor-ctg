@@ -36,6 +36,9 @@ function selectView(element) {
     }else if('areaSelect' == element){
       request ='area';
       path='/tableDeleteArea';
+    }else if('jobSelect' == element){
+      request ='role';
+      path='/tableDeleteJob';
     }
     var first_select = document.getElementById(element).value;
     $(document).ready(function(){

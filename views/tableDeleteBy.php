@@ -12,10 +12,10 @@
 			$connectioDb = new AreaManager();
 		 }else if($modelo == "Area"){
 			$connectioDb = new Area();
+		}else if($modelo == "Job"){
+			$connectioDb = new Job();
 		}
-
-		
-
+		  
 		if(isset($_POST[$postIndex])){
 			$Colum = $postIndex;
 			$value = $_POST[$postIndex];
