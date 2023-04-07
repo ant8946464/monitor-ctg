@@ -17,8 +17,8 @@
         private $user_corporate ;
         private $email ;
         private $phone ;
-        private $password ;
-        private $confirmpassword ;
+        private $password;
+        private $confirmpassword;
         private $area ;
         private $rol ;
         private $responsible_boss;
@@ -49,6 +49,9 @@
             $this->rol = $_POST['rol']?? null;;
             $this->responsible_boss = $_POST['responsable']?? null;
 
+
+            $this->user_corporate =str_replace(' ', '', $this->user_corporate);
+
             $user = $userModels->findValue("user_corporate",$this->user_corporate,'*');
           
             if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->password,$this->confirmpassword,$this->area,$this->rol,$this->responsible_boss))){
@@ -56,9 +59,9 @@
             }else if(!str_contains($this->user_corporate, 'EX')){
                 return $this->view('registrationForm',$this->createArrayFront('ujfds58op96nbgd65jsfkijngt12wsedg'));
             }else if(strlen($this->user_corporate ) > 8){
-                return $this->view('registrationForm.',$this->createArrayFront('27731b37e286a3c6429a1b8e44ef3ff6'));
+                return $this->view('registrationForm',$this->createArrayFront('89ns26a65fv65grdd8dflp349cd81fdL'));
             }else if(strcmp($this->password, $this->confirmpassword) != 0 ){
-                return $this->view('registrationForm',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
+                return $this->view('registrationForm',$this->createArrayFront('27731b37e286a3c6429a1b8e44ef3ff6'));
             }else if(preg_match($regexPassword, $this->password) == 0 ){
                 return $this->view('registrationForm',$this->createArrayFront('89ns26a9cd81fdce6bbf47d6bDl9aysh'));
             }else if(!empty($user)){

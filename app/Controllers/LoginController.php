@@ -44,6 +44,15 @@
         }
         
       }
+
+      public function logout(){
+         $session = new Session();
+         if(!empty($session->exists('user') )){
+            $session->closeSession();
+           
+         }
+         header('location: /');
+      }
    }
 
 ?>

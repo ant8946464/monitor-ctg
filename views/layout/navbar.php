@@ -13,7 +13,6 @@
 <body style="background: #f1f3f4;">
     <?php 
         use Classes\Session;
-
         $session = new Session();
     ?>
     <nav class="menu">
@@ -37,6 +36,9 @@
                             </li>
                             <li class="menu__inside">
                                 <a href="/job" class="menu__link menu__link--inside">puesto laboral</a>
+                            </li>
+                            <li class="menu__inside">
+                                <a href="/listUsers" class="menu__link menu__link--inside">Lista Usuarios</a>
                             </li>
                         </ul>
                     </li>
@@ -78,11 +80,13 @@
                 </li>
     
             </ul>
-
             <h1 class="menu__logo" style="color: #f1f3f4;">Bienvenido <?php echo $_SESSION['username'] ?></h1>
+             <a class="button logout"  href="/logout">Salir</a> 
+         
             <div class="menu__hamburguer">
+            <img src="../../assets/images/logout-svgrepo-com.svg" class="menu__img">
                 <img src="../../assets/images/menu.svg" class="menu__img">
             </div>
         </section>
     </nav>
-      
+    

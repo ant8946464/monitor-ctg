@@ -32,7 +32,7 @@
           <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php if(isset($userName)){?><?=$userName ?> <?php }  ?>" required>
           <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php if(isset($first_name)){?><?=$first_name ?> <?php }  ?>" required>
           <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php if(isset($last_name)){?><?=$last_name ?> <?php }  ?>" required>
-          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php if(isset($user_corporate)){?><?=$user_corporate ?> <?php }  ?>" required>
+          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php if(isset($user_corporate)){?><?php echo $user_corporate ?> <?php }  ?>" required>
           <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php if(isset($email)){?><?=$email ?> <?php }  ?>" required>
           <input type="text" name="phone" placeholder="Teléfono" maxlength="10" value="<?php if(isset($phone)){?><?=$phone ?> <?php }  ?>" required>
           <input type="password" name="password" placeholder="Password" maxlength="8" required>

@@ -24,6 +24,7 @@ $(document).ready(function() {
 function selectView(element) {
     var request ;
     var path='/tableusuario';
+    console.log(element);
     if('userSelect' == element){
       request ='user_corporate';
     }else if('activitySelect' == element){
@@ -39,8 +40,21 @@ function selectView(element) {
     }else if('jobSelect' == element){
       request ='role';
       path='/tableDeleteJob';
+    }else if('idSelect' == element){
+      request ='id_user';
+      path='/detailUser';
+    }else if('userSelectlist' == element){
+      request ='user_corporate';
+      path='/detailUser';
+    }else if('emailSelect' == element){
+      request ='email';
+      path='/detailUser';
     }
+  
+    console.log(request);
+    console.log(path);
     var first_select = document.getElementById(element).value;
+    console.log(first_select);
     $(document).ready(function(){
           $.ajax({
               url: path,
@@ -61,7 +75,7 @@ function selectView(element) {
 function asigID(id , path) {
   console.log(id);
   ideliminar = id;
-  pathDelete= path
+  pathDelete= path;
 }
 
 

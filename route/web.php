@@ -9,6 +9,7 @@
     use App\Controllers\JobController;
     use App\Controllers\ResponsibleController;
     use App\Controllers\AreaController;
+    use App\Controllers\UserController;
 
     
 
@@ -17,6 +18,9 @@
 
 
     Route::post('/login-validador',[LoginController::class ,'validateLogin']);
+    
+
+    Route::get('/logout',[LoginController::class ,'logout']);
 
 
     Route::get('/formrRegistrate', [RegistratioController::class ,'index']);
@@ -30,7 +34,7 @@
 
     Route::post('/tableusuario', [TableController::class ,'index']);
 
-   //mudulo responsable
+   //modulo responsable
 
     Route::get('/responsible', [ResponsibleController::class ,'index']);
 
@@ -43,7 +47,7 @@
 
     Route::post('/deleteResponse', [ResponsibleController::class ,'deleteby']);
 
-    //mudulo area
+    //modulo area
     
     Route::get('/area', [AreaController::class ,'index']);
 
@@ -56,7 +60,7 @@
 
     Route::post('/deleteArea', [AreaController::class ,'deleteby']);
 
-    //mudulo puesto de trabajo
+    //modulo puesto de trabajo
     
     Route::get('/job', [JobController::class ,'index']);
 
@@ -68,6 +72,19 @@
 
 
     Route::post('/deleteJob', [JobController::class ,'deleteby']);
+
+    
+      //modulo listar usuario
+ 
+
+    Route::get('/listUsers', [UserController::class ,'index']);
+
+
+    Route::post('/detailUser', [UserController::class ,'detailUser']);
+
+    
+    Route::post('/deleteUser', [UserController::class ,'deleteUserList']);
+
 
 
     Route::dispacth();
