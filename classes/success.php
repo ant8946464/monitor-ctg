@@ -8,6 +8,8 @@ class Success{
     //method
     //operation
     const SUCCESS_SIGNUP_NEWUSER        = "8281e04ed52ccfc13820d0f6acb0985a";
+    const SUCCESS_CHANGE_STATUS         = "DBr6sjvFmDqOvBH37WDlBoe1bof9sm8L";
+
     const SUCCESS_ADMIN_NEWCATEGORY     = "f52228665c4f14c8695b194f670b0ef1";
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
     const SUCCESS_EXPENSES_NEWEXPENSE   = "fbbd0f23184e820e1df466abe6102955";
@@ -23,7 +25,10 @@ class Success{
     public function __construct()
     {
         $this->successList = [
+           
             Success::SUCCESS_SIGNUP_NEWUSER => "Usuario registrado correctamente",
+            Success::SUCCESS_CHANGE_STATUS => "Se cambio correctamente el estatus del proceso",
+
             Success::SUCCESS_ADMIN_NEWCATEGORY => "Nueva categoría creada correctamente",
             Success::SUCCESS_EXPENSES_DELETE => "Gasto eliminado correctamente",
             Success::SUCCESS_EXPENSES_NEWEXPENSE => "Nuevo gasto registrado correctamente",
@@ -31,7 +36,7 @@ class Success{
             Success::SUCCESS_USER_UPDATENAME => "Nombre actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPHOTO => "Imagen de usuario actualizada correctamente",
-            Success::SUCCESS_SIGNUP_DELETE => "El registro se elimono correctamente.",
+            Success::SUCCESS_SIGNUP_DELETE => "El registro se elimino correctamente.",
             
         ];
     }

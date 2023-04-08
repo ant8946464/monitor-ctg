@@ -11,12 +11,14 @@
           require 'layout/navbar.php';
      ?>
       <div class="spanMsgInfo">
-        <span >En este módulo el administrador podra realizar el filtrado de lista y exportarla. </span>
+        <span >Se listan las actividades en los servidores. </span>
      </div>
      <div class="spanFilter">
             <span >Seleccione el filtrado </span>
      </div>
-      
+
+     <fieldset>
+    
      <div class="select-dis">
         <div class="content-select select-center"  >
                 <select name="userSelect" id="userSelect" onchange="selectView(this.id)"  required>
@@ -83,6 +85,9 @@
                    </table>
                </div>
       </section>
+  </fieldset>
+      
+   
     <?php 
 
           require 'layout/footer.php';

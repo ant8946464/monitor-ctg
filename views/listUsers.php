@@ -13,8 +13,9 @@
      <div class="spanFilter">
             <span >Seleccione el filtrado </span>
      </div>
-      
-     <div class="select-dis">
+
+  <fieldset>
+  <div class="select-dis">
                 <div class="content-select select-center"  >
                        <select name="idSelect" id="idSelect" onchange="selectView(this.id)"  required>
                             <option  selected="selected" style="width: 30px;" disabled><?php echo $id ?></option>
@@ -73,7 +74,7 @@
                                <td><?php echo $v['user_corporate'] ?></td>
                                <td><?php echo $v['email'] ?></td>
                                <td><?php echo $v['phone']  ?></td>
-                               <td><a  href="#modal1" onclick="asigID(<?php  echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
+                               <td><a class="button" href="#modal1" onclick="asigID(<?php  echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
                                <?php
                         
                                  }
@@ -86,6 +87,10 @@
                    </table>
                </div>
       </section>
+   
+  </fieldset>
+      
+   
     <?php 
 
           require 'layout/footer.php';

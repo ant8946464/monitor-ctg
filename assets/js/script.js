@@ -14,11 +14,30 @@ $(document).ready(function() {
     },1000);
 });
 
-$(document).ready(function() {
-  setTimeout(function() {
-      $(".error").fadeOut(1500);
-  },1000);
-});
+
+
+
+function toggle(checkbox){
+  var checked;
+  if (checkbox.checked) {
+    checked=true;
+    console.log('prendido');
+  } else {
+    checked=false;
+    console.log('Not prendido');
+
+  }
+  console.log(checked);
+    $(document).ready(function(){
+      $.ajax({
+          url:'/changeStatus',
+          type:"POST",
+          data:'request=' + 'jsjsjsj',
+         
+      });
+  });
+  return;
+}
 
 
 function selectView(element) {
@@ -100,6 +119,28 @@ function deleteTableId() {
 
 }
 
+
+function toggle(checkbox){
+  var checked=true;
+ 
+  console.log(checked);
+
+  $(document).ready(function(){
+    $.ajax({
+        url:'/change',
+        type:"POST",
+        data:'request=' + checked,
+        beforeSend:function(){
+        $(".content").html("<span>Eliminando registro</span>");
+        },
+        success:function(data){
+          $(".content").html(data);
+        }
+    });
+});
+
+
+}
 
  
 

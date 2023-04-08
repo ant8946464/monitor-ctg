@@ -6,15 +6,15 @@
 	$value;
 
     if(isset($_POST['user_corporate'])){
-		$Colum = 'user_corporate';
+		$Colum = 'u.user_corporate';
 		$value = $_POST['user_corporate'];
 		
     } else if(isset($_POST['activity'])){
-		$Colum = 'activity';
+		$Colum = 'e.activity';
 		$value = $_POST['activity'];
 		
     }else  if(isset($_POST['name'])){
-		$Colum = 'name';
+		$Colum = 'c.name';
 		$value = $_POST['name'];
 		
     }

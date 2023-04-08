@@ -10,6 +10,7 @@
     use App\Controllers\ResponsibleController;
     use App\Controllers\AreaController;
     use App\Controllers\UserController;
+    use App\Controllers\ProcessController;
 
     
 
@@ -74,7 +75,7 @@
     Route::post('/deleteJob', [JobController::class ,'deleteby']);
 
     
-      //modulo listar usuario
+     
  
 
     Route::get('/listUsers', [UserController::class ,'index']);
@@ -86,6 +87,13 @@
     Route::post('/deleteUser', [UserController::class ,'deleteUserList']);
 
 
+ //modulo proceso batch
+
+    Route::get('/procesBatch', [ProcessController::class ,'index']);
+
+    Route::get('/test', [ProcessController::class ,'test']);
+
+    Route::post('/change', [ProcessController::class ,'changeStatus']);
 
     Route::dispacth();
 

@@ -34,6 +34,9 @@
 <div class="spanMsgInfo">
 	<span>  <?=  $msgInfo ?> </span>
 </div>
+
+
+<fieldset>
 <div class="tabs">
 	<div class="tab-container">
 		<div id="tab2" class="tab">
@@ -110,6 +113,8 @@
 			</div>
 		</div>
 	</div>
+  </fieldset>
+
         <?php 
           require 'layout/footer.php';
         ?>

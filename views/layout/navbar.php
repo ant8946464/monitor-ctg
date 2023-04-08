@@ -40,6 +40,18 @@
                             <li class="menu__inside">
                                 <a href="/listUsers" class="menu__link menu__link--inside">Lista Usuarios</a>
                             </li>
+                            <li class="menu__inside">
+                                <a href="/procesBatch" class="menu__link menu__link--inside">Proceso Batch</a>
+                            </li>
+
+                            <li class="menu__inside">
+                                <a href="/change" class="menu__link menu__link--inside">Proceso Batch</a>
+                            </li>
+                    
+                    
+
+
+                            
                         </ul>
                     </li>
     
