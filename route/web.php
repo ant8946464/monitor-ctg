@@ -11,6 +11,7 @@
     use App\Controllers\AreaController;
     use App\Controllers\UserController;
     use App\Controllers\ProcessController;
+    use App\Controllers\ServerController;
 
     
 
@@ -91,10 +92,26 @@
 
     Route::get('/procesBatch', [ProcessController::class ,'index']);
 
-    Route::get('/test', [ProcessController::class ,'test']);
 
     Route::post('/change', [ProcessController::class ,'changeStatus']);
 
+    
+ //modulo proceso servidores
+
+
+    Route::get('/serverConfig', [ServerController::class ,'index']);
+
+    Route::post('/formServer', [ServerController::class ,'validServer']);
+
+    Route::post('/deleteServer', [ServerController::class ,'deleteServer']);
+
+
+    Route::post('/deleteServerBy', [ServerController::class ,'deleteServerBy']);
+
+
+    Route::post('/loadServer', [ServerController::class ,'loadServer']);
+
+   
     Route::dispacth();
 
 

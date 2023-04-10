@@ -22,7 +22,7 @@
 
             <ul class="menu__links">
                 <li class="menu__item menu__item--show">
-                        <a href="#" class="menu__link">Administador <img src="assets/images/arrow.svg" class="menu__arrow"></a>
+                        <a href="#" class="menu__link">Administrador <img src="assets/images/arrow.svg" class="menu__arrow"></a>
         
                         <ul class="menu__nesting">
                             <li class="menu__inside">
@@ -43,32 +43,11 @@
                             <li class="menu__inside">
                                 <a href="/procesBatch" class="menu__link menu__link--inside">Proceso Batch</a>
                             </li>
-
-                            <li class="menu__inside">
-                                <a href="/change" class="menu__link menu__link--inside">Proceso Batch</a>
-                            </li>
-                    
-                    
-
-
-                            
                         </ul>
                     </li>
     
                 <li class="menu__item menu__item--show">
-                    <a href="#" class="menu__link">Construccion <img src="assets/images/arrow.svg" class="menu__arrow"></a>
-    
-                    <ul class="menu__nesting">
-                        <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
-                        </li>
-                        <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
-                        </li>
-                        <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Construccion</a>
-                        </li>
-                    </ul>
+                    <a href="/serverConfig" class="menu__link">Configuración Servidores </a>
                 </li>
     
                 <li class="menu__item  menu__item--show">
@@ -96,7 +75,7 @@
              <a class="button logout"  href="/logout">Salir</a> 
          
             <div class="menu__hamburguer">
-            <img src="../../assets/images/logout-svgrepo-com.svg" class="menu__img">
+
                 <img src="../../assets/images/menu.svg" class="menu__img">
             </div>
         </section>

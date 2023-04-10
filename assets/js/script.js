@@ -17,32 +17,13 @@ $(document).ready(function() {
 
 
 
-function toggle(checkbox){
-  var checked;
-  if (checkbox.checked) {
-    checked=true;
-    console.log('prendido');
-  } else {
-    checked=false;
-    console.log('Not prendido');
 
-  }
-  console.log(checked);
-    $(document).ready(function(){
-      $.ajax({
-          url:'/changeStatus',
-          type:"POST",
-          data:'request=' + 'jsjsjsj',
-         
-      });
-  });
-  return;
-}
 
 
 function selectView(element) {
     var request ;
     var path='/tableusuario';
+    var classConten=".content";
     console.log(element);
     if('userSelect' == element){
       request ='user_corporate';
@@ -68,8 +49,27 @@ function selectView(element) {
     }else if('emailSelect' == element){
       request ='email';
       path='/detailUser';
+    }else if('nameServerSelect' == element || 'ipSelect' == element || 'clusterSelect' == element || 'portSelect' == element ){
+        path='/deleteServerBy';
+        request='id_ctg';
+        if('nameServerSelect' == element){
+          request ='name';
+        }else if('ipSelect' == element){
+          request ='ip';
+        }else if('clusterSelect' == element){
+          request ='cluster';
+        }else if('portSelect' == element){
+          request ='puerto';
+        }      
+   }else if('updateServerSelect' == element){
+      request ='ip';
+      path='/loadServer';
+      classConten=".contenedor-inputs";
     }
-  
+
+
+
+    
     console.log(request);
     console.log(path);
     var first_select = document.getElementById(element).value;
@@ -80,10 +80,10 @@ function selectView(element) {
               type:"POST",
               data: request+'=' + first_select,
               beforeSend:function(){
-                $(".content").html("<span>Consultando...</span>");
+                $(classConten).html("<span>Consultando...</span>");
               },
               success:function(data){
-                  $(".content").html(data);
+                  $(classConten).html(data);
               }
           });
   });
@@ -119,28 +119,6 @@ function deleteTableId() {
 
 }
 
-
-function toggle(checkbox){
-  var checked=true;
- 
-  console.log(checked);
-
-  $(document).ready(function(){
-    $.ajax({
-        url:'/change',
-        type:"POST",
-        data:'request=' + checked,
-        beforeSend:function(){
-        $(".content").html("<span>Eliminando registro</span>");
-        },
-        success:function(data){
-          $(".content").html(data);
-        }
-    });
-});
-
-
-}
 
  
 

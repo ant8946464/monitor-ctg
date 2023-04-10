@@ -3,9 +3,10 @@
      <?php
           use App\Models\User;
           use App\Models\Activitylog;
-          use App\Models\Servidor;
+use App\Models\Server;
+use App\Models\Servidor;
           $userModel = new User();
-          $server = new Servidor();
+          $server = new Server;
           $actitivy = new Activitylog();
 
           require 'layout/navbar.php';

@@ -4,7 +4,7 @@
     
     use App\Models\Model;
 
-    class Servidor extends Model{
+    class Server extends Model{
 
         protected $table = 'd29_server_ctg';
 

@@ -3,8 +3,7 @@
    namespace App\Controllers;
 
    use App\Controllers\Controller;
-   use Classes\Errors;
-   use Classes\Success;
+   use App\Models\Prop;
 
 
    class ProcessController extends Controller  {
@@ -12,47 +11,56 @@
       private $msg;
      
       public function index(){
-         $this->msg= 'index';
-         return $this->view('procesBatch', $this->createArrayInsert(null, null));
+
+        $result = $this->validStatus();
+        if($result == 1){
+         $this->msg='Encendido';
+        }else{
+         $this->msg='Apagado';
+        }
+
+         return $this->view('procesBatch', $this->createArrayInsert());
       }
 
 
       public function changeStatus(){
 
-        $this->msg= 'changeStatus';
-         
-      
-         var_dump("chandeeeeeeeeeeeee   ");
-
-       
-            return $this->view('portal');
-      
-         //return $this->view('procesBatch',$this->createArrayInsert(null, null));
+         $status = $_POST['status'];
+         $prop = new Prop();
+         if($status=='Encendido'){
+            $this->msg='Apagado';
+            $prop->update('id_prop',1, ["value" => 0]);
+         }else{
+            $this->msg='Encendido';
+            $prop->update('id_prop',1, ["value" => 1]);
+         }
+           
+         return $this->view('procesBatch' ,$this->createArrayInsert());
+        
       }
 
 
 
-      public function test(){
-         $this->msg= 'index';
-         return $this->view('test');
-      }
 
 
-      private function createArrayInsert($msgInfo, $msgError){
-         $success = new Success();
-         $error = new Errors();
+      private function createArrayInsert(){
          $array = [
-   
              "msgInfo" => 'En este modulo se prende y apaga el proceso batch que valida los servidores.',
-             "success" => $success->get($msgInfo),
-             "error" => $error->get( $msgError),
              "msg" => $this->msg,
-
-             
-          
          ];
  
          return $array ;
+      }
+
+
+      private function validStatus(){
+         $prop = new Prop();
+         $result= $prop->findValue("id_prop", 1, '*');
+         $items = [];
+			foreach ($result as $k => $v) {
+					 array_push( $items,$v);
+			}
+         return $items[1];
       }
  
    }

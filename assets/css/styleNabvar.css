@@ -441,6 +441,7 @@ tbody tr:hover {
   } 
   #tab1>a { --tabs-position: 0; }
   #tab2>a { --tabs-position: 1; }
+  #tab3>a { --tabs-position: 2; }
   .tab>a {
     text-align: center;
     position: absolute;

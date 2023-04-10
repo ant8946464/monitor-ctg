@@ -9,6 +9,7 @@ class Success{
     //operation
     const SUCCESS_SIGNUP_NEWUSER        = "8281e04ed52ccfc13820d0f6acb0985a";
     const SUCCESS_CHANGE_STATUS         = "DBr6sjvFmDqOvBH37WDlBoe1bof9sm8L";
+    const SUCCESS_SERVER_REGISTER       = "qrNetDEjGRg4AFdpch2bn4xnTOm8zhAg";
 
     const SUCCESS_ADMIN_NEWCATEGORY     = "f52228665c4f14c8695b194f670b0ef1";
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
@@ -17,7 +18,7 @@ class Success{
     const SUCCESS_USER_UPDATENAME       = "6fb34a5e4118fb823636ca24a1d21669";
     const SUCCESS_USER_UPDATEPASSWORD   = "6fb34a5e4118fb823636ca24a1d21669";
     const SUCCESS_USER_UPDATEPHOTO      = "edabc9e4581fee3f0056fff4685ee9a8";
-    const SUCCESS_SIGNUP_DELETE         = "WDlBoe1bof9sm8LDBr6sjvFmDqOvBH37";
+    const SUCCESS_SIGNUP_DELETE         = "70apW15nLk+69i3Qx4Yc3IzRAo7tv5z4";
    
     
     private $successList = [];
@@ -28,6 +29,8 @@ class Success{
            
             Success::SUCCESS_SIGNUP_NEWUSER => "Usuario registrado correctamente",
             Success::SUCCESS_CHANGE_STATUS => "Se cambio correctamente el estatus del proceso",
+            Success::SUCCESS_SERVER_REGISTER => "El servidor quedo registrado con exito",
+
 
             Success::SUCCESS_ADMIN_NEWCATEGORY => "Nueva categoría creada correctamente",
             Success::SUCCESS_EXPENSES_DELETE => "Gasto eliminado correctamente",

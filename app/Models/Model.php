@@ -153,6 +153,22 @@
             
         }
 
+        public function update($column,$id ,$data){
+
+            $fields = [];
+ 
+            foreach($data as $key => $value){
+ 
+             $fields[] = "{$key} = '{$value}'";
+            }
+            $fields = implode(', ',$fields);
+            
+             $sql = "UPDATE {$this->table} SET {$fields } WHERE {$column } = {$id }";
+             $query = $this->databases->connect()->prepare($sql);
+             $query->execute();
+              return $this->find($id);
+         }
+
      
         
 
@@ -192,20 +208,7 @@
      
 
 
-        public function update($id ,$data){
-
-           $fields = [];
-
-           foreach($data as $key => $value){
-
-            $fields[] = "{$key} = '{$value}'";
-           }
-           $fields = implode(', ',$fields);
-           
-            $sql = "UPDATE {$this->table} SET ({$fields }) WHERE id = '{$id }'";
-             $this->query( $sql );
-             return $this->find($id);
-        }
+        
 
 
         
