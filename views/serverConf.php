@@ -24,7 +24,7 @@ if (isset($error)) {
 
 
 <div class="spanMsgInfo">
-	<span>En este módulo se podra dar de alta y baja los servidores.</span>
+	<span>En este módulo se podra dar de alta, baja y actualizar los servidores.</span>
 </div>
 
 
@@ -127,7 +127,7 @@ if (isset($error)) {
 			<div id="tab3" class="tab">
 				<a href="#tab3">actualizar</a>
 				<div class="tab-content">
-					<form class="form-register" method="post" action="/updateServer">
+					<form class="form-register" method="post" action="/formServer">
 				    <h1>Actualizar Servidor</h1>
 					<div class="content-select select-center" style="width: 80%;margin-left: 40px;">
 								<select name="updateServerSelect" id="updateServerSelect" onchange="selectView(this.id)" required>
@@ -143,7 +143,7 @@ if (isset($error)) {
 							<input style="width: 80%;margin-left: 40px;" type="text" name="ip" placeholder="ip" maxlength="12" value="" disabled >
 							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster" placeholder="Cluster" maxlength="15" value="" disabled >
 							<input style="width: 80%;margin-left: 40px;" type="text" name="port" placeholder="puerto" maxlength="4" value="" disabled >
-							<input type="submit" value="Enviar" class="btn-enviar" />
+							<input type="submit" value="Actualizar" class="btn-enviar" disabled  />
 						</div>
 					</form>
 				</div>

@@ -176,33 +176,13 @@
             $encrip = new AbCrypt();
             return strcmp($passFront, $encrip->decryptthis($passDB));;  
        }
-
-        public function get(){
-           // return $this->qfg->fetch_all(MYSQLI_ASSOC);;
-        }
-
-
-        public function all(){
-            $sql = "SELECT * FROM {$this->table}";
-            return $this->query( $sql )->get();
-        }
-
+       
         public function find($id){
             $sql = "SELECT * FROM {$this->table} WHERE id= {$id}";
             return $this->query( $sql );
         }
 
-        public function where($colum ,$operator, $value= null){
-            if($value == null){
-                $value =  $operator;
-                $operator = '=';
-            }
-
-           // $value = $this->connection->real_escape_string( $value);
-            $sql = "SELECT * FROM {$this->table} WHERE {$colum}{$operator} '{$value}'";
-             $this->query( $sql )->get();
-             return $this;
-        }
+   
 
 
      

@@ -111,6 +111,18 @@
 
     Route::post('/loadServer', [ServerController::class ,'loadServer']);
 
+
+
+    //modulo usuario
+
+
+    Route::get('/form-userUpdate', [RegistratioController::class ,'updateUser']);
+
+
+    Route::post('/updateUser', [RegistratioController::class ,'validaUserUpdate']);
+    
+  
+
    
     Route::dispacth();
 

@@ -7,6 +7,7 @@
     use App\Models\User;
     use Lib\ValidatorFunctions;
     use Lib\AbCrypt;
+    use Classes\Session;
  
 
     class RegistratioController extends Controller{
@@ -27,6 +28,29 @@
         public function index(){
             return $this->view('registrationForm');
          }
+
+         public function updateUser(){
+            $userModels = new User();
+            $user = $userModels->findValue("user_corporate",$this->user_corporate,'*');
+            return $this->view('updateUser');
+         }
+
+
+         public function validaUserUpdate(){
+
+            $success = new Success();
+            $validator = new ValidatorFunctions();
+            $userModels = new User();
+            $session = new Session();
+           
+            $this->email = $_POST['email'];
+            $this->phone = $_POST['phone'];
+            $this->area = $_POST['area']?? null;;
+            $this->rol = $_POST['rol']?? null;;
+            $this->responsible_boss = $_POST['responsable']?? null;
+            
+         }
+
 
 
          public function validateForm(){

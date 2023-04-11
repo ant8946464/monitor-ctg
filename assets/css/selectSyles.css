@@ -15,10 +15,11 @@
 
   .logout{
 	background:rgb(239, 241, 243); 
-	width: 10%;
+	width: 7%;
 	font-size: 20px;
 	color: #00529b;
 	text-align: center;
+	height:80%;
   }
 
 .content-select select{
