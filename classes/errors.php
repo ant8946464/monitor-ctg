@@ -17,8 +17,7 @@ class Errors{
     const ERROR_RESPONSABLE_EXIT                 = "SLqKHI3FPfxd8n3Dz6jh2+ZzRChr91X4N";
     const ERROR_SERVER_IP_EXIT                   = "GTF2LcSrh+8kXQ7T3y44fMTP9VEV3lDbl";
     const ERROR_IP_INVALID                       = "x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt";
-
-    
+    const ERROR_CAPTCHA_INVALID                  = "SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy";
 
 
     private $errorsList = [];
@@ -40,6 +39,7 @@ class Errors{
             Errors::ERROR_RESPONSABLE_EXIT                  => 'El responsable ya existe.',
             Errors::ERROR_SERVER_IP_EXIT                    => 'El nombre del servidor y/o ip ya estan registrado.',
             Errors::ERROR_IP_INVALID                        => 'La ip tiene un formato invalido.',
+            Errors::ERROR_CAPTCHA_INVALID                   => 'Validar la captcha.',
         ];
     }
 
