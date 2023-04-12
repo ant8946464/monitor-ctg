@@ -15,9 +15,7 @@
             return $conten;
          }else {
             return 'El archivo no exite';
-         }
-
-         
+         }  
       }
    }
 ?>

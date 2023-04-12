@@ -14,22 +14,12 @@
     class Model{
 
     
-       
-
         protected $table;
 
         private $databases;
 
-       
-
         public function __construct(){
             $this->databases = new Databases(); 
-        }
-
-
-        public function query($sql){
-           // $this->fg = $this->databases->connect()->prepare($sql);
-            return $this;
         }
 
 
@@ -165,8 +155,7 @@
             
              $sql = "UPDATE {$this->table} SET {$fields } WHERE {$column } = {$id }";
              $query = $this->databases->connect()->prepare($sql);
-             $query->execute();
-              return $this->find($id);
+              return $query->execute();
          }
 
      
@@ -177,21 +166,6 @@
             return strcmp($passFront, $encrip->decryptthis($passDB));;  
        }
        
-        public function find($id){
-            $sql = "SELECT * FROM {$this->table} WHERE id= {$id}";
-            return $this->query( $sql );
-        }
-
-   
-
-
-     
-
-
-        
-
-
-        
     }
 
 

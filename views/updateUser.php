@@ -33,7 +33,6 @@
       }
       
       $session = new Session();
-      var_dump($session->getSessionName('user'));
       $resul = $elementUser->findValue('user_corporate', $session->getSessionName('user'),'*');
 			$items = [];
 			if(!empty($resul)){		
@@ -46,10 +45,10 @@
     <form class="form-register" method="post" action="/updateUser" style="margin-top: 10%;">
     <h1 class="form-titulo">Actualiza tus datos</h1>
       <div class="contenedor-inputs">
-          <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php echo $items[1]  ?>" disabled>
-          <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php echo $items[2]  ?>" disabled>
-          <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php echo $items[3]  ?>" disabled>
-          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php echo $items[4]  ?>" disabled>
+          <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php echo $items[1]  ?>" required>
+          <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php echo $items[2]  ?>" required>
+          <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php echo $items[3]  ?>" required>
+          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php echo $items[4]  ?>" required>
           <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php echo $items[5]  ?>" required>
           <input type="text" name="phone" placeholder="Teléfono" maxlength="10" value="<?php echo $items[11]  ?>" required>
           <div>
