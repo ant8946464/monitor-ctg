@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/selectSyles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script  type="text/javascript"  src="../assets/js/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body >
 <?php
@@ -21,7 +22,7 @@
   <?php
     if(isset($success)){
   ?>            
-    <div class="success"><b><?=  $success ?></b></div>   
+    <div class="info"><b><?=  $success ?></b></div>   
   <?php    
       }
   ?>
@@ -34,7 +35,7 @@
           <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php if(isset($last_name)){?><?=$last_name ?> <?php }  ?>" required>
           <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php if(isset($user_corporate)){?><?php echo $user_corporate ?> <?php }  ?>" required>
           <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php if(isset($email)){?><?=$email ?> <?php }  ?>" required>
-          <input type="text" name="phone" placeholder="Teléfono" maxlength="10" value="<?php if(isset($phone)){?><?=$phone ?> <?php }  ?>" required>
+          <input type="tel" name="phone" placeholder="Teléfono" maxlength="10" value="<?php if(isset($phone)){?><?=$phone ?> <?php }  ?>" required>
           <input type="password" name="password" placeholder="Password" maxlength="8" required>
           <input type="password" name="confirmpassword" placeholder="Confirma password" required>
           <?php
@@ -75,7 +76,17 @@
                       </select>
                 </div>
           </div>
-          <input type="submit"  value="Registrate" class="btn-enviar">
+       
+          </div>
+
+          <div>
+          <div style="margin-left: 15%;">
+                   <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>">
+           </div>
+
+          </div>
+
+           <input type="submit"  value="Registrate" class="btn-enviar" >
           <p class="form_link">¿Ya tienes cuenta? <a href="/" class="sign-up">Ingresa aqui</a> </p>
       </div>
     </form>

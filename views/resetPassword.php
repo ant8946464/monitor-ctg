@@ -28,26 +28,22 @@
   <?php    
       }
   ?>
-<div class="signupFrm">
-    <form  class="form"  action="/login-validador"  method="POST">
-      <h2 class="title">Bienvenido</h2>
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="Usuario" value="<?php if(isset($user)){?><?=$user ?> <?php }  ?>" name="usuario_corporate" maxlength="8"  required>
-      </div>
+<div class="signupFrm" >
+    <form  class="form"  action="/login-validador"  method="POST" style="width: 40%; display: grid;;">
+      <h2 class="title">Recupera tú password</h2>
+      
 
-      <div class="inputContainer">
-        <input type="password" placeholder="Password" class="input" name="password" maxlength="8" required>
+      <div class="inputContainer"    style="margin: auto;">
+        <input type="email" placeholder="Ingresa  tu correo" class="input" name="password" maxlength="8" required>
 
       </div>
 
-      <div style="margin-top: 5%; margin-bottom: 5%;">
-          <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>">
-          </div>
+    
+          <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>"  style="margin: auto;margin-top: 5%; margin-bottom: 5%;">
+
       </div>
    
-      <input type="submit" class="submitBtn" value="Enviar">
-      <a href="/formrRegistrate" class="sign-up">Registrate</a>
-      <a href="/resetPassword" class="forgot">¿Se te olvido la contraseña?</a>
+      <input type="submit" class="submitBtn" value="Recuperar Contontraseña" style="margin: auto;">
     </form>
   </div>
   <script  type="text/javascript"  src="../assets/js/script.js"></script>

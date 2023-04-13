@@ -25,6 +25,13 @@
     Route::get('/logout',[LoginController::class ,'logout']);
 
 
+
+    Route::get('/resetPassword',[LoginController::class ,'resetPassword']);
+
+
+
+
+
     Route::get('/formrRegistrate', [RegistratioController::class ,'index']);
 
 

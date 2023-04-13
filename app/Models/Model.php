@@ -146,16 +146,18 @@
         public function update($column,$id ,$data){
 
             $fields = [];
- 
             foreach($data as $key => $value){
- 
-             $fields[] = "{$key} = '{$value}'";
+                $fields[] = "{$key} = '{$value}'";
             }
             $fields = implode(', ',$fields);
-            
              $sql = "UPDATE {$this->table} SET {$fields } WHERE {$column } = {$id }";
+            try{
              $query = $this->databases->connect()->prepare($sql);
               return $query->execute();
+            }catch(PDOException $e){
+                echo $e;
+                return false;
+            }
          }
 
      

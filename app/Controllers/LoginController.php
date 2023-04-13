@@ -15,6 +15,10 @@
          return $this->view('login');
       }
 
+      public function resetPassword(){
+         return $this->view('resetPassword');
+      }
+
 
       public function validateLogin(){
 
@@ -26,7 +30,7 @@
             return $this->view('login',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy'));
          }
 
-         if(empty($userCorporate) or empty($password)){
+         if(empty( $this->userCorporate ) or empty($password)){
             return $this->view('login',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed')); 
          }else{
             $userModels = new User();

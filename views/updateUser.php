@@ -1,4 +1,5 @@
 <?php
+ require 'layout/navbar.php';
     use App\Models\Area;
     use App\Models\Job;
     use App\Models\AreaManager;
@@ -9,15 +10,8 @@
     $elementManager = new AreaManager();
     $elementUser = new User();
    
-    require 'layout/navbar.php';
+   
 ?>
-
-
-<div class="spanMsgInfo">
-    <span> En este módulo los usuarios puden actualizar su información.</span>
-</div>
-
-<fieldset>
 <?php
     if(isset($error)){
   ?>            
@@ -25,13 +19,23 @@
   <?php    
       }
   ?>
-  <?php
+
+<?php
     if(isset($success)){
   ?>            
-    <div class="success"><b><?=  $success ?></b></div>   
+    <div class="info"><b><?=  $success ?></b></div>   
+    <?php } ?>
+
+<div class="spanMsgInfo">
+    <span> En este módulo los usuarios puden actualizar su información.</span>
+</div>
+
+<fieldset>
+
+  
   <?php    
-      }
       
+
       $session = new Session();
       $resul = $elementUser->findValue('user_corporate', $session->getSessionName('user'),'*');
 			$items = [];
@@ -45,6 +49,7 @@
     <form class="form-register" method="post" action="/updateUser" style="margin-top: 10%;">
     <h1 class="form-titulo">Actualiza tus datos</h1>
       <div class="contenedor-inputs">
+          <input type="hidden" name="id" value= "<?= $items[0] ?>" /> 
           <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php echo $items[1]  ?>" required>
           <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php echo $items[2]  ?>" required>
           <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php echo $items[3]  ?>" required>

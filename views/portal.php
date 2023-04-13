@@ -1,5 +1,5 @@
 <?php
-
+require 'layout/navbar.php';
 use App\Models\User;
 use App\Models\Activitylog;
 use App\Models\Server;
@@ -8,8 +8,16 @@ $userModel = new User();
 $server = new Server;
 $actitivy = new Activitylog();
 
-require 'layout/navbar.php';
+
 ?>
+
+<?php
+    if(isset($success)){
+  ?>            
+    <div class="info"><b><?=  $success ?></b></div>   
+  <?php    
+      }
+  ?>
 <div class="spanMsgInfo">
     <span>Se listan las actividades en los servidores. </span>
 </div>

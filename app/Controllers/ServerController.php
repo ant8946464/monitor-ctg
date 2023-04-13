@@ -62,7 +62,7 @@
             }else{
          
                $server->update('id_ctg','',$this->createArrayInsert());
-               return $this->view('serverConf',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
+               return $this->view('portal',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
             }
            
          }else {
@@ -73,7 +73,7 @@
             }else if(preg_match($ip_preg, $this->ip) == 0 ){
                    return $this->view('serverConf',$this->createArrayFront(null,'x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt'));
             }else{
-               $server->create($this->createArrayInsert());
+                  $server->create($this->createArrayInsert());
                   return $this->view('serverConf',["success" => $success->get('qrNetDEjGRg4AFdpch2bn4xnTOm8zhAg')]);
               
             }

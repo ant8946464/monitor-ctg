@@ -8,6 +8,7 @@
     use Lib\ValidatorFunctions;
     use Lib\AbCrypt;
     use Classes\Session;
+    use Lib\Captcha;
  
 
     class RegistratioController extends Controller{
@@ -23,6 +24,7 @@
         private $area ;
         private $rol ;
         private $responsible_boss;
+        private $id;
      
 
         public function index(){
@@ -30,8 +32,6 @@
          }
 
          public function updateUser(){
-            $userModels = new User();
-            $user = $userModels->findValue("user_corporate",$this->user_corporate,'*');
             return $this->view('updateUser');
          }
 
@@ -41,13 +41,38 @@
             $success = new Success();
             $validator = new ValidatorFunctions();
             $userModels = new User();
-            $session = new Session();
+
            
+            $this->id= $_POST['id'];
+            $this->userName = $_POST['nameUser'];
+            $this->first_name = $_POST['apellidoPat'];
+            $this->last_name = $_POST['apellidMat'];
+            $this->user_corporate = $_POST['user_corporate'];
             $this->email = $_POST['email'];
             $this->phone = $_POST['phone'];
             $this->area = $_POST['area']?? null;;
             $this->rol = $_POST['rol']?? null;;
             $this->responsible_boss = $_POST['responsable']?? null;
+            $this->user_corporate =str_replace(' ', '', $this->user_corporate);
+
+            if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->area,$this->rol,$this->responsible_boss))){
+                return $this->view('updateUser',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed'));
+            }else if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+                return $this->view('updateUser',$this->createArrayFront('omY1wv3wZvAMsQp8sJJO8Hj19VZ8u8Opa'));
+            }else if(!is_numeric($this->phone )){
+                return $this->view('updateUser',$this->createArrayFront('mNLhA26CekJfRRsoVZH2YL+OQaPRl2uHL'));
+            }else if(!str_contains($this->user_corporate, 'EX')){
+                return $this->view('updateUser',$this->createArrayFront('ujfds58op96nbgd65jsfkijngt12wsedg'));
+            }else if(strlen($this->user_corporate ) > 8){
+                return $this->view('updateUser',$this->createArrayFront('89ns26a65fv65grdd8dflp349cd81fdL'));
+            }else if(strcmp($this->password, $this->confirmpassword) != 0 ){
+                return $this->view('updateUser',$this->createArrayFront('27731b37e286a3c6429a1b8e44ef3ff6'));
+            }else{
+                
+                $userModels->update('id_user',$this->id,$this->updateArrayInsert());
+                return $this->view('updateUser',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
+            }
+            
             
          }
 
@@ -59,6 +84,7 @@
             $success = new Success();
             $validator = new ValidatorFunctions();
             $userModels = new User();
+            $captcha = new Captcha();
            
             
             $this->userName = $_POST['nameUser'];
@@ -72,14 +98,20 @@
             $this->area = $_POST['area']?? null;;
             $this->rol = $_POST['rol']?? null;;
             $this->responsible_boss = $_POST['responsable']?? null;
-
-
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
 
+            if(!$captcha->getCaptcha()){
+                return $this->view('registrationForm',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy'));
+            }
+     
             $user = $userModels->findValue("user_corporate",$this->user_corporate,'*');
-          
+
             if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->password,$this->confirmpassword,$this->area,$this->rol,$this->responsible_boss))){
                 return $this->view('registrationForm',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed'));
+            }else if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+                return $this->view('registrationForm',$this->createArrayFront('omY1wv3wZvAMsQp8sJJO8Hj19VZ8u8Opa'));
+            }else if(!is_numeric($this->phone )){
+                return $this->view('registrationForm',$this->createArrayFront('mNLhA26CekJfRRsoVZH2YL+OQaPRl2uHL'));
             }else if(!str_contains($this->user_corporate, 'EX')){
                 return $this->view('registrationForm',$this->createArrayFront('ujfds58op96nbgd65jsfkijngt12wsedg'));
             }else if(strlen($this->user_corporate ) > 8){
@@ -134,6 +166,25 @@
 
             return $array ;
          }
+
+
+         private function updateArrayInsert(){
+
+            $array = [
+                "username" => $this->userName,
+                "first_name" => $this->first_name,
+                "last_name" =>  $this->last_name,
+                "user_corporate" =>  $this->user_corporate,
+                "email" => $this->email ,
+                "d29_role_id" => $this->rol,
+                "d29_area_id" => $this->area,
+                "d29_area_manager_id" => $this->responsible_boss,
+                "phone" => $this->phone
+            ];
+
+            return $array ;
+         }
+   
 
 }   
 ?>
