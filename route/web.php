@@ -10,6 +10,7 @@
    require_once './app/Controllers/UserController.php'; 
    require_once './app/Controllers/ProcessController.php';
    require_once './app/Controllers/ServerController.php';
+   require_once './app/Controllers/PlanContingenciaController.php';
    require_once './lib/Route.php';
 
     use Lib\Route;  
@@ -24,6 +25,7 @@
     use App\Controllers\UserController;
     use App\Controllers\ProcessController;
     use App\Controllers\ServerController;
+    use App\Controllers\PlanContingenciaController;
 
     
 
@@ -142,8 +144,12 @@
 
 
     Route::post('/updateUser', [RegistratioController::class ,'validaUserUpdate']);
+
+
+    //modulo de contigencia
+
     
-  
+    Route::get('/contigencia', [PlanContingenciaController::class ,'index']);
 
    
     Route::dispacth();

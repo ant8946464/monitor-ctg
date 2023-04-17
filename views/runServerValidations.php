@@ -8,19 +8,14 @@
     use App\Controllers\ProcessController;
     use App\Models\Server;
     use App\Models\MonitoreoServer;
-
-
     $processController = new ProcessController();
 
-    $status = $processController->validStatus();
-
-    if( $status == 1){
-
+    if( $processController->validStatus() == 1){
+        var_dump( dirname( __DIR__ ));
         var_dump('SE EJECUTA VALIDACION DE LOS SERVIDORES');
         $server = new Server();
         foreach ($server->getallColumn() as $v) {
-            $numero_aleatorio = mt_rand(0,1000);
-            
+            $numero_aleatorio = mt_rand(0,1000);    
             $monitoreoServer = new MonitoreoServer();
      
             if( $numero_aleatorio >= 100 &&  $numero_aleatorio <=200){
@@ -48,5 +43,6 @@
 
         return $array ;
      }
+
 
 ?>

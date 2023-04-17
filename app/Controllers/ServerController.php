@@ -21,7 +21,7 @@
       private   $ip ;
       private  $cluster ;
       private   $port ;
-      private   $id ;
+
 
       public function index(){
          return $this->view('serverConf');

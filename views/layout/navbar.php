@@ -62,7 +62,7 @@
                 </li>
     
                 <li class="menu__item">
-                    <a href="#" class="menu__link">Construccion</a>
+                    <a href="/contigencia" class="menu__link">Plan de Contigencia</a>
                 </li>
     
             </ul>
