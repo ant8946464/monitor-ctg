@@ -2,6 +2,14 @@
 
    namespace App\Controllers;
 
+   require_once dirname( __DIR__ ) . '/Models/AreaManager.php';
+   require_once dirname( __DIR__ ) . '/Models/DescritionRegister.php';
+   require_once 'Controller.php';
+   require_once './classes/errors.php';
+   require_once './classes/success.php';
+   require_once './classes/Session.php';
+   require_once './lib/ValidatorFunctions.php';
+
    use App\Controllers\Controller;
    use Classes\Errors;
    use Classes\Success;

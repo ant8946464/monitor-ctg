@@ -1,6 +1,14 @@
 <?php
 
+
    namespace App\Controllers;
+
+   require_once dirname( __DIR__ ) . '/Models/User.php';
+   require_once 'Controller.php';
+   require_once './lib/Captcha.php';
+   require_once './classes/errors.php';
+   require_once './classes/Session.php';
+
 
    use App\Models\User;
    use Classes\Errors;

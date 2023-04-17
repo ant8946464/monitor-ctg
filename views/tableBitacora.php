@@ -1,5 +1,8 @@
 <?php
 
+require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
+
+
 	use App\Models\Activitylog;
 	$actitivy = new Activitylog(); 
 	$Colum;

@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname( __DIR__ ) . '/app/Models/Server.php';
     use app\Models\Server;
 
     $sever = new Server();

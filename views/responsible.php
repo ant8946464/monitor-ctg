@@ -1,5 +1,9 @@
 <?php
 
+require_once dirname( __DIR__ ) . '/app/Models/AreaManager.php';
+require_once dirname( __DIR__ ) . '/app/Models/Area.php';
+require_once dirname( __DIR__ ) . '/app/Models/Job.php';
+
 use App\Models\AreaManager;
 use App\Models\Area;
 use App\Models\Job;

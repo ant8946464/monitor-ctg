@@ -1,5 +1,6 @@
 <?php
 
+	require_once dirname( __DIR__ ) . '/app/Models/Server.php';
 	use App\Models\Server;
 
 	$server = new Server();

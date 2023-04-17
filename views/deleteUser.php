@@ -1,4 +1,7 @@
 <?php
+
+		require_once dirname( __DIR__ ) . '/app/Models/User.php';
+		
         use App\Models\User;
 
 		$connectioDb;

@@ -1,5 +1,13 @@
 <?php
  require 'layout/navbar.php';
+
+  require_once dirname( __DIR__ ) . '/app/Models/AreaManager.php';
+  require_once dirname( __DIR__ ) . '/app/Models/Area.php';
+  require_once dirname( __DIR__ ) . '/app/Models/Job.php';
+
+  require_once dirname( __DIR__ ) . '/app/Models/User.php';
+  require_once dirname( __DIR__ ) . '/classes/Session.php';
+
     use App\Models\Area;
     use App\Models\Job;
     use App\Models\AreaManager;

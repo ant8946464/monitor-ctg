@@ -2,6 +2,13 @@
 
    namespace App\Controllers;
 
+   require_once dirname( __DIR__ ) . '/Models/Server.php';
+   require_once 'Controller.php';
+   require_once './classes/errors.php';
+   require_once './classes/Session.php';
+   require_once './lib/ValidatorFunctions.php';
+ 
+
    use Lib\ValidatorFunctions;
    use Classes\Errors;
    use Classes\Success;

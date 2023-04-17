@@ -1,5 +1,13 @@
 <?php
     namespace App\Controllers;
+
+    require_once dirname( __DIR__ ) . '/Models//User.php';
+   require_once 'Controller.php';
+   require_once './classes/errors.php';
+   require_once './classes/Session.php';
+   require_once './lib/ValidatorFunctions.php';
+   require_once './lib/AbCrypt.php';
+   require_once './lib/Captcha.php';
     
     use App\Controllers\Controller;
     use Classes\Errors;
@@ -7,7 +15,6 @@
     use App\Models\User;
     use Lib\ValidatorFunctions;
     use Lib\AbCrypt;
-    use Classes\Session;
     use Lib\Captcha;
  
 

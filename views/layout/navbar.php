@@ -20,6 +20,8 @@
             <ul class="menu__links">
                 <li class="menu__item menu__item--show">
                 <?php 
+                 require_once './classes/Session.php';
+        
                     use Classes\Session;
                     $session = new Session();
                     if($session->getSessionName('d29_role_id') == 1 && $session->getSessionName('role_authorization')==1){

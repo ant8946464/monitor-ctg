@@ -1,5 +1,17 @@
 <?php
 
+   require_once './app/Controllers/LoginController.php';
+   require_once './app/Controllers/RegistratioController.php';
+   require_once './app/Controllers/PortalController.php';
+   require_once './app/Controllers/TableController.php';
+   require_once './app/Controllers/JobController.php';
+   require_once './app/Controllers/ResponsibleController.php';
+   require_once './app/Controllers/AreaController.php';
+   require_once './app/Controllers/UserController.php'; 
+   require_once './app/Controllers/ProcessController.php';
+   require_once './app/Controllers/ServerController.php';
+   require_once './lib/Route.php';
+
     use Lib\Route;  
 
     use App\Controllers\LoginController;
@@ -101,6 +113,9 @@
 
 
     Route::post('/change', [ProcessController::class ,'changeStatus']);
+
+
+    Route::get('/ejectValidad', [ProcessController::class ,'ejectValidad']);
 
     
  //modulo proceso servidores

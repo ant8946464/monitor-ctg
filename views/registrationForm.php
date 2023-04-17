@@ -39,6 +39,9 @@
           <input type="password" name="password" placeholder="Password" maxlength="8" required>
           <input type="password" name="confirmpassword" placeholder="Confirma password" required>
           <?php
+          require_once dirname( __DIR__ ) . '/app/Models/Area.php';
+          require_once dirname( __DIR__ ) . '/app/Models/Job.php';
+          require_once dirname( __DIR__ ) . '/app/Models/AreaManager.php';
               use App\Models\Area;
               use App\Models\Job;
               use App\Models\AreaManager;

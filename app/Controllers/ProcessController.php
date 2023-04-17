@@ -2,6 +2,11 @@
 
    namespace App\Controllers;
 
+   require_once dirname( __DIR__ ) . '/Models/Prop.php';
+ 
+   require_once 'Controller.php';
+  
+
    use App\Controllers\Controller;
    use App\Models\Prop;
 
@@ -40,9 +45,6 @@
       }
 
 
-
-
-
       private function createArrayInsert(){
          $array = [
              "msgInfo" => 'En este modulo se prende y apaga el proceso batch que valida los servidores.',
@@ -53,7 +55,7 @@
       }
 
 
-      private function validStatus(){
+      public function validStatus(){
          $prop = new Prop();
          $result= $prop->findValue("id_prop", 1, '*');
          $items = [];
@@ -61,6 +63,16 @@
 					 array_push( $items,$v);
 			}
          return $items[1];
+      }
+
+
+      
+
+      public function ejectValidad(){
+       
+
+         return $this->view('runServerValidations' );
+	
       }
  
    }

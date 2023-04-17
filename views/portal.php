@@ -1,5 +1,9 @@
 <?php
 require 'layout/navbar.php';
+require_once dirname( __DIR__ ) . '/app/Models/User.php';
+require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
+require_once dirname( __DIR__ ) . '/app/Models/Server.php';
+
 use App\Models\User;
 use App\Models\Activitylog;
 use App\Models\Server;

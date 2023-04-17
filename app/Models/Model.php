@@ -1,7 +1,10 @@
 <?php
 
     namespace App\Models;
-
+    
+    require_once './lib/AbCrypt.php';
+    require_once './lib/DataBases.php';
+    
     
 
     use Lib\AbCrypt;

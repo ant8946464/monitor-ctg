@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 08-04-2023 a las 05:41:48
+-- Tiempo de generación: 17-04-2023 a las 02:53:26
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -38,7 +38,7 @@ CREATE TABLE `d29_area` (
 --
 
 INSERT INTO `d29_area` (`id_area`, `area`, `id_descripcion`) VALUES
-(5, 'ARE233', 95);
+(5, 'SISACT', 95);
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ CREATE TABLE `d29_area_manager` (
 --
 
 INSERT INTO `d29_area_manager` (`id_manager`, `manager_name`, `id_descripcion`) VALUES
-(71, 'xxx', 104);
+(71, 'Jesus de Llano', 104);
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,76 @@ INSERT INTO `d29_descrition_register` (`id`, `description`, `date_register`) VAL
 (99, 'llllllllllllllllllllllllllllllllllllllllllllllllll', '2023-04-06'),
 (100, 'llllllllllllllllllllllllllllllllllllllllllllllllll', '2023-04-06'),
 (104, 'xx', '2023-04-06'),
-(106, 'xxxxx', '2023-04-06');
+(106, 'Personal que tiene todos los privilegios del siste', '2023-04-06'),
+(108, 'valor del estatus del proceso batch', '2023-04-27'),
+(109, 'Personal que atiende el montoreo de los servidores', '2023-04-25');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `d29_monitoreo_server`
+--
+
+CREATE TABLE `d29_monitoreo_server` (
+  `id_monitore` int(100) NOT NULL,
+  `server` varchar(100) NOT NULL,
+  `status` int(10) NOT NULL,
+  `date_event` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `d29_monitoreo_server`
+--
+
+INSERT INTO `d29_monitoreo_server` (`id_monitore`, `server`, `status`, `date_event`) VALUES
+(1, 'sx5654864', 1, '2023-04-17'),
+(2, 'vx04541md', 0, '2023-04-17'),
+(3, 'sx5654864', 0, '2023-04-17'),
+(4, 'vx04541md', 1, '2023-04-17'),
+(5, 'sx5654864', 0, '2023-04-17'),
+(6, 'vx04541md', 0, '2023-04-17'),
+(7, 'sx5654864', 0, '2023-04-17'),
+(8, 'vx04541md', 0, '2023-04-17'),
+(9, 'sx5654864', 1, '2023-04-17'),
+(10, 'vx04541md', 1, '2023-04-17'),
+(11, 'sx5654864', 1, '2023-04-17'),
+(12, 'vx04541md', 1, '2023-04-17'),
+(13, 'sx5654864', 1, '2023-04-17'),
+(14, 'vx04541md', 1, '2023-04-17'),
+(15, 'sx5654864', 1, '2023-04-17'),
+(16, 'vx04541md', 1, '2023-04-17'),
+(17, 'sx5654864', 0, '2023-04-17'),
+(18, 'vx04541md', 1, '2023-04-17'),
+(19, 'sx5654864', 1, '2023-04-17'),
+(20, 'vx04541md', 1, '2023-04-17'),
+(21, 'sx5654864', 1, '2023-04-17'),
+(22, 'vx04541md', 1, '2023-04-17'),
+(23, 'sx5654864', 0, '2023-04-17'),
+(24, 'vx04541md', 1, '2023-04-17'),
+(25, 'sx5654864', 1, '2023-04-17'),
+(26, 'vx04541md', 1, '2023-04-17'),
+(27, 'sx5654864', 1, '2023-04-17'),
+(28, 'vx04541md', 1, '2023-04-17'),
+(29, 'sx5654864', 1, '2023-04-17'),
+(30, 'vx04541md', 1, '2023-04-17'),
+(31, 'sx5654864', 0, '2023-04-17'),
+(32, 'vx04541md', 0, '2023-04-17'),
+(33, 'sx5654864', 1, '2023-04-17'),
+(34, 'vx04541md', 1, '2023-04-17'),
+(35, 'sx5654864', 1, '2023-04-17'),
+(36, 'vx04541md', 0, '2023-04-17'),
+(37, 'sx5654864', 1, '2023-04-17'),
+(38, 'vx04541md', 1, '2023-04-17'),
+(39, 'sx5654864', 1, '2023-04-17'),
+(40, 'vx04541md', 1, '2023-04-17'),
+(41, 'sx5654864', 0, '2023-04-17'),
+(42, 'vx04541md', 1, '2023-04-17'),
+(43, 'sx5654864', 0, '2023-04-17'),
+(44, 'vx04541md', 1, '2023-04-17'),
+(45, 'sx5654864', 1, '2023-04-17'),
+(46, 'vx04541md', 1, '2023-04-17'),
+(47, 'sx5654864', 1, '2023-04-17'),
+(48, 'vx04541md', 1, '2023-04-17');
 
 -- --------------------------------------------------------
 
@@ -92,9 +161,16 @@ INSERT INTO `d29_descrition_register` (`id`, `description`, `date_register`) VAL
 
 CREATE TABLE `d29_prop` (
   `id_prop` int(11) NOT NULL,
-  `value` varchar(45) DEFAULT NULL,
+  `value` tinyint(1) DEFAULT NULL,
   `d29_descrition_register_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `d29_prop`
+--
+
+INSERT INTO `d29_prop` (`id_prop`, `value`, `d29_descrition_register_id`) VALUES
+(1, 1, 108);
 
 -- --------------------------------------------------------
 
@@ -113,7 +189,7 @@ CREATE TABLE `d29_role` (
 --
 
 INSERT INTO `d29_role` (`id_role`, `role`, `id_descripcion`) VALUES
-(4, 'xxxxx', 106);
+(1, 'Administrador', 106);
 
 -- --------------------------------------------------------
 
@@ -163,7 +239,7 @@ CREATE TABLE `d29_user` (
 --
 
 INSERT INTO `d29_user` (`id_user`, `username`, `first_name`, `last_name`, `user_corporate`, `email`, `password`, `role_authorization`, `d29_area_id`, `d29_role_id`, `d29_area_manager_id`, `phone`) VALUES
-(5, 'CXXX', 'XXXX', 'XXX', 'EX311772', 'XXX@CCCC', 'bks4Rktrdi9DZk83V3lPTkdDNEVjUT09OjpdPbQLaLS7CfI+FJdmrqFd', 0, 5, 4, 71, '5555555555'),
+(5, 'Juan ', 'Antonio', 'Bemudez', 'EX311772', 'bermudez@mail.telcel', 'bks4Rktrdi9DZk83V3lPTkdDNEVjUT09OjpdPbQLaLS7CfI+FJdmrqFd', 1, 5, 1, 71, '5555555555'),
 (11, 'ppppp  ', 'ooooo  ', 'llllll  ', 'EX333333', 'JJJJ@JJJJ', 'ZHYzWWtxcFZTTVVUMlJ3Rk9JTjFnZz09OjoMZ/ac1hlbRvhq6kH/8FSm', 0, 5, 4, 71, '5555555555');
 
 -- --------------------------------------------------------
@@ -211,6 +287,12 @@ ALTER TABLE `d29_area_manager`
 --
 ALTER TABLE `d29_descrition_register`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `d29_monitoreo_server`
+--
+ALTER TABLE `d29_monitoreo_server`
+  ADD PRIMARY KEY (`id_monitore`);
 
 --
 -- Indices de la tabla `d29_prop`
@@ -268,13 +350,19 @@ ALTER TABLE `d29_area_manager`
 -- AUTO_INCREMENT de la tabla `d29_descrition_register`
 --
 ALTER TABLE `d29_descrition_register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT de la tabla `d29_monitoreo_server`
+--
+ALTER TABLE `d29_monitoreo_server`
+  MODIFY `id_monitore` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_prop`
 --
 ALTER TABLE `d29_prop`
-  MODIFY `id_prop` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_role`

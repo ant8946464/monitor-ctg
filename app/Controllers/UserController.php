@@ -1,6 +1,13 @@
 <?php
 
+
+
+
+
    namespace App\Controllers;
+
+
+   require_once 'Controller.php';
 
    class UserController extends Controller  {
 
