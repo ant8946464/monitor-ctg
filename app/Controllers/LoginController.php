@@ -27,6 +27,10 @@
          return $this->view('resetPassword');
       }
 
+      public function listActivities(){
+         return $this->view('portal');
+      }
+
 
       public function validateLogin(){
 
@@ -49,7 +53,6 @@
                  $session->setSessionName('user',$user['user_corporate']);
                  $session->setSessionName('username',$user['username']);
                  $session->setSessionName('email',$user['email']);
-                 $session->setSessionName('user',$user['user_corporate']);
                  $session->setSessionName('d29_role_id',$user['d29_role_id']);
                  $session->setSessionName('role_authorization',$user['role_authorization']);           
                   return $this->view('portal');

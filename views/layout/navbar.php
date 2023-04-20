@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../assets/css/formStyles.css">
     <link rel="stylesheet" href="../../assets/css/stylesAlert.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="../assets/js/script.js"></script>
 </head>
 <body style="background: #f1f3f4;">
    
@@ -64,7 +65,11 @@
                 <li class="menu__item">
                     <a href="/contigencia" class="menu__link">Plan de Contigencia</a>
                 </li>
-    
+
+                <li class="menu__item">
+                    <a href="/listActivities" class="menu__link">Actividades Servidor</a>
+                </li>
+
             </ul>
             <h1 class="menu__logo" style="color: #f1f3f4;">Bienvenido <?php echo $_SESSION['username'] ?></h1>
              <a class="button logout"  href="/logout">Salir</a> 

@@ -17,28 +17,27 @@
         foreach ($server->getallColumn() as $v) {
             $numero_aleatorio = mt_rand(0,1000);    
             $monitoreoServer = new MonitoreoServer();
-     
-            if( $numero_aleatorio >= 100 &&  $numero_aleatorio <=200){
-                $monitoreoServer->create(createArrayInsert($v['name'],0));
-                var_dump($numero_aleatorio);
-                var_dump("ERROR");
-            }else{
-
-                $monitoreoServer->create(createArrayInsert($v['name'],1));
-                var_dump($numero_aleatorio);
-                var_dump("OK");
+            if($v['status'] == 1){
+                if( $numero_aleatorio >= 100 &&  $numero_aleatorio <=200){
+                    $monitoreoServer->create(createArrayInsert($v['name'],0));
+                    var_dump($numero_aleatorio);
+                    var_dump("ERROR");
+                }else{
+    
+                    $monitoreoServer->create(createArrayInsert($v['name'],1));
+                    var_dump($numero_aleatorio);
+                    var_dump("OK");
+                }
             }
-
         }
     }
 
 
      function createArrayInsert($server, $status){
         $array = [
-  
             "server" => $server,
             "status" => $status,
-            "date_event" => date('Y-m-d'),
+            "date_event" => date('d-m-Y H:i:s'),
         ];
 
         return $array ;

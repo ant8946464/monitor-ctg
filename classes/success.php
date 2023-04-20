@@ -21,6 +21,10 @@ class Success{
     const SUCCESS_USER_UPDATEPASSWORD   = "6fb34a5e4118fb823636ca24a1d21669";
     const SUCCESS_USER_UPDATEPHOTO      = "edabc9e4581fee3f0056fff4685ee9a8";
     const SUCCESS_SIGNUP_DELETE         = "70apW15nLk+69i3Qx4Yc3IzRAo7tv5z4";
+    const SUCCESS_ACTIVITY_SEVER        = "aQWdRIYrrlJHCaOGmkdDtE4VXRigwkGmT";
+
+
+    
 
     
    
@@ -45,6 +49,7 @@ class Success{
             Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPHOTO => "Imagen de usuario actualizada correctamente",
             Success::SUCCESS_SIGNUP_DELETE => "El registro se elimino correctamente.",
+            Success::SUCCESS_ACTIVITY_SEVER => "Se realizo la actividad con exito: ",
             
             
         ];

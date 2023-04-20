@@ -2,7 +2,6 @@
 require_once dirname( __DIR__ ) . '/app/Models/User.php';
         use App\Models\User;
 
-		$connectioDb;
 		$Colum;
 		$value;
         $connectioDb = new User();

@@ -66,10 +66,6 @@ function selectView(element) {
       path='/loadServer';
       classConten=".contenedor-inputs";
     }
-
-
-
-    
     console.log(request);
     console.log(path);
     var first_select = document.getElementById(element).value;
@@ -114,10 +110,34 @@ function deleteTableId() {
             $(".content").html(data);
           }
       });
+      
   });
   return;
 
 }
+
+function changestatusServer(server , actividad) {
+  var  idTable ="#tableReset";
+  console.log(server);
+  console.log(actividad);
+  if(actividad != 0){
+    idTable ="#tableActivity";
+  }
+    $(document).ready(function(){
+      $.ajax({
+          url:'/activityServer',
+          type:"POST",
+          data: { nameServer: server, status : actividad } ,
+            success:function(data){
+              $(idTable).html(data);
+            }
+      });
+  });
+  
+  return;
+
+}
+
 
 
  

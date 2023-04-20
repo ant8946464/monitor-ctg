@@ -43,6 +43,9 @@
     Route::get('/resetPassword',[LoginController::class ,'resetPassword']);
 
 
+    Route::get('/listActivities',[LoginController::class ,'listActivities']);
+
+
 
 
 
@@ -150,6 +153,11 @@
 
     
     Route::get('/contigencia', [PlanContingenciaController::class ,'index']);
+
+
+    Route::post('/activityServer', [PlanContingenciaController::class ,'activityServer']);
+
+    
 
    
     Route::dispacth();

@@ -25,6 +25,10 @@
     background-color:#49ec75;
 }
 
+.div_hide {
+    transition-duration: 10s
+  }
+
 /*Efecto*/
 .modalmask {
     position: fixed;

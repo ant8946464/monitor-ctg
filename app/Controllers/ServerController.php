@@ -23,6 +23,7 @@
       private   $port ;
 
 
+
       public function index(){
          return $this->view('serverConf');
       }
@@ -59,16 +60,20 @@
          $this->port = $_POST['port'];
 
          $name = $server->findValue("name",$this->servername,'*');
+
          $ip = $server->findValue("ip",$this->ip,'*');
-         if($_POST['id']){
-            $this->id = $_POST['id'];
+         $id = $_POST['id']?? null;
+
+   
+         if($id != null){
+            $id = $_POST['id'];
             if($validator->validateEmptyParameters(array($this->servername,$this->ip,$this->cluster,$this->port))){
                return $this->view('serverConf',$this->createArrayFront(null,'a5bcd7089d83f45e17e989fbc86003ed'));
             }else if(preg_match($ip_preg, $this->ip) == 0 ){
                    return $this->view('serverConf',$this->createArrayFront(null,'x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt'));
             }else{
          
-               $server->update('id_ctg','',$this->createArrayInsert());
+               $server->update('id_ctg',$id,$this->createArrayInsert());
                return $this->view('portal',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
             }
            
@@ -97,6 +102,7 @@
              "ip" => $this->ip,
              "cluster" =>  $this->cluster,
              "puerto" =>  $this->port,
+             "estatus" =>  1,
          ];
 
          return $array ;
