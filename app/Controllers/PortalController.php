@@ -10,6 +10,15 @@
          return $this->view('portal');
       }
 
+
+      public function portalPagination(){
+         return $this->view('portalPagination');
+      }
+
+
+
+      
+
    }
 
 ?>

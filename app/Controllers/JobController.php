@@ -15,12 +15,11 @@
    use App\Models\Job;
    use Lib\ValidatorFunctions;
    use App\Models\DescritionRegister;
-  
-
 
    class JobController extends Controller  {
 
       public function index(){
+
          return $this->view('responsible', $this->createArrayInsert(null,null));
       }
 

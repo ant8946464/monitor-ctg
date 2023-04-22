@@ -21,38 +21,5 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 		$value = $_POST['name'];
 		
     }
-  
-?>
-	<table>
-	<thead>
-		<tr>
-			<th>Id</th>
-			<th>Actividad</th>
-			<th>Servidor</th>
-			<th>Usuario</th>
-			<th>Fecha del evento</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php
-            $resul = $actitivy->getallJoinWhere($Colum, $value);
-			foreach ($resul as $k => $v) {
-		?>
-		<tr>
-			<td><?php echo $v['id_event']  ?>
-			</td>
-			<td><?php echo $v['activity']  ?>
-			</td>
-			<td><?php echo $v['name']  ?>
-			</td>
-			<td><?php echo $v['user_corporate'] ?>
-			</td>
-			<td><?php echo $v['event_date']  ?>
-			</td>
-		</tr>
-		<?php
-					 
-			}
-		?>
-	</tbody>
-</table>
+	
+ require_once 'tableBitacoraPagination.php';	

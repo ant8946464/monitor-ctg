@@ -114,11 +114,9 @@ fieldset {
 	width: 80%;
 	background-color: #809db7;
 	margin-left:10%;
-	margin-top: 5%;
-	margin-bottom: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
 	padding-bottom: 8%;
-	margin-bottom: 175px;
-
   }
 
   /*
@@ -137,3 +135,5 @@ fieldset {
 	padding: 5px 10px;
   }
 
+
+  

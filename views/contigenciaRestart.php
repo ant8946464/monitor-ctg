@@ -34,8 +34,21 @@ $server = new Server();
     </thead>
     <tbody>
         <?php
+          $porPagina = 10;
+          $pagina = 1;
+          if (isset($_POST['page'])) {
+              $pagina = $_POST['page'];
+          }
 
-        $resul = $monitoreoServer->getallColumn();
+
+          $comienzo = ($pagina - 1) * $porPagina;
+
+          $resul = $monitoreoServer->getallColumnLimit($comienzo, $porPagina);
+
+          $resulAll = $monitoreoServer->getallColumn();
+
+          $pages =  ceil(count($resulAll) / $porPagina);
+
 
         foreach ($resul as $k => $v) {
 
@@ -78,6 +91,37 @@ $server = new Server();
 
     </tbody>
 </table>
+
+<?php 
+        
+        echo '<section class="pagination">
+        <center>
+          <ul>';
+ 
+            $pages =  ceil(count( $resulAll)/$porPagina) ;
+ 
+            if ($pagina == 1) echo '<li><a class="no-link" onclick="changePagination('.($pagina - 1).',0)"><<</a></li>';
+ 
+            else echo '<li><a onclick="changePagination('.($pagina - 1).',0)"><i class="icon-circle-left"></i></a></li>';
+            
+ 
+            for ($i = 1; $i <= $pages; $i ++) {
+ 
+              if ($pagina == $i) echo '<li><a class="active" onclick="changePagination('.$i.',0)">'.$i.'</a></li>';
+ 
+              else echo '<li><a onclick="changePagination('.$i.',0)">'.$i.'</a></li>';
+ 
+            }
+ 
+            if ($pagina == $pages)echo '<li><a class="no-link" onclick="changePagination('.($pagina + 1).',0)"><i class="icon-circle-right"></i></a></li>';
+ 
+            else echo '<li><a onclick="changePagination('.($pagina + 1).',0)">>></a></li>';
+       
+          echo '</ul>
+        </center>
+      </section>';
+     
+     ?>
 
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/script.js"></script>

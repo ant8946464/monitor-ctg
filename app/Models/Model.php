@@ -40,6 +40,25 @@
         }
 
 
+        public function getItemColumnsDistinct($column ,$columnId){
+            $items = [];
+            try{
+                $sql = "SELECT DISTINCT($column) FROM {$this->table}";
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                 while($p = $query->fetch(PDO::FETCH_ASSOC)){
+                    $item = ['id' => $p[$columnId],
+                             $column => $p[$column]];
+                    array_push( $items,$item);
+                }
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+
 
 
         public function getItemColumns($column ,$columnId){
@@ -78,11 +97,48 @@
         }
 
 
+        public function getallColumnLimit($start , $byPage){
+            $items = [];
+            try{
+                $sql = "SELECT * FROM {$this->table} LIMIT  $start , $byPage  ";
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+
         
         public function getallColumn(){
             $items = [];
             try{
-                $sql = "SELECT * FROM {$this->table}";
+                $sql = "SELECT * FROM {$this->table} ";
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+
+        public function getallJoinlimit($start , $byPage ){
+
+            $items = [];
+            try{
+                $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg LIMIT  $start , $byPage  ";
                 $query = $this->databases->connect()->prepare($sql);  
                 $query->execute();
                 while( $p = $query->fetch(PDO::FETCH_ASSOC)){
@@ -114,7 +170,25 @@
             }
         }
 
-        public function getallJoinWhere($colum , $value){
+        public function getallJoinWhereLimit($colum , $value ,$start , $byPage){
+
+            $items = [];
+            try{
+                $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg and {$colum}='{$value}'LIMIT  $start , $byPage  ";      
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
+        public function getallJoinWhere($colum , $value ){
 
             $items = [];
             try{

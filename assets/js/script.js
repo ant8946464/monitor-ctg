@@ -138,6 +138,29 @@ function changestatusServer(server , actividad) {
 
 }
 
+function changePagination(page , url ,classhtml ,colum,value) {
+  console.log(page);
+  console.log(url); 
+  console.log(classhtml); 
+  console.log(colum); 
+  console.log(value); 
+    $(document).ready(function(){
+      $.ajax({
+          url:'/'+url,
+          type:"POST",
+          data:{ paginator: page, colum : colum, value:value } ,
+            success:function(data){
+              $("."+classhtml).html(data);
+            }
+      });
+  });
+ 
+  return;
+
+}
+
+
+
 
 
  

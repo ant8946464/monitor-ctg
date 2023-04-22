@@ -1,8 +1,8 @@
 <?php
 require 'layout/navbar.php';
-require_once dirname( __DIR__ ) . '/app/Models/User.php';
-require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
-require_once dirname( __DIR__ ) . '/app/Models/Server.php';
+require_once dirname(__DIR__) . '/app/Models/User.php';
+require_once dirname(__DIR__) . '/app/Models/Activitylog.php';
+require_once dirname(__DIR__) . '/app/Models/Server.php';
 
 use App\Models\User;
 use App\Models\Activitylog;
@@ -16,12 +16,12 @@ $actitivy = new Activitylog();
 ?>
 
 <?php
-    if(isset($success)){
-  ?>            
-    <div class="info"><b><?=  $success ?></b></div>   
-  <?php    
-      }
-  ?>
+if (isset($success)) {
+?>
+    <div class="info"><b><?= $success ?></b></div>
+<?php
+}
+?>
 <div class="spanMsgInfo">
     <span>Se listan las actividades en los servidores. </span>
 </div>
@@ -51,52 +51,24 @@ $actitivy = new Activitylog();
         <div class="content-select select-center">
             <select name="activitySelect" id="activitySelect" onchange="selectView(this.id)" required>
                 <option selected="selected" disabled>Actvidad</option>
-                <?php foreach ($actitivy->getItemColumns('activity', '') as $activity) : ?>
+                <?php foreach ($actitivy->getItemColumnsDistinct('activity', '') as $activity) : ?>
                     <option value="<?php echo $activity['activity'] ?>"><?php echo $activity['activity'] ?></option>
                 <?php endforeach ?>
             </select>
         </div>
     </div>
 
+    <?php
+         if (isset($_POST['pagination'])) {
+            $pagina = $_POST['pagination'];
+            var_dump($pagina);
+        }
 
-    <section class="content">
+        require_once 'portalPagination.php';
+    ?>
 
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Actividad</th>
-                        <th>Servidor</th>
-                        <th>Usuario</th>
-                        <th>Fecha del evento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
 
-                    $resul = $actitivy->getallJoin();
 
-                    foreach ($resul as $k => $v) {
-
-                    ?>
-                        <tr>
-
-                            <td><?php echo $v['id_event']  ?></td>
-                            <td><?php echo $v['activity']  ?></td>
-                            <td><?php echo $v['name']  ?></td>
-                            <td><?php echo $v['user_corporate'] ?></td>
-                            <td><?php echo $v['event_date']  ?></td>
-                        <?php
-
-                    }
-                        ?>
-                        </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </section>
 </fieldset>
 
 

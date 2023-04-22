@@ -58,7 +58,14 @@
     Route::get('/portalmonitor', [PortalController::class ,'index']);
 
 
+    Route::post('/portalPagination', [PortalController::class ,'portalPagination']);
+
+
+
     Route::post('/tableusuario', [TableController::class ,'index']);
+
+    Route::post('/tableBitacoraPagination', [TableController::class ,'tableBitacoraPagination']);
+    
 
    //modulo responsable
 
@@ -157,7 +164,7 @@
 
     Route::post('/activityServer', [PlanContingenciaController::class ,'activityServer']);
 
-    
+   
 
    
     Route::dispacth();

@@ -11,6 +11,11 @@
          return $this->view('tableBitacora');
       }
 
+
+      public function  tableBitacoraPagination(){
+         return $this->view('tableBitacoraPagination');
+      }
+
    }
 
 ?>
