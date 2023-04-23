@@ -28,7 +28,7 @@
                     if($session->getSessionName('d29_role_id') == 1 && $session->getSessionName('role_authorization')==1){
    
                 ?>
-                        <a href="#" class="menu__link">Administrador <img src="assets/images/arrow.svg" class="menu__arrow"></a>
+                        <a href="#" class="menu__link">administrador <img src="assets/images/arrow.svg" class="menu__arrow"></a>
                         <ul class="menu__nesting">
                             <li class="menu__inside">
                                 <a href="/responsible" class="menu__link menu__link--inside">responsable</a>
@@ -43,10 +43,10 @@
                                 <a href="/job" class="menu__link menu__link--inside">puesto laboral</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="/listUsers" class="menu__link menu__link--inside">Lista Usuarios</a>
+                                <a href="/listUsers" class="menu__link menu__link--inside">lista usuarios</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="/procesBatch" class="menu__link menu__link--inside">Proceso Batch</a>
+                                <a href="/procesBatch" class="menu__link menu__link--inside">proceso batch</a>
                             </li>
                         </ul>
                     </li>
@@ -55,19 +55,19 @@
                 ?>
     
                 <li class="menu__item menu__item--show">
-                    <a href="/serverConfig" class="menu__link">Configuración Servidores </a>
+                    <a href="/serverConfig" class="menu__link">configuración servidores </a>
                 </li>
     
                 <li class="menu__item menu__item--show">
-                    <a href="/form-userUpdate" class="menu__link">Usuario</a>
+                    <a href="/form-userUpdate" class="menu__link">usuario</a>
                 </li>
     
                 <li class="menu__item">
-                    <a href="/contigencia" class="menu__link">Plan de Contigencia</a>
+                    <a href="/contigencia" class="menu__link">plan de contigencia</a>
                 </li>
 
                 <li class="menu__item">
-                    <a href="/listActivities" class="menu__link">Actividades Servidor</a>
+                    <a href="/listActivities" class="menu__link">actividades servidor</a>
                 </li>
 
             </ul>

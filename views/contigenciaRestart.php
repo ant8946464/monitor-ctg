@@ -22,106 +22,150 @@ $server = new Server();
 
 ?>
 
-<table>
-    <thead>
-        <tr>
-            <th>Id </th>
-            <th>Servidor</th>
-            <th>Fecha de ejecución</th>
-            <th>Estatus</th>
-            <th>Aplicar reseto2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-          $porPagina = 10;
-          $pagina = 1;
-          if (isset($_POST['page'])) {
-              $pagina = $_POST['page'];
-          }
+<section class="content-1">
+ <center >
 
 
-          $comienzo = ($pagina - 1) * $porPagina;
-
-          $resul = $monitoreoServer->getallColumnLimit($comienzo, $porPagina);
-
-          $resulAll = $monitoreoServer->getallColumn();
-
-          $pages =  ceil(count($resulAll) / $porPagina);
 
 
-        foreach ($resul as $k => $v) {
+                            <table id="tableReset">
+                                <thead>
+                                    <tr>
+                                        <th>Id </th>
+                                        <th>Servidor</th>
+                                        <th>Fecha de ejecución</th>
+                                        <th>Estatus</th>
+                                        <th>Aplicar reseto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
 
-        ?>
-            <tr>
+                                    $porPagina = 10;
+                                    $pagina = 1;
+                                    if (isset($_POST['paginator'])) {
+                                        $pagina = $_POST['paginator'];
+                                    }
+             
+                                    $comienzo = ($pagina - 1) * $porPagina;
 
-                <td><?php echo $v['id_monitore']  ?></td>
-                <td><?php echo $v['server']  ?></td>
-                <td><?php echo $v['date_event'] ?></td>
-                <td>
-                    <?php
+                                    $resul = $monitoreoServer->getallColumnLimit($comienzo, $porPagina);
 
-                    if ($v['status'] == 1) {
-                    ?>
-                        <img src="assets/images/vcsnormal_93488.png">
-                    <?php
-                    } else {
-                    ?>
-                        <img src="assets/images/vcsconflicting_93497.png">
-                    <?php
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
+                                    $resulAll = $monitoreoServer->getallColumn();
 
-                    if ($v['status'] != 1) {
-                    ?>
-                        <a class="button" onclick="changestatusServer('<?php echo  $v['server']  ?>', '1')">Reiniciar</a>
-                    <?php
-                    }
-                    ?>
-                </td>
+                                    $pages =  ceil(count($resulAll) / $porPagina);
 
-            <?php
 
-        }
-            ?>
-            </tr>
+                                    foreach ($resul as $k => $v) {
 
-    </tbody>
-</table>
+                                    ?>
+                                        <tr>
 
-<?php 
-        
-        echo '<section class="pagination">
-        <center>
-          <ul>';
- 
-            $pages =  ceil(count( $resulAll)/$porPagina) ;
- 
-            if ($pagina == 1) echo '<li><a class="no-link" onclick="changePagination('.($pagina - 1).',0)"><<</a></li>';
- 
-            else echo '<li><a onclick="changePagination('.($pagina - 1).',0)"><i class="icon-circle-left"></i></a></li>';
-            
- 
-            for ($i = 1; $i <= $pages; $i ++) {
- 
-              if ($pagina == $i) echo '<li><a class="active" onclick="changePagination('.$i.',0)">'.$i.'</a></li>';
- 
-              else echo '<li><a onclick="changePagination('.$i.',0)">'.$i.'</a></li>';
- 
-            }
- 
-            if ($pagina == $pages)echo '<li><a class="no-link" onclick="changePagination('.($pagina + 1).',0)"><i class="icon-circle-right"></i></a></li>';
- 
-            else echo '<li><a onclick="changePagination('.($pagina + 1).',0)">>></a></li>';
-       
-          echo '</ul>
-        </center>
-      </section>';
-     
-     ?>
+                                            <td><?php echo $v['id_monitore']  ?></td>
+                                            <td><?php echo $v['server']  ?></td>
+                                            <td><?php echo $v['date_event'] ?></td>
+                                            <td>
+                                                <?php
+
+                                                if ($v['status'] == 1) {
+                                                ?>
+                                                    <img src="assets/images/vcsnormal_93488.png">
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <img src="assets/images/vcsconflicting_93497.png">
+                                                <?php
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+
+                                                if ($v['status'] != 1) {
+                                                ?>
+                                                    <a class="button" onclick="changestatusServer('<?php echo  $v['server']  ?>', '0')">Reiniciar</a>
+                                                <?php
+                                                }
+                                                ?>
+                                            </td>
+
+                                        <?php
+
+                                    }
+                                        ?>
+                                        </tr>
+
+                                </tbody>
+                            </table>
+
+
+            <section class="pagination">
+				<center>
+					<ul>
+						<?php
+						$pages =  ceil(count($resulAll) / $porPagina);
+
+						if (($pagina == 1)) {
+						?>
+							<li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1')"><< </a>
+							</li>
+
+						<?php
+
+						} else {
+
+						?>
+							<li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1')"><i class="icon-circle-left"></i></a></li>
+							<?php
+
+						}
+
+						for ($i = 1; $i <= $pages; $i++) {
+
+							if ($pagina == $i) {
+
+							?>
+
+								<li><a class="active" onclick="changePagination('<?php echo $i ?>','contigenciaRestart','content-1')"><?php echo $i ?></a></li>
+
+							<?php
+
+							} else {
+
+							?>
+								<li><a onclick="changePagination('<?php echo $i ?>','contigenciaRestart','content-1')"><?php echo $i ?></a></li>
+
+							<?php
+
+							}
+						}
+
+						if ($pagina == $pages) {
+
+
+							?>
+							<li><a class="no-link" onclick="changePagination('<?php echo ($pagina + 1) ?>','contigenciaRestart','content')"><i class="icon-circle-right"></i></a></li>
+						<?php
+
+						} else {
+
+
+						?>
+
+							<li><a onclick="changePagination('<?php echo ($pagina + 1) ?>','contigenciaRestart','content')">>></a></li>
+						<?php
+
+						}
+
+						?>
+
+					</ul>
+				</center>
+			</section>
+            </center>
+
+
+            </section>
 
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/script.js"></script>

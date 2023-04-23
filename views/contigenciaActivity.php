@@ -22,7 +22,7 @@ $server = new Server();
 
 ?>
 
-<table>
+<table id="tableActivity">
     <thead>
         <tr>
             <th>Id </th>

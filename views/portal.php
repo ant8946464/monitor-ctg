@@ -28,7 +28,6 @@ if (isset($success)) {
 <div class="spanFilter">
     <span>Seleccione el filtrado </span>
 </div>
-
 <fieldset>
 
     <div class="select-dis">
@@ -56,18 +55,26 @@ if (isset($success)) {
                 <?php endforeach ?>
             </select>
         </div>
+
     </div>
 
+
+    </div>
+    <center>
+        <div class="tooltip">
+            <a href="/portalmonitor"><img src="/assets/images/limpieza-de-datos.png"></a>
+            <span class="tooltiptext">Limpiar el filtrado</span>
+        </div>
+    </center>
+
     <?php
-         if (isset($_POST['pagination'])) {
-            $pagina = $_POST['pagination'];
-            var_dump($pagina);
-        }
+    if (isset($_POST['pagination'])) {
+        $pagina = $_POST['pagination'];
+        var_dump($pagina);
+    }
 
-        require_once 'portalPagination.php';
+    require_once 'portalPagination.php';
     ?>
-
-
 
 </fieldset>
 

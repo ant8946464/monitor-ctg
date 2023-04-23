@@ -119,6 +119,9 @@
     Route::post('/deleteUser', [UserController::class ,'deleteUserList']);
 
 
+    Route::post('/userPagination', [UserController::class ,'listUsersPagination']);
+
+
  //modulo proceso batch
 
     Route::get('/procesBatch', [ProcessController::class ,'index']);
@@ -163,6 +166,17 @@
 
 
     Route::post('/activityServer', [PlanContingenciaController::class ,'activityServer']);
+
+
+    Route::post('/contigenciaPagination', [PlanContingenciaController::class ,'contigenciaPagination']);
+
+
+    Route::post('/contigenciaStarStop', [PlanContingenciaController::class ,'contigenciaStarStop']);
+    
+
+    Route::post('/contigenciaRestart', [PlanContingenciaController::class ,'contigenciaRestart']);
+    
+    
 
    
 

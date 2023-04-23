@@ -24,6 +24,9 @@
          return $this->view('deleteUser');
       }
 
+      public function listUsersPagination(){
+         return $this->view('listUsersPagination');
+      }
       
 
 

@@ -28,6 +28,21 @@
          return $this->view('contigencia');
       }
 
+      public function contigenciaPagination(){
+         return $this->view('contigenciaPagination');
+      }
+
+      public function contigenciaStarStop(){
+         return $this->view('contigenciaStarStop');
+      }
+
+      public function contigenciaRestart(){
+         return $this->view('contigenciaRestart');
+      }
+
+
+
+      
 
       public function activityServer(){
 

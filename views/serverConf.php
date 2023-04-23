@@ -1,8 +1,9 @@
 <?php
 
-require_once dirname( __DIR__ ) . '/app/Models/Server.php';
+require_once dirname(__DIR__) . '/app/Models/Server.php';
 
 use App\Models\Server;
+
 $server = new Server();
 $resul;
 require 'layout/navbar.php';
@@ -70,6 +71,12 @@ if (isset($error)) {
 							</select>
 						</div>
 					</div>
+					<center>
+						<div class="tooltip">
+							<a href="/serverConfig"><img src="/assets/images/limpieza-de-datos.png"></a>
+							<span class="tooltiptext">Limpiar el filtrado</span>
+						</div>
+					</center>
 
 					<section class="content">
 						<table>
@@ -113,7 +120,7 @@ if (isset($error)) {
 			<div id="tab1" class="tab">
 				<a href="#tab1">Agregar</a>
 				<div class="tab-content">
-					
+
 					<form class="form-register" method="post" action="/formServer">
 						<h1>Agregar Servidores</h1>
 						<div class="contenedor-inputs">
@@ -130,22 +137,22 @@ if (isset($error)) {
 				<a href="#tab3">actualizar</a>
 				<div class="tab-content">
 					<form class="form-register" method="post" action="/formServer">
-				    <h1>Actualizar Servidor</h1>
-					<div class="content-select select-center" style="width: 80%;margin-left: 40px;">
-								<select name="updateServerSelect" id="updateServerSelect" onchange="selectView(this.id)" required>
-									<option selected="selected" disabled>Selecciona la ip</option>
-									<?php foreach ($server->getItemColumns('ip', '') as $ser) : ?>
-										<option value="<?php echo $ser['ip'] ?>"><?php echo $ser['ip'] ?></option>
-									<?php endforeach ?>
-								</select>
-							</div>
-						
+						<h1>Actualizar Servidor</h1>
+						<div class="content-select select-center" style="width: 80%;margin-left: 40px;">
+							<select name="updateServerSelect" id="updateServerSelect" onchange="selectView(this.id)" required>
+								<option selected="selected" disabled>Selecciona la ip</option>
+								<?php foreach ($server->getItemColumns('ip', '') as $ser) : ?>
+									<option value="<?php echo $ser['ip'] ?>"><?php echo $ser['ip'] ?></option>
+								<?php endforeach ?>
+							</select>
+						</div>
+
 						<div class="contenedor-inputs">
-							<input style="width: 80%;margin-left: 40px;" type="text" name="servername" placeholder="Nombre del servidor" maxlength="50" value="" disabled >
-							<input style="width: 80%;margin-left: 40px;" type="text" name="ip" placeholder="ip" maxlength="12" value="" disabled >
-							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster" placeholder="Cluster" maxlength="15" value="" disabled >
-							<input style="width: 80%;margin-left: 40px;" type="text" name="port" placeholder="puerto" maxlength="4" value="" disabled >
-							<input type="submit" value="Actualizar" class="btn-enviar" disabled  />
+							<input style="width: 80%;margin-left: 40px;" type="text" name="servername" placeholder="Nombre del servidor" maxlength="50" value="" disabled>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="ip" placeholder="ip" maxlength="12" value="" disabled>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster" placeholder="Cluster" maxlength="15" value="" disabled>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="port" placeholder="puerto" maxlength="4" value="" disabled>
+							<input type="submit" value="Actualizar" class="btn-enviar" disabled />
 						</div>
 					</form>
 				</div>

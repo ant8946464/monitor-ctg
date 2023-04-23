@@ -10,7 +10,7 @@
    
    
      
-  <fieldset>
+  <fieldset style="margin-bottom: 8.2%; margin-top: 8%;">
       <legend>Proceso Batch:</legend>
       <div style="margin-left: 5%;">
          <h1 style="color: white; text-align: left; margin-bottom: 50px;"> Proceso de validación de servidores esta : <?=  $msg ?></h1>
