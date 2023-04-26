@@ -2,9 +2,14 @@
 
    namespace App\Controllers;
 
-   class Controller {
+   require_once './lib/ValidatorFunctions.php';
+
+   use Lib\ValidatorFunctions;
 
 
+   class Controller{
+
+     
       public function view($route , $data =[]){
          extract($data);
          $route = str_replace('.','/',$route);
@@ -17,5 +22,14 @@
             return 'El archivo no exite';
          }  
       }
+
+      function getGet($name){
+         return $_GET[$name];
+      }
+ 
+     function getPost($name){
+         $validator = new ValidatorFunctions();
+         return  $validator->clean_text($_POST[$name]);              
+     }
    }
 ?>

@@ -50,13 +50,14 @@
 
 
       public function validResponsable(){
+         
          $validator = new ValidatorFunctions();
          $areaManager = new Area();
          $register= new DescritionRegister();
 
-        $name = $_POST['name'];
-        $descripcion = $_POST['descripcion'];
-        $manager = $areaManager->findValue("area",$name,'*');
+        $name =  $this->getPost('name');          
+        $descripcion =  $this->getPost('descripcion');    
+        $manager = $areaManager->findValue("area",$name,'*');  
           
         if($validator->validateEmptyParameters(array($name, $descripcion))){
             return $this->view('responsible', $this->createArrayInsert(null , 'a5bcd7089d83f45e17e989fbc86003ed'));

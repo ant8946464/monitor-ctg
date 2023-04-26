@@ -9,7 +9,8 @@
 
     use Lib\AbCrypt;
     use Lib\Databases;
-    use \PDO;
+use mysqli;
+use \PDO;
     use \PDOException;
 
 
@@ -27,7 +28,7 @@
 
 
         public function findValue($colum, $value, $selectColumn){
-         
+           
             try{
                 $sql = "SELECT {$selectColumn} FROM {$this->table}  WHERE {$colum} = :{$colum}";
                 $query = $this->databases->connect()->prepare($sql);
@@ -115,6 +116,9 @@
         }
 
 
+        public function cleanValue($value){
+            return $this->databases->connect()->quote( $value);
+        }
         
         public function getallColumn(){
             $items = [];

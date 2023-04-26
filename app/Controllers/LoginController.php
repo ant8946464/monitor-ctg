@@ -33,11 +33,11 @@
 
 
       public function validateLogin(){
-
+         $userModels = new User();
          $captcha = new Captcha();
-         $this->userCorporate = $_POST['usuario_corporate'];
-         $password = $_POST['password'];
-
+         $this->userCorporate = $this->getPost('usuario_corporate');    
+         $this->userCorporate =str_replace(' ', '', $this->userCorporate);
+         $password = $this->getPost('password'); 
          if(!$captcha->getCaptcha()){
             return $this->view('login',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy'));
          }

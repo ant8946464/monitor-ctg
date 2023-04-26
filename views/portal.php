@@ -67,13 +67,15 @@ if (isset($success)) {
         </div>
     </center>
 
+    <a type="button" id="btnver" href="/reporte" target="_blank">informe</a>
     <?php
     if (isset($_POST['pagination'])) {
         $pagina = $_POST['pagination'];
-        var_dump($pagina);
+    
     }
 
     require_once 'portalPagination.php';
+    
     ?>
 
 </fieldset>

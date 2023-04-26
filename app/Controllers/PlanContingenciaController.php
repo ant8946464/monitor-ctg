@@ -52,8 +52,8 @@
        $connectioDb = new User();
        $success = new Success();
 
-       $serverName = $_POST['nameServer'];
-       $statusActivity   = $_POST['status'];
+       $serverName = $this->getPost('nameServer') ;
+       $statusActivity   = $this->getPost('status');
        $msgFront='';
 
        $resul = $connectioDb->findValue('user_corporate',$session->getSessionName('user'),'*');

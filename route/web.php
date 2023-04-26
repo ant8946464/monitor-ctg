@@ -11,6 +11,7 @@
    require_once './app/Controllers/ProcessController.php';
    require_once './app/Controllers/ServerController.php';
    require_once './app/Controllers/PlanContingenciaController.php';
+   require_once './app/Controllers/ReporteController.php';
    require_once './lib/Route.php';
 
     use Lib\Route;  
@@ -26,6 +27,7 @@
     use App\Controllers\ProcessController;
     use App\Controllers\ServerController;
     use App\Controllers\PlanContingenciaController;
+    use App\Controllers\ReporteController;
 
     
 
@@ -49,7 +51,7 @@
 
 
 
-    Route::get('/formrRegistrate', [RegistratioController::class ,'index']);
+    Route::get('/Registrate', [RegistratioController::class ,'index']);
 
 
     Route::post('/registratevalidador',[RegistratioController::class ,'validateForm']);
@@ -178,7 +180,7 @@
     
     
 
-   
+    Route::get('/reporte', [ReporteController::class ,'index']);
 
    
     Route::dispacth();

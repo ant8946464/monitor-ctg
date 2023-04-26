@@ -1,4 +1,3 @@
-
 <?php
 if (isset($success)) {
 ?>
@@ -14,26 +13,17 @@ require_once dirname(__DIR__) . '/app/Models/Server.php';
 
 use App\Models\MonitoreoServer;
 use App\Models\Server;
-
-
 $monitoreoServer = new MonitoreoServer();
 $server = new Server();
 $resulAll = $server->getallColumn();
-
 $porPagina = 10;
-          $pagina = 1;
-          if (isset($_POST['page'])) {
-              $pagina = $_POST['page'];
-          }
-
-
-          $comienzo = ($pagina - 1) * $porPagina;
-
-          $resul = $monitoreoServer->getallColumnLimit($comienzo, $porPagina);
-
-
-          $pages =  ceil(count($resulAll) / $porPagina);
-
+$pagina = 1;
+if (isset($_POST['paginator'])) {
+    $pagina = $_POST['paginator'];
+}
+$comienzo = ($pagina - 1) * $porPagina;
+$resul = $monitoreoServer->getallColumnLimit($comienzo, $porPagina);
+$pages =  ceil(count($resulAll) / $porPagina);
 ?>
 <section class="content">
     <div style="margin-top: 10px;">
@@ -69,8 +59,6 @@ $porPagina = 10;
                         <?php
                         }
                         ?>
-
-
                     <?php
                 }
                     ?>
@@ -88,7 +76,7 @@ $porPagina = 10;
 
             if (($pagina == 1)) {
             ?>
-                <li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaStarStop','content-1')">
+                <li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaStarStop','content')">
                         << </a>
                 </li>
 
@@ -97,7 +85,7 @@ $porPagina = 10;
             } else {
 
             ?>
-                <li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaStarStop','content-1')"><i class="icon-circle-left"></i></a></li>
+                <li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaStarStop','content')"><i class="icon-circle-left"></i></a></li>
                 <?php
 
             }
@@ -108,14 +96,14 @@ $porPagina = 10;
 
                 ?>
 
-                    <li><a class="active" onclick="changePagination('<?php echo $i ?>','contigenciaStarStop','content-1')"><?php echo $i ?></a></li>
+                    <li><a class="active" onclick="changePagination('<?php echo $i ?>','contigenciaStarStop','content)"><?php echo $i ?></a></li>
 
                 <?php
 
                 } else {
 
                 ?>
-                    <li><a onclick="changePagination('<?php echo $i ?>','contigenciaStarStop','content-1')"><?php echo $i ?></a></li>
+                    <li><a onclick="changePagination('<?php echo $i ?>','contigenciaStarStop','content')"><?php echo $i ?></a></li>
 
                 <?php
 

@@ -29,6 +29,8 @@ require_once dirname( __DIR__ ) . '/app/Models/Job.php';
              $connectioDb->delete($search_id,$id);
             
         }
+
+ 
 ?>
     
       <section class="content">   
@@ -68,4 +70,7 @@ require_once dirname( __DIR__ ) . '/app/Models/Job.php';
                             ?>
                           </div>
                         </section>
+
+                        
+
 

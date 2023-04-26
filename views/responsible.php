@@ -48,7 +48,7 @@ if ($modelo == "AreaManager") {
 				<div class="tab-content">
 					<h1 style="color: #f1f3f4;">Eliminar<?php if (isset($tap2Header)) { ?><?= $tap2Header ?> <?php }  ?></h1>
 					<div class="spanFilter">
-						<span>Seleccione el filtrado </span>
+						<span style="font-size: 25px;">Seleccione el filtrado </span>
 					</div>
 					<div class="select-dis">
 						<div class="content-select select-center">
@@ -60,47 +60,9 @@ if ($modelo == "AreaManager") {
 							</select>
 						</div>
 					</div>
-					<section class="content">
-						<div>
-							<?php
-
-							if (!empty($connectioDb->getItemColumns($column, $idtable))) {
-							?>
-								<table>
-									<thead>
-										<tr>
-											<th>Id</th>
-											<th><?php if (isset($nameHeader)) { ?><?= $nameHeader ?> <?php }  ?></th>
-											<th>eliminar</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-										foreach ($connectioDb->getItemColumns($column, $idtable) as $user) :
-										?>
-											<tr>
-												<td><?php echo $user['id'] ?>
-												</td>
-												<td><?php echo $user[$column] ?>
-												</td>
-												<td>
-													<a class="button" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>,'<?php echo $pathDelete ?>' )">eliminar</a>
-												</td>
-											<?php
-										endforeach
-											?>
-											</tr>
-									</tbody>
-								</table>
-							<?php
-							} else {
-							?>
-								<span>NO EXISTEN REGISTROS</span>
-							<?php
-							}
-							?>
-						</div>
-					</section>
+				<?php	
+			      require_once 'responsiblePagination.php';
+				?>
 				</div>
 			</div>
 			<div id="tab1" class="tab">

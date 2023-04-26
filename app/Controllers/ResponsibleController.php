@@ -57,8 +57,8 @@
          $areaManager = new AreaManager();
          $register= new DescritionRegister();
 
-        $name = $_POST['name'];
-        $descripcion = $_POST['descripcion'];
+        $name =  $this->getPost('name');
+        $descripcion =  $this->getPost('descripcion');
         $manager = $areaManager->findValue("manager_name",$name,'*');
           
         if($validator->validateEmptyParameters(array($name, $descripcion))){

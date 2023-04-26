@@ -53,8 +53,8 @@
          $jobEmplyee = new Job();
          $register= new DescritionRegister();
 
-        $name = $_POST['name'];
-        $descripcion = $_POST['descripcion'];
+        $name = $this->getPost('name');
+        $descripcion = $this->getPost('descripcion');
         $manager = $jobEmplyee->findValue("role",$name,'*');
           
         if($validator->validateEmptyParameters(array($name, $descripcion))){

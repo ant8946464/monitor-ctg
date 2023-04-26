@@ -48,17 +48,15 @@
             $success = new Success();
             $validator = new ValidatorFunctions();
             $userModels = new User();
-
-           
-            $this->id= $_POST['id'];
-            $this->userName = $_POST['nameUser'];
-            $this->first_name = $_POST['apellidoPat'];
-            $this->last_name = $_POST['apellidMat'];
-            $this->user_corporate = $_POST['user_corporate'];
-            $this->email = $_POST['email'];
-            $this->phone = $_POST['phone'];
-            $this->area = $_POST['area']?? null;;
-            $this->rol = $_POST['rol']?? null;;
+            $this->id=  $userModels->cleanValue($_POST['id']);
+            $this->userName = $userModels->cleanValue($_POST['nameUser']);
+            $this->first_name = $userModels->cleanValue($_POST['apellidoPat']);
+            $this->last_name = $userModels->cleanValue($_POST['apellidMat']);
+            $this->user_corporate = $userModels->cleanValue($_POST['user_corporate']);
+            $this->email = $userModels->cleanValue($_POST['email']);
+            $this->phone = $userModels->cleanValue($_POST['phone']);
+            $this->area = $_POST['area']?? null;
+            $this->rol = $_POST['rol']?? null;
             $this->responsible_boss = $_POST['responsable']?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
 
@@ -94,17 +92,17 @@
             $captcha = new Captcha();
            
             
-            $this->userName = $_POST['nameUser'];
-            $this->first_name = $_POST['apellidoPat'];
-            $this->last_name = $_POST['apellidMat'];
-            $this->user_corporate = $_POST['user_corporate'];
-            $this->email = $_POST['email'];
-            $this->phone = $_POST['phone'];
-            $this->password = $_POST['password'];
-            $this->confirmpassword = $_POST['confirmpassword'];
-            $this->area = $_POST['area']?? null;;
-            $this->rol = $_POST['rol']?? null;;
-            $this->responsible_boss = $_POST['responsable']?? null;
+            $this->userName =   $this->getPost('nameUser');
+            $this->first_name =  $this->getPost('apellidoPat');
+            $this->last_name =  $this->getPost('apellidMat');
+            $this->user_corporate =  $this->getPost('user_corporate');
+            $this->email =  $this->getPost('email');
+            $this->phone =  $this->getPost('phone');
+            $this->password =  $this->getPost('password');
+            $this->confirmpassword =  $this->getPost('confirmpassword');
+            $this->area = $this->getPost('area')?? null;;
+            $this->rol =  $this->getPost('rol')?? null;;
+            $this->responsible_boss =  $this->getPost('responsable')?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
 
             if(!$captcha->getCaptcha()){

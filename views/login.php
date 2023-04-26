@@ -46,7 +46,7 @@
       </div>
    
       <input type="submit" class="submitBtn" value="Enviar">
-      <a href="/formrRegistrate" class="sign-up">Registrate</a>
+      <a href="/Registrate" class="sign-up">Registrate</a>
       <a href="/resetPassword" class="forgot">¿Se te olvido la contraseña?</a>
     </form>
   </div>

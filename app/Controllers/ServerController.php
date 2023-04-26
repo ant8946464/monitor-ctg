@@ -52,12 +52,12 @@
          $server = new Server();
 
          $ip_preg ='/^((0|[1-9][0-9]?|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.|$)){4}$/';
+         
         
-        
-         $this->servername = $_POST['servername'];
-         $this->ip = $_POST['ip'];
-         $this->cluster = $_POST['cluster'];
-         $this->port = $_POST['port'];
+         $this->servername =  $this->getPost('servername');
+         $this->ip =  $this->getPost('ip');
+         $this->cluster =  $this->getPost('cluster');
+         $this->port = $this->getPost('port');
 
          $name = $server->findValue("name",$this->servername,'*');
 

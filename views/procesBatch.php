@@ -1,6 +1,11 @@
 <?php
     require 'layout/navbar.php';
+    if (isset($success)) {
  ?>
+    <div class="info " style="margin-left: 70%;"><b><?= $success ?></b></div>
+<?php
+}
+?>
 
 
      <div class="spanMsgInfo">

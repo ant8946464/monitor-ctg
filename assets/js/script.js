@@ -18,8 +18,6 @@ $(document).ready(function() {
 
 
 
-
-
 function selectView(element) {
     var request ;
     var path='/tableusuario';
