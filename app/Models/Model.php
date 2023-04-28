@@ -210,6 +210,25 @@ use \PDO;
             }
         }
 
+        public function getallWhere($colum , $value ){
+
+            $items = [];
+            try{
+                $sql = "SELECT * FROM {$this->table} WHERE {$colum}='{$value}'";      
+                var_dump($sql);
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
 
         public function delete($idComun ,$value){
 

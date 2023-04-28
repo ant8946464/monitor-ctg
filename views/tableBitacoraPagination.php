@@ -3,6 +3,8 @@
 require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 
 
+
+
 	use App\Models\Activitylog;
 	$actitivy = new Activitylog(); 
 	$Colum;
@@ -33,9 +35,12 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 	$resulAll = $actitivy->getallJoinWhere($Colum, $value);
 
 	$pages =  ceil(count($resulAll) / $porPagina);
+
+	
 	
 	?>
 	<section class="content">
+	
 	<center>
 	<table>
 		<thead>

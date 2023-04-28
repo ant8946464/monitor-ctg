@@ -2,7 +2,9 @@
 
 require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 
+require_once './classes/Session.php';
 
+use Classes\Session;
 	use App\Models\Activitylog;
 	$actitivy = new Activitylog(); 
 	$Colum;
@@ -21,5 +23,9 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 		$value = $_POST['name'];
 		
     }
+	$session = new Session();
+	$session->setSessionName('reportActivity',0) ;
+	$session->setSessionName('columActivity',$Colum ) ;
+	$session->setSessionName('valueActivity',$value) ;
 	
  require_once 'tableBitacoraPagination.php';	

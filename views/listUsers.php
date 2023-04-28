@@ -49,6 +49,10 @@ require_once dirname( __DIR__ ) . '/app/Models/User.php';
                 <a href="/listUsers"><img src="/assets/images/limpieza-de-datos.png"></a>
                 <span class="tooltiptext">Limpiar el filtrado</span>
             </div>
+            <div class="tooltip" style="margin-left: 5%;">
+            <a type="button"   id="btnver" href="/reportUser" target="_blank"><img src="/assets/images/pdf.png"></a>
+                <span class="tooltiptext">Exportar PDF</span>
+            </div>
         </center>
    
            <?php

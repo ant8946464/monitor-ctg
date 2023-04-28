@@ -1,5 +1,10 @@
 <?php
 require_once dirname( __DIR__ ) . '/app/Models/User.php';
+require_once './classes/Session.php';
+
+
+
+use Classes\Session;
         use App\Models\User;
 
 		$Colum;
@@ -19,6 +24,13 @@ require_once dirname( __DIR__ ) . '/app/Models/User.php';
 			$value = $_POST['email'];
 
 		} 
+
+		$session = new Session();
+
+		$session->setSessionName('reporteUser',0) ;
+		$session->setSessionName('columUser',$Colum ) ;
+		$session->setSessionName('valueUser',$value) ;
+
 	?>
         
          <?php

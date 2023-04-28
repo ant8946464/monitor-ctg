@@ -3,6 +3,9 @@
 
 require_once dirname(__DIR__) . '/app/Models/Activitylog.php';
 
+require_once './classes/Session.php';
+
+use Classes\Session;
 use App\Models\Activitylog;
 
 $actitivy = new Activitylog();
@@ -23,7 +26,14 @@ $resulAll = $actitivy->getallJoin();
 
 $pages =  ceil(count($resulAll) / $porPagina);
 
+$session = new Session();
+
+$session->setSessionName('reportActivity',1) ;
+
 ?>
+
+
+
 <section class="content">
 
     <center>

@@ -178,9 +178,13 @@
 
     Route::post('/contigenciaRestart', [PlanContingenciaController::class ,'contigenciaRestart']);
     
-    
+     //modulo de reportes
 
     Route::get('/reporte', [ReporteController::class ,'index']);
+
+    Route::get('/reportUser', [ReporteController::class ,'reportUser']);
+
+    Route::get('/reportEvent', [ReporteController::class ,'reportEvent']);
 
    
     Route::dispacth();

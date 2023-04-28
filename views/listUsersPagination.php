@@ -1,8 +1,11 @@
 <?php
 
 require_once dirname(__DIR__) . '/app/Models/User.php';
-
+require_once './classes/Session.php';
 use App\Models\User;
+
+
+use Classes\Session;
 
 $userModel = new User();
 
@@ -19,6 +22,11 @@ $resul = $userModel->getallColumnLimit($comienzo, $porPagina);
 $resulAll = $userModel->getallColumn();
 
 $pages =  ceil(count($resulAll) / $porPagina);
+
+
+$session = new Session();
+
+$session->setSessionName('reporteUser',1) ;
 
 ?>
 <section class="content">
@@ -109,7 +117,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 
 						?>
-						<li><a class="no-link" onclick="changePagination('<?php echo ($pagina + 1) ?>','tableBitacoraPagination','content')"><i class="icon-circle-right"></i></a></li>
+						<li><a class="no-link" onclick="changePagination('<?php echo ($pagina + 1) ?>','userPagination','content')"><i class="icon-circle-right"></i></a></li>
 					<?php
 
 					} else {
@@ -117,7 +125,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 					?>
 
-						<li><a onclick="changePagination('<?php echo ($pagina + 1) ?>','tableBitacoraPagination','content')">>></a></li>
+						<li><a onclick="changePagination('<?php echo ($pagina + 1) ?>','userPagination','content')">>></a></li>
 					<?php
 
 					}

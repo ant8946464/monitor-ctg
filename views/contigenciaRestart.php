@@ -9,20 +9,21 @@ if (isset($success)) {
 <?php
 
 require_once dirname(__DIR__) . '/app/Models/MonitoreoServer.php';
-require_once dirname(__DIR__) . '/app/Models/Server.php';
-
 
 use App\Models\MonitoreoServer;
-use App\Models\Server;
-
 
 $monitoreoServer = new MonitoreoServer();
-$server = new Server();
+
 
 
 ?>
 
 <section class="content-1" id="tableReset">
+
+<div class="tooltip" style="float:  right; ">
+            <a type="button"   id="btnver" href="/reportEvent" target="_blank"><img src="/assets/images/pdf.png"></a>
+                <span class="tooltiptext">Exportar PDF</span>
+            </div>
     <center>
         <table>
             <thead>
