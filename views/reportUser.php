@@ -25,10 +25,10 @@
    require_once dirname( __DIR__ ) . '/assets/tcpdf/include/tcpdf_include.php';;
    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-   $pdf->Image('../examples/images/logo.jpg',120, 15, 65, 20);
+   
    $pdf->SetCreator(PDF_CREATOR);
    $pdf->SetAuthor('Sistema Web de  monitoreo');
-   $pdf->SetTitle('Reporte de Usuarios');
+   $pdf->SetTitle('Evento Servidores');
 
    $pdf->setPrintHeader(false);
    $pdf->setPrintFooter(false);
@@ -54,7 +54,7 @@
    }
 
    $pdf->SetFont('helvetica', '', 11);
-
+   $pdf->Image('../examples/images/logo.jpg',120, 15, 65, 20);
    $pdf->AddPage();
 
    $html = '
@@ -64,7 +64,7 @@
            }
        </style>
        <h1>Reporte</h1>
-       <h3>Actvidades de Usuarios</h3>
+       <h3>Evento Servidores</h3>
        <br><br>
    ';
 
@@ -77,7 +77,7 @@
            th{
                vertical-align:middle;
                background:  #0077b6;
-               color: white;
+               color: blue;
            }
            table, th, td {
                border: 1px solid black;
@@ -131,6 +131,6 @@
    // ---------------------------------------------------------
 
    //Close and output PDF document
-   $pdf->Output('ReporteUsuarios.pdf', 'I');
+   $pdf->Output('ReporteEventoServidores.pdf', 'I');
  
 ?>
