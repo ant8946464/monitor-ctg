@@ -116,9 +116,7 @@ use \PDO;
         }
 
 
-        public function cleanValue($value){
-            return $this->databases->connect()->quote( $value);
-        }
+       
         
         public function getallColumn(){
             $items = [];

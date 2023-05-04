@@ -83,8 +83,8 @@
           </div>
 
           <div>
-          <div style="margin-left: 15%;">
-                   <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>">
+          <div  class="gwd-reCAPTCHA_2" style="margin-left: 15%;">
+                <div class="g-recaptcha gwd-reCAPTCHA_2" data-sitekey="<?php echo constant('DATA_KEY') ?>">
            </div>
 
           </div>

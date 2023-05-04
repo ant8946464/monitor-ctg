@@ -1,7 +1,50 @@
 <?php
 
+require_once dirname(__DIR__) . '/assets/tcpdf/include/tcpdf_include.php';;
+// extend TCPF with custom functions
+class MYPDF extends TCPDF
+{
 
-    require_once dirname(__DIR__) . '/app/Models/User.php';
+
+    // Colored table
+    public function ColoredTable($header, $data)
+    {
+        // Colors, line width and bold font
+       
+        $this->SetFillColor(  21, 160, 212 );
+        $this->SetTextColor(255);
+        $this->SetDrawColor(128, 0, 0);
+        $this->SetLineWidth(0.3);
+        $this->SetFont('', 'B');
+        // Header
+        $w = array(15,60, 25, 60,30);
+        $num_headers = count($header);
+        for ($i = 0; $i < $num_headers; ++$i) {
+            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
+        }
+       
+        // Color and font restoration
+        $this->SetFillColor(224, 235, 255);
+        $this->SetTextColor(0);
+        $this->SetFont('');
+        // Data
+        $fill = 0;
+        foreach ($data as $k => $v) {
+            $this->Ln();
+            $this->Cell($w[0], 6, $v['id_user'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $v['username'].''.$v['first_name']. '  ' . $v['last_name'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[2], 6, $v['user_corporate'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[3], 6, $v['email'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[4], 6, $v['phone'], 'LR', 0, 'L', $fill);
+            $fill = !$fill;
+        }
+        $this->Cell(array_sum($w), 0, '', 'T');
+    }
+
+}
+ 	
+
+require_once dirname(__DIR__) . '/app/Models/User.php';
 
     require_once './classes/Session.php';
 
@@ -22,115 +65,64 @@
       $resul = $connectioDb->getallWhere($session->getSessionName('columUser'), $session->getSessionName('valueUser'));
    }
    
-   require_once dirname( __DIR__ ) . '/assets/tcpdf/include/tcpdf_include.php';;
-   $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-   
-   $pdf->SetCreator(PDF_CREATOR);
-   $pdf->SetAuthor('Sistema Web de  monitoreo');
-   $pdf->SetTitle('Evento Servidores');
+// create new PDF document
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-   $pdf->setPrintHeader(false);
-   $pdf->setPrintFooter(false);
+// set document information
+$pdf->SetCreator('TELCEL');
+$pdf->SetAuthor('TELCEL');
+$pdf->SetTitle('REPORTES USUARIOS');
 
-   $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+$header_logo='images/logo.jpg';
+// set default header data
+$pdf->SetHeaderData($header_logo, PDF_HEADER_LOGO_WIDTH, 'TELCEL', 'REPORTE DE USUARIO');
 
-   $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-   $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+// set header and footer fonts
+$pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-   $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+// set default monospaced font
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-   $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-   $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-   $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-   $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-   $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+// set image scale factor
+$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-   if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
-       require_once(dirname(__FILE__) . '/lang/eng.php');
-       $pdf->setLanguageArray($l);
-   }
+// set some language-dependent strings (optional)
+if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
+    require_once(dirname(__FILE__) . '/lang/eng.php');
+    $pdf->setLanguageArray($l);
+}
 
-   $pdf->SetFont('helvetica', '', 11);
-   $pdf->Image('../examples/images/logo.jpg',120, 15, 65, 20);
-   $pdf->AddPage();
+// ---------------------------------------------------------
 
-   $html = '
-       <style>
-           h1{
-               font-family: Arial, Helvetica, sans-serif;
-           }
-       </style>
-       <h1>Reporte</h1>
-       <h3>Evento Servidores</h3>
-       <br><br>
-   ';
+// set font
+$pdf->SetFont('helvetica', '', 12);
 
-   $html.='
-       <style>
-           table {
-               border-collapse: collapse;
-               margin-top: 100px;
-           }
-           th{
-               vertical-align:middle;
-               background:  #0077b6;
-               color: blue;
-           }
-           table, th, td {
-               border: 1px solid black;
-           }
-           table > tr > th {
-               font-weight: bold; 
-               text-align: center;
-               vertical-align: middle;
-               color: black;
-               height: 40px;
-          
-           }
-           table > tr > td {
-               font-weight: bold; 
-               text-align: center;
-               color: black;
-               height: 40px;
-            
-           }
-       </style>
-       
-       <table>
-           <tr>
-               <th>Id</th>
-               <th>NOMBRE</th>
-               <th>APELLIDOS</th>
-               <th>USUARIO GENERICO</th>
-               <th>CORREO</th>
-               <th>TELÉFONO</th>
-           </tr>';
-          
-               foreach ( $resul as $k => $v) {
-                   $html.= 
-                   '<tr>
-                       <td>'.$v['id_user'].'</td>
-                       <td>'.$v['username'].'</td>
-                       <td>'.$v['first_name'] . '  ' . $v['last_name'].'</td>
-                       <td>'.$v['user_corporate'].'</td>
-                       <td>'.$v['email'].'</td>
-                       <td>'.$v['phone'].'</td>
-                   </tr>';
-               }	 		
-   $html.=' 
-           </table>';
+// add a page
+$pdf->AddPage();
 
-   $pdf->writeHTML($html, true, false, false, false, 'C');
+// column titles
+$header = array('Id', 'NOMBRE', 'USUARIO ','CORREO','TELÉFONO');
 
-   // move pointer to last page
-    $pdf->lastPage();
-   ob_end_clean();
-   // ---------------------------------------------------------
 
-   //Close and output PDF document
-   $pdf->Output('ReporteEventoServidores.pdf', 'I');
- 
+// data loading
+
+$pdf->header();
+// print colored table
+$pdf->ColoredTable($header,  $resul);
+
+// ---------------------------------------------------------
+
+// close and output PDF document
+$pdf->Output('Reporte_Usarios'.date('Y-m-d').'.pdf', 'I');
+
 ?>

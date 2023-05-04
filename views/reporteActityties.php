@@ -6,13 +6,12 @@ require_once dirname(__DIR__) . '/assets/tcpdf/include/tcpdf_include.php';;
 class MYPDF extends TCPDF
 {
 
-
     // Colored table
     public function ColoredTable($header, $data)
     {
         // Colors, line width and bold font
-       
-        $this->SetFillColor(  21, 160, 212 );
+        $imag='dirname(__DIR__)/ ';
+        $this->SetFillColor(21, 160, 212 );
         $this->SetTextColor(255);
         $this->SetDrawColor(128, 0, 0);
         $this->SetLineWidth(0.3);
@@ -39,7 +38,6 @@ class MYPDF extends TCPDF
             $this->Cell($w[4], 6, $v['event_date'], 'LR', 0, 'L', $fill);
             $fill = !$fill;
         }
-        $this->Cell(array_sum($w), 0, '', 'T');
     }
 }
 
@@ -70,9 +68,11 @@ $pdf->SetCreator('TELCEL');
 $pdf->SetAuthor('TELCEL');
 $pdf->SetTitle('REPORTES ACTIVIDADES');
 
-$header_logo='images/logo.jpg';
+
 // set default header data
-$pdf->SetHeaderData($header_logo, PDF_HEADER_LOGO_WIDTH, 'TELCEL', 'REPORTE DE ACTVIDADES DEL SERVIDOR');
+
+$image_file = '.../tcpdf/examples/example_001.php';
+$pdf->SetHeaderData($image_file, PDF_HEADER_LOGO_WIDTH, 'TELCEL', 'REPORTE DE ACTVIDADES DEL SERVIDOR');
 
 // set header and footer fonts
 $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));

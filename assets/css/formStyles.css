@@ -83,3 +83,34 @@ textarea{
 }
 
 
+
+@media  screen and (max-width: 400px){
+  .form-register{
+    width: 80%;
+
+  }
+
+  .capcha{
+   
+    border: 5px solid darkblue;
+    height: 5%;
+    width:5%;
+   
+   
+  }
+
+  .gwd-reCAPTCHA_2   {
+    transform: scale(0.75);
+    transform-origin: 0 0;
+   }
+  
+}
+
+@media  screen and (max-width: 206px){
+ 
+  .gwd-reCAPTCHA_2   {
+    transform: scale(0.68);
+    transform-origin: 0 0;
+   }
+  
+}

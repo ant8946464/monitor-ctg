@@ -136,4 +136,19 @@ fieldset {
   }
 
 
+  @media (max-width:800px){
+
+	.logout{
+		width: 10%;
+		font-size: 15px;
+		height:40%;
+		padding: 5px 5px;
+	  }
+  }
   
+  @media (max-width:590px){
+
+	.spanFilter{
+		font-size:20px;
+	}
+  }
