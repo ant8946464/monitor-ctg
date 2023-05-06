@@ -39,12 +39,10 @@
         <input type="password" placeholder="Password" class="input" name="password" maxlength="8" required>
 
       </div>
-
       <div style="margin-top: 5%; margin-bottom: 5%;">
-          <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>">
+          <div class="g-recaptcha gwd-reCAPTCHA_2" data-sitekey="<?php echo constant('DATA_KEY') ?>">
           </div>
       </div>
-   
       <input type="submit" class="submitBtn" value="Enviar">
       <a href="/Registrate" class="sign-up">Registrate</a>
       <a href="/resetPassword" class="forgot">¿Se te olvido la contraseña?</a>

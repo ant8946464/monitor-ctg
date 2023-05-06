@@ -105,7 +105,7 @@
             $this->responsible_boss =  $this->getPost('responsable')?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
 
-            if(!$captcha->getCaptcha()){
+           if(!$captcha->getCaptcha()){
                 return $this->view('registrationForm',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy'));
             }
      

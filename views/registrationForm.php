@@ -88,7 +88,7 @@
            </div>
 
           </div>
-
+  
            <input type="submit"  value="Registrate" class="btn-enviar" >
           <p class="form_link">¿Ya tienes cuenta? <a href="/" class="sign-up">Ingresa aqui</a> </p>
       </div>
