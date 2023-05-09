@@ -15,6 +15,7 @@
         </div>
     
 </div>
+
     <footer class="footer">
         <section class="footer__copy container">
             <div class="footer__social">

@@ -48,7 +48,7 @@ if ($modelo == "AreaManager") {
 				<div class="tab-content">
 					<h1 style="color: #f1f3f4;">Eliminar<?php if (isset($tap2Header)) { ?><?= $tap2Header ?> <?php }  ?></h1>
 					<div class="spanFilter">
-						<span style="font-size: 25px;">Seleccione el filtrado </span>
+						<span >Seleccione el filtrado </span>
 					</div>
 					<div class="select-dis">
 						<div class="content-select select-center">

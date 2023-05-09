@@ -36,12 +36,12 @@ $session->setSessionName('reporteUser',1) ;
 			<table>
 				<thead>
 					<tr>
-						<th>Id</th>
+						<th class="trUserlist">Id</th>
 						<th>Nombre</th>
-						<th>Apellidos</th>
+						<th class="trUserlist">Apellidos</th>
 						<th>Usuario Generico</th>
 						<th>Correo</th>
-						<th>Teléfono</th>
+						<th class="trUserlist">Teléfono</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -51,15 +51,15 @@ $session->setSessionName('reporteUser',1) ;
 					foreach ($resul as $k => $v) {
 
 					?>
-						<tr>
+						<tr >
 
-							<td><?php echo $v['id_user']  ?></td>
+							<td class="trUserlist"><?php echo $v['id_user']  ?></td>
 							<td><?php echo $v['username']  ?></td>
-							<td><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
+							<td class="trUserlist"><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
 							<td><?php echo $v['user_corporate'] ?></td>
 							<td><?php echo $v['email'] ?></td>
-							<td><?php echo $v['phone']  ?></td>
-							<td><a class="button" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
+							<td class="trUserlist"><?php echo $v['phone']  ?></td>
+							<td><a class="button button-delete" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
 						<?php
 
 					}

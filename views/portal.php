@@ -28,7 +28,7 @@ if (isset($success)) {
 <div class="spanFilter">
     <span>Seleccione el filtrado </span>
 </div>
-<fieldset>
+<fieldset >
 
     <div class="select-dis">
         <div class="content-select select-center">
@@ -84,7 +84,6 @@ if (isset($success)) {
     ?>
 
 </fieldset>
-
 
 <?php
 

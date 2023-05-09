@@ -61,11 +61,9 @@ input ,textarea{
 }
 
 textarea{
-
   width: 100%;
   resize: none;
   height: 100px;
-
 }
 
 .btn-enviar{
@@ -80,7 +78,7 @@ textarea{
 }
 
 .btn-enviar{
- transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .form_link{
@@ -93,24 +91,37 @@ textarea{
 
 
 @media  screen and (max-width: 400px){
+
   .form-register{
     width: 80%;
-
   }
 
   .capcha{
-   
     border: 5px solid darkblue;
     height: 5%;
     width:5%;
-   
-   
   }
 
   .gwd-reCAPTCHA_2   {
     transform: scale(0.75);
     transform-origin: 0 0;
    }
+
+   .btn-enviar{
+     font-size: 12px;
+     padding-left: 20px;
+   }
+
+   .button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+
+  .button-delete{
+		font-size:7px;
+	}
+	  
   
 }
 

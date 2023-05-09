@@ -180,9 +180,60 @@ body {
     }
 }
 
+/* TABLE*/
+@media (max-width:440px){
+
+  .logoTelcelBlue{
+     width:90px;
+     height: 30px
+  }
+  .spanMsgInfo .spanFilter{
+     position: absolute;
+  }
+
+ .menu__logo{
+   font-size: 12px;
+ }
+
+  table {
+    width: 100%;
+  }
+
+  tr{
+    font-size: 8px;
+  }
+
+  .trUserlist{
+    display: none;
+     
+  }
+
+  .buttonUserlist{
+      width: 125%;
+      font-size: 3px;
+      
+      
+	 }
+ 
+}
+
+@media (max-width:380px){
+ tr{
+  font-size: 6px;
+ }
+
+ h1{
+   font-size: 18px;
+ }
+ 
+ input{
+  font-size: 18px;
+ }
 
 
+ 
 
+}
 
 /* Footer */
 
@@ -283,8 +334,6 @@ body {
 
 @media (max-width:800px){
   
-
-
   .footer__container{
       flex-wrap: wrap;
   }
@@ -350,7 +399,6 @@ body {
 }
 
 
-/* TABLE*/
 
 
 .container {

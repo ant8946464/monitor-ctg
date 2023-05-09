@@ -99,12 +99,10 @@
 }
 
 .spanMsgInfo{
-  
    background-color: #e0e0e0;
    height: 50px;
    padding-top: 13px;
    padding-left: 15px;
-   
 }
 
 
@@ -146,9 +144,48 @@ fieldset {
 	  }
   }
   
-  @media (max-width:590px){
+
+
+  @media (max-width:500px){
+
+	
+	.spanMsgInfo{
+		padding-top: 12px;
+		font-size:15px;
+	}
+	
+	.logout{
+		width: 18%;
+		font-size: 16px;
+		height:60%;
+		padding-top: 12px;
+	}
+
+	.select-dis{
+		display: block;
+		width: 100%;
+	}
+
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		font-size: 12px;
+	  }
+	  
+  }
+
+  @media (max-width:380px){
+
+	.logout{
+		font-size: 12px;
+	}
 
 	.spanFilter{
-		font-size:20px;
+		font-size:15px;
 	}
+
+	
+
   }
+
+
+
+  

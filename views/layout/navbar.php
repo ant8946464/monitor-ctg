@@ -16,7 +16,7 @@
     <nav class="menu">
         <section class="menu__container">
        
-        <img src="../../assets/images/logoTelcelBlue.jpg" width="170" height="60" />
+        <img class="logoTelcelBlue" src="../../assets/images/logoTelcelBlue.jpg" width="170" height="60" />
 
             <ul class="menu__links">
                 <li class="menu__item menu__item--show">
@@ -79,4 +79,6 @@
             </div>
         </section>
     </nav>
+  
+ 
     

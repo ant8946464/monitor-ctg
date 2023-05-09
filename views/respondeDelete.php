@@ -54,7 +54,7 @@ require_once dirname( __DIR__ ) . '/app/Models/Job.php';
                                     <tr>
                                         <td><?php echo $user['id']?></td>     
                                         <td><?php echo $user[$column]?></td>
-                                        <td><a  class="button" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>,'<?php echo $pathDelete ?>')">eliminar</a</td>
+                                        <td><a  class="button button-delete" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>,'<?php echo $pathDelete ?>')">eliminar</a</td>
                                 <?php
                                        endforeach
                                   ?>
