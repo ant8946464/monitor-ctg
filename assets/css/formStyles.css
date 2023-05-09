@@ -121,6 +121,16 @@ textarea{
   .button-delete{
 		font-size:7px;
 	}
+
+  .button-Cont{
+		font-size:5px;
+    width: 200%;
+	}
+
+  .buttonInfo{
+		font-size:5px;
+    	
+	  }
 	  
   
 }

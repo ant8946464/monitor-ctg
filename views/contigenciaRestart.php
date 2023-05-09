@@ -80,7 +80,7 @@ $monitoreoServer = new MonitoreoServer();
 
                             if ($v['status'] != 1) {
                             ?>
-                                <a class="button" onclick="changestatusServer('<?php echo  $v['server']  ?>', '0')">Reiniciar</a>
+                                <a class="button button-Cont" onclick="changestatusServer('<?php echo  $v['server']  ?>', '0')">Reiniciar</a>
                             <?php
                             }
                             ?>
