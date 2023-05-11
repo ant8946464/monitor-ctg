@@ -58,16 +58,11 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 				foreach ($resul as $k => $v) {
 			?>
 			<tr>
-				<td><?php echo $v['id_event']  ?>
-				</td>
-				<td><?php echo $v['activity']  ?>
-				</td>
-				<td><?php echo $v['name']  ?>
-				</td>
-				<td><?php echo $v['user_corporate'] ?>
-				</td>
-				<td><?php echo $v['event_date']  ?>
-				</td>
+				<td data-titulo="Id"><?php echo $v['id_event']  ?></td>
+				<td data-titulo="Actividad"><?php echo $v['activity']  ?></td>
+				<td data-titulo="Servidor"><?php echo $v['name']  ?></td>
+				<td data-titulo="Usuario"><?php echo $v['user_corporate'] ?></td>
+				<td data-titulo="Fecha del evento"><?php echo $v['event_date']  ?></td>
 			</tr>
 			<?php
 						

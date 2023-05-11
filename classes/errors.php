@@ -20,6 +20,7 @@ class Errors{
     const ERROR_CAPTCHA_INVALID                  = "SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy";
     const ERROR_NOT_TELEFONO                     = "mNLhA26CekJfRRsoVZH2YL+OQaPRl2uHL";
     const ERROR_NOT_MAIL                         = "omY1wv3wZvAMsQp8sJJO8Hj19VZ8u8Opa";
+    const ERROR_EXITS_CONTENT                    = "xCp6cfUWVGN17cara71QbGB0DiWMkiRIu";
 
 
     private $errorsList = [];
@@ -44,6 +45,7 @@ class Errors{
             Errors::ERROR_CAPTCHA_INVALID                   => 'Validar la captcha',
             Errors::ERROR_NOT_TELEFONO                      => 'El teléfono  contiene caracteres que No son numericos',
             Errors::ERROR_NOT_MAIL                          => 'El correo no cuenta con la estructura necesaria',
+            Errors::ERROR_EXITS_CONTENT                     => 'Ya existe: ',
         ];
     }
 

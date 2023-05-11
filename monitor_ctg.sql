@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 20-04-2023 a las 07:56:10
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.0.25
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 10-05-2023 a las 05:42:53
+-- Versión del servidor: 10.6.12-MariaDB-cll-lve
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `monitor_ctg`
+-- Base de datos: `u869015172_monitorctg`
 --
 
 -- --------------------------------------------------------
@@ -38,6 +38,7 @@ CREATE TABLE `d29_area` (
 --
 
 INSERT INTO `d29_area` (`id_area`, `area`, `id_descripcion`) VALUES
+(8, 'SACTWEB', 113),
 (5, 'SISACT', 95);
 
 -- --------------------------------------------------------
@@ -67,7 +68,7 @@ INSERT INTO `d29_area_manager` (`id_manager`, `manager_name`, `id_descripcion`) 
 
 CREATE TABLE `d29_descrition_register` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
   `date_register` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -84,7 +85,11 @@ INSERT INTO `d29_descrition_register` (`id`, `description`, `date_register`) VAL
 (104, 'xx', '2023-04-06'),
 (106, 'Personal que tiene todos los privilegios del siste', '2023-04-06'),
 (108, 'valor del estatus del proceso batch', '2023-04-27'),
-(109, 'Personal que atiende el montoreo de los servidores', '2023-04-25');
+(109, 'Personal que atiende el montoreo de los servidores', '2023-04-25'),
+(110, 'Persona que analiza los datos y los transfma en in', '2023-05-09'),
+(111, 'persona que analiza los datos y los transfma en in', '2023-05-09'),
+(112, 'persona que analiza los datos y los transfma en in', '2023-05-09'),
+(113, 'Area web', '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -148,7 +153,7 @@ CREATE TABLE `d29_prop` (
 --
 
 INSERT INTO `d29_prop` (`id_prop`, `value`, `d29_descrition_register_id`) VALUES
-(1, 0, 108);
+(1, 1, 108);
 
 -- --------------------------------------------------------
 
@@ -167,7 +172,8 @@ CREATE TABLE `d29_role` (
 --
 
 INSERT INTO `d29_role` (`id_role`, `role`, `id_descripcion`) VALUES
-(1, 'Administrador', 106);
+(1, 'Administrador', 106),
+(6, 'analista', NULL);
 
 -- --------------------------------------------------------
 
@@ -221,7 +227,8 @@ CREATE TABLE `d29_user` (
 
 INSERT INTO `d29_user` (`id_user`, `username`, `first_name`, `last_name`, `user_corporate`, `email`, `password`, `role_authorization`, `d29_area_id`, `d29_role_id`, `d29_area_manager_id`, `phone`) VALUES
 (5, 'Juan ', 'Antonio', 'Bemudez', 'EX311772', 'bermudez@mail.telcel', 'bks4Rktrdi9DZk83V3lPTkdDNEVjUT09OjpdPbQLaLS7CfI+FJdmrqFd', 1, 5, 1, 71, '7777777777'),
-(11, 'ppppp  ', 'ooooo  ', 'llllll  ', 'EX333333', 'JJJJ@JJJJ', 'ZHYzWWtxcFZTTVVUMlJ3Rk9JTjFnZz09OjoMZ/ac1hlbRvhq6kH/8FSm', 0, 5, 4, 71, '5555555555');
+(11, 'ppppp  ', 'ooooo  ', 'llllll  ', 'EX333333', 'JJJJ@JJJJ', 'ZHYzWWtxcFZTTVVUMlJ3Rk9JTjFnZz09OjoMZ/ac1hlbRvhq6kH/8FSm', 0, 5, 4, 71, '5555555555'),
+(12, 'Daniel', 'Castillo', 'Gutierrez', 'EX32765', 'daniel@telcel.com', 'UU8wUmhTVUhFNGUyYnJyamNoeGNDQT09OjrTcEuVD2DbqkT1+4JSPR7B', 0, 5, 6, 71, '5538545121');
 
 -- --------------------------------------------------------
 
@@ -347,7 +354,11 @@ INSERT INTO `d29_user_event` (`id_event`, `activity`, `event_date`, `d29_server_
 (819, 'Iniciado', '2023-04-20 07:37:30', 1, 5),
 (820, 'Iniciado', '2023-04-20 07:37:31', 2, 5),
 (821, 'Iniciado', '2023-04-20 07:37:32', 3, 5),
-(822, 'Iniciado', '2023-04-20 07:37:33', 4, 5);
+(822, 'Iniciado', '2023-04-20 07:37:33', 4, 5),
+(823, 'Reinicio', '2023-05-06 05:29:44', 2, 5),
+(824, 'Reinicio', '2023-05-09 04:56:10', 1, 5),
+(825, 'Detener', '2023-05-09 04:56:40', 1, 5),
+(826, 'Iniciado', '2023-05-09 04:56:44', 1, 5);
 
 --
 -- Índices para tablas volcadas
@@ -358,6 +369,7 @@ INSERT INTO `d29_user_event` (`id_event`, `activity`, `event_date`, `d29_server_
 --
 ALTER TABLE `d29_area`
   ADD PRIMARY KEY (`id_area`,`id_descripcion`),
+  ADD UNIQUE KEY `area` (`area`),
   ADD KEY `fk_d29_area_d29_descrition_register1_idx` (`id_descripcion`);
 
 --
@@ -365,6 +377,7 @@ ALTER TABLE `d29_area`
 --
 ALTER TABLE `d29_area_manager`
   ADD PRIMARY KEY (`id_manager`,`id_descripcion`),
+  ADD UNIQUE KEY `manager_name` (`manager_name`),
   ADD KEY `fk_d29_area_manager_d29_descrition_register1_idx` (`id_descripcion`);
 
 --
@@ -390,7 +403,8 @@ ALTER TABLE `d29_prop`
 -- Indices de la tabla `d29_role`
 --
 ALTER TABLE `d29_role`
-  ADD PRIMARY KEY (`id_role`);
+  ADD PRIMARY KEY (`id_role`),
+  ADD UNIQUE KEY `role` (`role`);
 
 --
 -- Indices de la tabla `d29_server_ctg`
@@ -403,6 +417,7 @@ ALTER TABLE `d29_server_ctg`
 --
 ALTER TABLE `d29_user`
   ADD PRIMARY KEY (`id_user`,`d29_area_id`,`d29_role_id`,`d29_area_manager_id`),
+  ADD UNIQUE KEY `user_corporate` (`user_corporate`,`email`),
   ADD KEY `fk_d29_user_d29_area_idx` (`d29_area_id`),
   ADD KEY `fk_d29_user_d29_role1_idx` (`d29_role_id`),
   ADD KEY `fk_d29_user_d29_area_manager1_idx` (`d29_area_manager_id`);
@@ -423,7 +438,7 @@ ALTER TABLE `d29_user_event`
 -- AUTO_INCREMENT de la tabla `d29_area`
 --
 ALTER TABLE `d29_area`
-  MODIFY `id_area` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_area` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_area_manager`
@@ -435,7 +450,7 @@ ALTER TABLE `d29_area_manager`
 -- AUTO_INCREMENT de la tabla `d29_descrition_register`
 --
 ALTER TABLE `d29_descrition_register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_monitoreo_server`
@@ -453,7 +468,7 @@ ALTER TABLE `d29_prop`
 -- AUTO_INCREMENT de la tabla `d29_role`
 --
 ALTER TABLE `d29_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_server_ctg`
@@ -465,13 +480,13 @@ ALTER TABLE `d29_server_ctg`
 -- AUTO_INCREMENT de la tabla `d29_user`
 --
 ALTER TABLE `d29_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `d29_user_event`
 --
 ALTER TABLE `d29_user_event`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=823;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=827;
 
 --
 -- Restricciones para tablas volcadas

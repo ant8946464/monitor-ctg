@@ -58,10 +58,10 @@ $monitoreoServer = new MonitoreoServer();
                 ?>
                     <tr>
 
-                        <td><?php echo $v['id_monitore']  ?></td>
-                        <td><?php echo $v['server']  ?></td>
-                        <td><?php echo $v['date_event'] ?></td>
-                        <td>
+                        <td data-titulo="Id"><?php echo $v['id_monitore']  ?></td>
+                        <td data-titulo="Servidor"><?php echo $v['server']  ?></td>
+                        <td data-titulo="Fecha de ejecución"><?php echo $v['date_event'] ?></td>
+                        <td data-titulo="Estatus">
                             <?php
 
                             if ($v['status'] == 1) {
@@ -75,7 +75,7 @@ $monitoreoServer = new MonitoreoServer();
                             }
                             ?>
                         </td>
-                        <td>
+                        <td data-titulo="Aplicar reseto">
                             <?php
 
                             if ($v['status'] != 1) {

@@ -32,13 +32,13 @@ $userModel = new User();
         ?>
             <tr>
 
-                <td><?php echo $v['id_user']  ?></td>
-                <td><?php echo $v['username']  ?></td>
-                <td><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
-                <td><?php echo $v['user_corporate'] ?></td>
-                <td><?php echo $v['email'] ?></td>
-                <td><?php echo $v['phone']  ?></td>
-                <td><a class="button" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
+                <td data-titulo="Id"><?php echo $v['id_user']  ?></td>
+                <td data-titulo="Nombre"><?php echo $v['username']  ?></td>
+                <td data-titulo="Apellidos"><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
+                <td data-titulo="Usuario Generico"><?php echo $v['user_corporate'] ?></td>
+                <td data-titulo="Correo"><?php echo $v['email'] ?></td>
+                <td data-titulo="Teléfon"><?php echo $v['phone']  ?></td>
+                <td ><a class="button" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
             <?php
 
         }

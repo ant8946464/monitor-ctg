@@ -53,8 +53,8 @@
 					}
 			    ?>
 				<tr>
-					<td><?php echo $items[0] ?></td>
-					<td><?php echo $items[1] ?></td>
+					<td data-titulo="Id"><?php echo $items[0] ?></td>
+					<td data-titulo="<?php if(isset($nameHeader)){?><?=$nameHeader ?> <?php }  ?>"><?php echo $items[1] ?></td>
 					<td><a class="button" href="#modal1" onclick="asigID(<?php echo $items[0]?>,'<?php echo $pathDelete ?>')">eliminar</a></td>
 				</tr>
 			</tbody>

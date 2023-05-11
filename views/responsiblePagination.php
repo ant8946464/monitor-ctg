@@ -34,9 +34,9 @@ $pages =  ceil(count($resulAll) / $porPagina);
 					foreach ($connectioDb->getItemColumns($column, $idtable) as $user) :
 					?>
 						<tr>
-							<td><?php echo $user['id'] ?>
+							<td data-titulo="Id"><?php echo $user['id'] ?>
 							</td>
-							<td><?php echo $user[$column] ?>
+							<td data-titulo="<?php if (isset($nameHeader)) { ?><?= $nameHeader ?> <?php }  ?>"><?php echo $user[$column] ?>
 							</td>
 							<td>
 								<a class="button button-delete" href="#modal1" onclick="asigID(<?php echo $user['id'] ?>,'<?php echo $pathDelete ?>' )">eliminar</a>

@@ -45,17 +45,17 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
                 ?>
                     <tr>
-                        <td><?php echo $v['id_ctg']  ?></td>
-                        <td><?php echo $v['name']  ?></td>
-                        <td><?php echo $v['ip'] ?></td>
+                        <td data-titulo="Id"><?php echo $v['id_ctg']  ?></td>
+                        <td data-titulo="Servidor"><?php echo $v['name']  ?></td>
+                        <td data-titulo="Ip"><?php echo $v['ip'] ?></td>
                         <?php
                         if ($v['estatus'] == 1) {
                         ?>
-                            <td><a class="button buttonInfo" onclick="changestatusServer('<?php echo  $v['name']  ?>', '2')">Detener</a></td>
+                            <td data-titulo="ACTIVIDAD DEL SERVIDOR"><a class="button buttonInfo" onclick="changestatusServer('<?php echo  $v['name']  ?>', '2')">Detener</a></td>
                         <?php
                         } else if ($v['estatus'] == 2) {
                         ?>
-                            <td> <a class="button buttonInfo" onclick="changestatusServer('<?php echo  $v['name']  ?>', '1')">Iniciar</a> </td>
+                            <td data-titulo="ACTIVIDAD DEL SERVIDOR"> <a class="button buttonInfo" onclick="changestatusServer('<?php echo  $v['name']  ?>', '1')">Iniciar</a> </td>
                         <?php
                         }
                         ?>

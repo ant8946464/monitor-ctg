@@ -134,7 +134,7 @@ fieldset {
   }
 
 
-  @media (max-width:800px){
+  @media only screen and (max-width:800px){
 
 	.logout{
 		width: 10%;
@@ -146,7 +146,7 @@ fieldset {
   
 
 
-  @media (max-width:500px){
+  @media only screen and (max-width:500px){
 
 	
 	.spanMsgInfo{
@@ -173,7 +173,7 @@ fieldset {
 	  
   }
 
-  @media (max-width:380px){
+  @media only screen and (max-width:380px){
 
 	.logout{
 		font-size: 12px;

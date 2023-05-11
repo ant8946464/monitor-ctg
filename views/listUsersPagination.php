@@ -36,12 +36,12 @@ $session->setSessionName('reporteUser',1) ;
 			<table>
 				<thead>
 					<tr>
-						<th class="trUserlist">Id</th>
+						<th >Id</th>
 						<th>Nombre</th>
-						<th class="trUserlist">Apellidos</th>
+						<th >Apellidos</th>
 						<th>Usuario Generico</th>
 						<th>Correo</th>
-						<th class="trUserlist">Teléfono</th>
+						<th >Teléfono</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -53,13 +53,14 @@ $session->setSessionName('reporteUser',1) ;
 					?>
 						<tr >
 
-							<td class="trUserlist"><?php echo $v['id_user']  ?></td>
-							<td><?php echo $v['username']  ?></td>
-							<td class="trUserlist"><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
-							<td><?php echo $v['user_corporate'] ?></td>
-							<td><?php echo $v['email'] ?></td>
-							<td class="trUserlist"><?php echo $v['phone']  ?></td>
-							<td><a class="button button-delete" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
+							
+						<td data-titulo="Id"><?php echo $v['id_user']  ?></td>
+						<td data-titulo="Nombre"><?php echo $v['username']  ?></td>
+						<td data-titulo="Apellidos"><?php echo $v['first_name'] . '  ' . $v['last_name']  ?></td>
+						<td data-titulo="Usuario Generico"><?php echo $v['user_corporate'] ?></td>
+						<td data-titulo="Correo"><?php echo $v['email'] ?></td>
+						<td data-titulo="Teléfon"><?php echo $v['phone']  ?></td>
+						<td><a class="button button-delete" href="#modal1" onclick="asigID(<?php echo $v['id_user'] ?>,'deleteUser')">eliminar</a></td>
 						<?php
 
 					}

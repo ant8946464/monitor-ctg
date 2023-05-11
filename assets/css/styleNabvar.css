@@ -181,46 +181,60 @@ body {
 }
 
 /* TABLE*/
-@media (max-width:440px){
+  @media (max-width:480px){
+      .logoTelcelBlue{
+        width:90px;
+        height: 30px
+      }
+      .spanMsgInfo .spanFilter{
+        position: absolute;
+      }
 
-  .logoTelcelBlue{
-     width:90px;
-     height: 30px
-  }
-  .spanMsgInfo .spanFilter{
-     position: absolute;
-  }
+      .spanFilter{
+        margin-left: 60px;
+      }
+      
 
- .menu__logo{
-   font-size: 12px;
- }
+      span{
+        font-size: 15px;
+      }  
+    .menu__logo{
+      font-size: 12px;
+    }
 
-  table {
-    width: 100%;
-  }
+      table {
+        width: 100%;
+      }
 
-  tr{
-    font-size: 8px;
-  }
+      table tr{
+        display: flex;
+        flex-direction: column;
+        border:#2d2da4;
 
-  .trUserlist{
-    display: none;
+      }
+
+      table td[data-titulo]::before{
+        content: attr(data-titulo);
+        width: 90px;
+      }
+
+      table td[data-titulo]{
+        display: flex;
+        width: 100%;
+        
+    }
+
+    table thead{
+      display: none;
+    }
+      
+
      
-  }
-
-  .buttonUserlist{
-      width: 125%;
-      font-size: 3px;
-      
-      
-	 }
- 
 }
 
-@media (max-width:380px){
- tr{
-  font-size: 6px;
- }
+
+@media only screen and (max-width:380px){
+
 
  h1{
    font-size: 18px;

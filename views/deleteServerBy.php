@@ -57,12 +57,12 @@ if (!empty($resul)) {
 			}
 			?>
 			<tr>
-				<td><?php echo $items[0] ?></td>
-				<td><?php echo $items[1] ?></td>
-				<td><?php echo $items[2] ?></td>
-				<td><?php echo $items[3] ?></td>
-				<td><?php echo $items[4] ?></td>
-				<td><a class="button" href="#modal1" onclick="asigID(<?php echo $items[0] ?>,'deleteServer')">eliminar</a></td>
+				<td data-titulo="Id"><?php echo $items[0] ?></td>
+				<td data-titulo="Nombre"><?php echo $items[1] ?></td>
+				<td data-titulo="Ip"><?php echo $items[2] ?></td>
+				<td data-titulo="Cluster"><?php echo $items[3] ?></td>
+				<td data-titulo="Puerto"><?php echo $items[4] ?></td>
+				<td > <a class="button" href="#modal1" onclick="asigID(<?php echo $items[0] ?>,'deleteServer')">eliminar</a></td>
 			</tr>
 		</tbody>
 	</table>
