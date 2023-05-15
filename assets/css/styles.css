@@ -36,6 +36,10 @@ body {
     color:  #0077b6;
   }
 
+  .titleReset {
+    font-size: 30px;
+  }
+
   .inputContainer {
     position: relative;
     height: 45px;

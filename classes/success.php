@@ -22,6 +22,7 @@ class Success{
     const SUCCESS_USER_UPDATEPHOTO      = "edabc9e4581fee3f0056fff4685ee9a8";
     const SUCCESS_SIGNUP_DELETE         = "70apW15nLk+69i3Qx4Yc3IzRAo7tv5z4";
     const SUCCESS_ACTIVITY_SEVER        = "aQWdRIYrrlJHCaOGmkdDtE4VXRigwkGmT";
+    const EMAIL_EXIT                    = "HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW";
 
 
     
@@ -35,10 +36,11 @@ class Success{
     {
         $this->successList = [
            
-            Success::SUCCESS_SIGNUP_NEWUSER => "Usuario registrado correctamente",
-            Success::SUCCESS_CHANGE_STATUS => "Se cambio correctamente el estatus del proceso",
-            Success::SUCCESS_SERVER_REGISTER => "El servidor quedo registrado con exito",
-            Success::SUCCESS_UPDATE_SERVER => "Se actualizo correctamente el registro.",
+            Success::SUCCESS_SIGNUP_NEWUSER    => "Usuario registrado correctamente",
+            Success::SUCCESS_CHANGE_STATUS     => "Se cambio correctamente el estatus del proceso",
+            Success::SUCCESS_SERVER_REGISTER   => "El servidor quedo registrado con exito",
+            Success::SUCCESS_UPDATE_SERVER     => "Se actualizo correctamente el registro.",
+            Success::EMAIL_EXIT                => "Se envio link a su correo para resetear el passwword",
 
 
             Success::SUCCESS_ADMIN_NEWCATEGORY => "Nueva categoría creada correctamente",
@@ -50,6 +52,7 @@ class Success{
             Success::SUCCESS_USER_UPDATEPHOTO => "Imagen de usuario actualizada correctamente",
             Success::SUCCESS_SIGNUP_DELETE => "El registro se elimino correctamente.",
             Success::SUCCESS_ACTIVITY_SEVER => "Se realizo la actividad con exito: ",
+           
             
             
         ];

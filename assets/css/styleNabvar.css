@@ -209,7 +209,7 @@ body {
       table tr{
         display: flex;
         flex-direction: column;
-        border:#2d2da4;
+        border-style: solid;
 
       }
 

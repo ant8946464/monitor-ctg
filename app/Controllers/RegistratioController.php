@@ -8,6 +8,7 @@
    require_once './lib/ValidatorFunctions.php';
    require_once './lib/AbCrypt.php';
    require_once './lib/Captcha.php';
+   require_once './classes/Mail.php';
     
     use App\Controllers\Controller;
     use Classes\Errors;
@@ -16,6 +17,7 @@
     use Lib\ValidatorFunctions;
     use Lib\AbCrypt;
     use Lib\Captcha;
+    use Classes\Mail;
  
 
     class RegistratioController extends Controller{
@@ -129,6 +131,30 @@
                 return $this->view('registrationForm',$this->createArrayFront('a74accfd26e06d012266810952678cf3'));
             }else{
                 if($userModels->create($this->createArrayInsert())){
+                    if($this->rol== 1){
+                        $mensaje = '
+                        <html>
+                        <head>
+                        <title>Permisos de Administrador</title>
+                        </head>
+                        <body>
+                           <h1>El usuario '.$this->user_corporate.' se registro como administrador.  </h1>
+                           <div style="text-align:center; background-color:#ccc">
+                              <p>Permisos de Administrador</p>
+                              <p> <a 
+                                    href="https://monictorctg-space.preview-domain.com/"> 
+                                    Para dar aurorización de administrador daclick aqui </a> </p>
+                              <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
+                           </div>
+                        </body>
+                        </html>
+                        ';
+                        $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+                        $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                       $email = new Mail(constant('GROUP_MAIL'),'Permisos de Administrador',  $mensaje, $cabeceras);
+                       $email->sendMail();
+                        return $this->view('login', ["success" => $success->get('8281e04ed52ccfc13820d0f6acb0985a')]  );
+                    }                                                                                                                                                                                                                                                         
                     return $this->view('login', ["success" => $success->get('8281e04ed52ccfc13820d0f6acb0985a')]  );
                 }else{
                     return $this->view('registrationForm',$this->createArrayFront('1fdce6bbf47d6b26a9cd809ea1910222'));
@@ -155,6 +181,7 @@
 
          private function createArrayInsert(){
             $abcrypt = new AbCrypt();
+            $date_now = date("Y-m-d h:i:s"); 
             $array = [
                 "username" => $this->userName,
                 "first_name" => $this->first_name,
@@ -166,7 +193,8 @@
                 "d29_area_id" => $this->area,
                 "role_authorization" => '0',
                 "d29_area_manager_id" => $this->responsible_boss,
-                "phone" => $this->phone
+                "phone" => $this->phone,
+                "tokenUser" => $abcrypt->encryptthis($this->user_corporate.$date_now),
             ];
 
             return $array ;

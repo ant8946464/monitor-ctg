@@ -24,7 +24,8 @@
       }
 
       function getGet($name){
-         return $_GET[$name];
+         $validator = new ValidatorFunctions();
+         return  $validator->clean_text($_GET[$name]);   
       }
  
      function getPost($name){

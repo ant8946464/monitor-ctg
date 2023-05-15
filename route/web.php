@@ -48,7 +48,8 @@
     Route::get('/listActivities',[LoginController::class ,'listActivities']);
 
 
-
+    Route::post('/sendMailReset',[LoginController::class ,'sendMailReset']);
+    
 
 
     Route::get('/Registrate', [RegistratioController::class ,'index']);

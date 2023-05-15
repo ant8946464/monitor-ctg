@@ -13,7 +13,7 @@
 </head>
 <body  >
   <?php
-     require_once 'config/config.php';
+
      if(isset($error)){
   ?>            
     <div class="error"><b><?=  $error ?></b></div>   
@@ -29,22 +29,21 @@
       }
   ?>
 <div class="signupFrm" >
-    <form  class="form"  action="/login-validador"  method="POST" style="width: 40%; display: grid;;">
-      <h2 class="title">Recupera tú password</h2>
+    <form  class="form"  action="/sendMailReset"  method="POST" style="width: 40%; display: grid;;">
+      <h2 class="title titleReset">Recupera tú password</h2>
       
-
       <div class="inputContainer"    style="margin: auto;">
-        <input type="email" placeholder="Ingresa  tu correo" class="input" name="password" maxlength="8" required>
+        <input type="email" placeholder="Ingresa  tu correo" class="input" name="email"  required>
 
       </div>
 
-    
           <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>"  style="margin: auto;margin-top: 5%; margin-bottom: 5%;">
 
       </div>
    
-      <input type="submit" class="submitBtn" value="Recuperar Contontraseña" style="margin: auto;">
+      <input type="submit" class="submitBtn" value="Recuperar Contraseña" style="margin: auto;">
     </form>
+    <a href="/Registrate" class="sign-up">Registrate</a>
   </div>
   <script  type="text/javascript"  src="../assets/js/script.js"></script>
 </body>

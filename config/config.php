@@ -16,4 +16,7 @@
     define('SECRET_KEY', '6LdcjH0lAAAAAKPigSY558fowPoYQf196B4CTuVi');
     define('DATA_KEY', '6LdcjH0lAAAAAKXBN1pJpITryurWFN8zdQUaxZ5h');
 
+
+    define('GROUP_MAIL', 'j.antonio.bermudez80@gmail.com');
+
 ?>
