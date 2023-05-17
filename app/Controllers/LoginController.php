@@ -53,27 +53,9 @@
                array_push( $items,$v);
             }
 
-            $mensaje = '
-            <html>
-            <head>
-            <title>Restablecer Password</title>
-            </head>
-            <body>
-               <h1>Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. </h1>
-               <div style="text-align:center; background-color:#ccc">
-                  <p>Restablecer contraseña</p>
-                  <p> <a 
-                        href="https://monictorctg-space.preview-domain.com/formResetPassword?email='.$emailUser.'&token='.$items[12].'"> 
-                        Para restablecer da click aqui </a> </p>
-                  <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
-               </div>
-            </body>
-            </html>
-            ';
-           $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-           $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-           $email = new Mail($emailUser,'Reseteo de password',  $mensaje, $cabeceras);
-           $email->sendMail();
+           $email = new Mail($emailUser,'Reseteo de password',null);
+           $email->templateMessage('Restablecer Password', 'Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. ' ,"https://monictorctg-space.preview-domain.com/formResetPassword/'.$emailUser.'token'.$items[12].'",'Para restablecer da click aqui');
+           $email->sendMailContent();
            return $this->view('login',$this->createArrayFront(null,'HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW'));
          }else{
             return $this->view('resetPassword',$this->createArrayFront('pishAXQ9ARlaqYd696GXe59kOCzB6V1zu',null));

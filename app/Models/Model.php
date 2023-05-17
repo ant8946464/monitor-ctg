@@ -213,7 +213,6 @@ use \PDO;
             $items = [];
             try{
                 $sql = "SELECT * FROM {$this->table} WHERE {$colum}='{$value}'";      
-                var_dump($sql);
                 $query = $this->databases->connect()->prepare($sql);  
                 $query->execute();
                 while( $p = $query->fetch(PDO::FETCH_ASSOC)){

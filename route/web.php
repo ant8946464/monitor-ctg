@@ -58,6 +58,11 @@
     Route::post('/registratevalidador',[RegistratioController::class ,'validateForm']);
 
 
+    Route::get('/administratorAuthorization/:token',[RegistratioController::class ,'validateAuthorization']);
+
+
+    
+
     Route::get('/portalmonitor', [PortalController::class ,'index']);
 
 

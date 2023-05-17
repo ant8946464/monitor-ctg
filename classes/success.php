@@ -11,7 +11,9 @@ class Success{
     const SUCCESS_CHANGE_STATUS         = "DBr6sjvFmDqOvBH37WDlBoe1bof9sm8L";
     const SUCCESS_SERVER_REGISTER       = "qrNetDEjGRg4AFdpch2bn4xnTOm8zhAg";
     const SUCCESS_UPDATE_SERVER         = "YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d";
-
+    const EMAIL_EXIT                    = "HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW";
+    const SUCCESS_ACTIVITY_SEVER        = "aQWdRIYrrlJHCaOGmkdDtE4VXRigwkGmT";
+    const SUCCESS_PERMI_ADMIN           = "f8R0DPwJQY5HAX+BiJZYppjJGoES1TGtg";
 
     const SUCCESS_ADMIN_NEWCATEGORY     = "f52228665c4f14c8695b194f670b0ef1";
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
@@ -21,8 +23,8 @@ class Success{
     const SUCCESS_USER_UPDATEPASSWORD   = "6fb34a5e4118fb823636ca24a1d21669";
     const SUCCESS_USER_UPDATEPHOTO      = "edabc9e4581fee3f0056fff4685ee9a8";
     const SUCCESS_SIGNUP_DELETE         = "70apW15nLk+69i3Qx4Yc3IzRAo7tv5z4";
-    const SUCCESS_ACTIVITY_SEVER        = "aQWdRIYrrlJHCaOGmkdDtE4VXRigwkGmT";
-    const EMAIL_EXIT                    = "HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW";
+    
+   
 
 
     
@@ -41,17 +43,20 @@ class Success{
             Success::SUCCESS_SERVER_REGISTER   => "El servidor quedo registrado con exito",
             Success::SUCCESS_UPDATE_SERVER     => "Se actualizo correctamente el registro.",
             Success::EMAIL_EXIT                => "Se envio link a su correo para resetear el passwword",
+            Success::SUCCESS_ACTIVITY_SEVER    => "Se realizo la actividad con exito: ",
+            Success::SUCCESS_PERMI_ADMIN       => "Se autorizaron con exito los permisos. ",
 
 
-            Success::SUCCESS_ADMIN_NEWCATEGORY => "Nueva categoría creada correctamente",
-            Success::SUCCESS_EXPENSES_DELETE => "Gasto eliminado correctamente",
-            Success::SUCCESS_EXPENSES_NEWEXPENSE => "Nuevo gasto registrado correctamente",
-            Success::SUCCESS_USER_UPDATEBUDGET => "Presupuesto actualizado correctamente",
-            Success::SUCCESS_USER_UPDATENAME => "Nombre actualizado correctamente",
-            Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",
-            Success::SUCCESS_USER_UPDATEPHOTO => "Imagen de usuario actualizada correctamente",
-            Success::SUCCESS_SIGNUP_DELETE => "El registro se elimino correctamente.",
-            Success::SUCCESS_ACTIVITY_SEVER => "Se realizo la actividad con exito: ",
+            Success::SUCCESS_ADMIN_NEWCATEGORY      => "Nueva categoría creada correctamente",
+            Success::SUCCESS_EXPENSES_DELETE        => "Gasto eliminado correctamente",
+            Success::SUCCESS_EXPENSES_NEWEXPENSE    => "Nuevo gasto registrado correctamente",
+            Success::SUCCESS_USER_UPDATEBUDGET      => "Presupuesto actualizado correctamente",
+            Success::SUCCESS_USER_UPDATENAME        => "Nombre actualizado correctamente",
+            Success::SUCCESS_USER_UPDATEPASSWORD    => "Contraseña actualizado correctamente",
+            Success::SUCCESS_USER_UPDATEPHOTO       => "Imagen de usuario actualizada correctamente",
+            Success::SUCCESS_SIGNUP_DELETE          => "El registro se elimino correctamente.",
+            
+           
            
             
             

@@ -23,24 +23,21 @@ namespace Lib;
             $uri = trim( $uri, "/");
        
             $method = $_SERVER['REQUEST_METHOD'];
+         
             foreach(self::$routes [ $method] as $route=> $callback ){
+        
                 if(strpos($route,':') !== false){
-                   $route = preg_replace('#:[a-zA-Z]+#','([a-zA-Z]+)' ,$route);
-            
+                  $route = preg_replace('#:[a-zA-Z0-9_:]+#','([a-zA-Z0-9_:]+)' ,$route);
                 }
-                
+               
                 if(preg_match("#^$route$#",$uri,$matches)){
                     $params = array_slice($matches,1);
-               
                    if(is_callable($callback)){
                         $response = $callback (...$params);
-                      
                    }
                    if(is_array($callback)){
                         $controller = new $callback[0];
-
                         $response = $controller->{$callback[1]}(...$params);   
-           
                    }
 
                    if(is_array($response) || is_object($response)){

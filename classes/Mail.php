@@ -13,21 +13,46 @@ class Mail{
 
     private $headers;
 
+    private $messages;
 
-    public function __construct($addressee , $subject ,$content ,$headers) {
+
+    public function __construct($addressee , $subject ,$content) {
 
         $this->addressee =$addressee ;
-
         $this->subject =$subject ;
-
-        $this->content =$content ;
-
-        $this->headers =$headers ;
+        $this->headers ='MIME-Version: 1.0' . "\r\n";
+        $this->headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $this->content = $content ;
        
     }
 
     public function sendMail(){
+        mail( $this->addressee, $this->subject ,$this->content);
+  }
+
+    public function sendMailContent(){
           mail( $this->addressee, $this->subject ,$this->content , $this->headers);
+    }
+
+    public function templateMessage($title, $msgH1 ,$url ,$msgRef){
+        $this->content = '
+        <html>
+        <head>
+        <title>'.$title.'</title>
+        </head>
+        <body>
+           <h1>'.$msgH1.'</h1>
+           <div style="text-align:center; background-color:#ccc">
+              <p>'.$title.'</p>
+              <p> <a href="'.$url.'">'.$msgRef.'</a> </p>
+              <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
+           </div>
+        </body>
+        </html>
+        ';
+
+       
+
     }
 
 }

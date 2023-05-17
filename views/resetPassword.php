@@ -42,8 +42,9 @@
       </div>
    
       <input type="submit" class="submitBtn" value="Recuperar Contraseña" style="margin: auto;">
+      <a href="/" class="sign-up">Login</a>
     </form>
-    <a href="/Registrate" class="sign-up">Registrate</a>
+   
   </div>
   <script  type="text/javascript"  src="../assets/js/script.js"></script>
 </body>

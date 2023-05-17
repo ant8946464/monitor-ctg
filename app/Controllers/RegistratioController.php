@@ -34,7 +34,9 @@
         private $rol ;
         private $responsible_boss;
         private $id;
-     
+        private $tokenUser;
+
+       
 
         public function index(){
             return $this->view('registrationForm');
@@ -45,23 +47,43 @@
          }
 
 
+         public function validateAuthorization($params){
+            $success = new Success();
+            $error = new Errors();
+            $userModels = new User();
+            $user = $userModels->findValue("tokenUser",$params,'*');
+            if(!empty($user)){
+                $items = [];
+                foreach ($user as $k => $v) {
+                   array_push( $items,$v);
+                }
+                $userModels->update('id_user', $items[0],['role_authorization'=>1]);
+                return $this->view('login',["success" =>$success->get('f8R0DPwJQY5HAX+BiJZYppjJGoES1TGtg')]);  
+            }else{
+                return $this->view('login',["error" =>$error->get('dkijud26e06d01g56610952678cf3sde')]);  
+            }
+         }
+
+
+         
+
+
          public function validaUserUpdate(){
 
             $success = new Success();
             $validator = new ValidatorFunctions();
             $userModels = new User();
-            $this->id=  $_POST['id'];
-            $this->userName = $_POST['nameUser'];
-            $this->first_name = $_POST['apellidoPat'];
-            $this->last_name = $_POST['apellidMat'];
-            $this->user_corporate = $_POST['user_corporate'];
-            $this->email = $_POST['email'];
-            $this->phone = $_POST['phone'];
-            $this->area = $_POST['area']?? null;
-            $this->rol = $_POST['rol']?? null;
-            $this->responsible_boss = $_POST['responsable']?? null;
+            $this->id=  $this->getPost('id');
+            $this->userName =  $this->getPost('nameUser');
+            $this->first_name =  $this->getPost('apellidoPat');
+            $this->last_name = $this->getPost('apellidMat');
+            $this->user_corporate =  $this->getPost('user_corporate');
+            $this->email =  $this->getPost('email');
+            $this->phone =  $this->getPost('phone');
+            $this->area =  $this->getPost('area')?? null;
+            $this->rol = $this->getPost('rol')?? null;
+            $this->responsible_boss =  $this->getPost('responsable')?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
-
             if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->area,$this->rol,$this->responsible_boss))){
                 return $this->view('updateUser',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed'));
             }else if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
@@ -78,9 +100,7 @@
                 
                 $userModels->update('id_user',$this->id,$this->updateArrayInsert());
                 return $this->view('updateUser',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
-            }
-            
-            
+            } 
          }
 
 
@@ -132,27 +152,9 @@
             }else{
                 if($userModels->create($this->createArrayInsert())){
                     if($this->rol== 1){
-                        $mensaje = '
-                        <html>
-                        <head>
-                        <title>Permisos de Administrador</title>
-                        </head>
-                        <body>
-                           <h1>El usuario '.$this->user_corporate.' se registro como administrador.  </h1>
-                           <div style="text-align:center; background-color:#ccc">
-                              <p>Permisos de Administrador</p>
-                              <p> <a 
-                                    href="https://monictorctg-space.preview-domain.com/"> 
-                                    Para dar aurorización de administrador daclick aqui </a> </p>
-                              <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
-                           </div>
-                        </body>
-                        </html>
-                        ';
-                        $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-                        $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                       $email = new Mail(constant('GROUP_MAIL'),'Permisos de Administrador',  $mensaje, $cabeceras);
-                       $email->sendMail();
+                        $email = new Mail(constant('GROUP_MAIL'),'Permisos de Administrador',null);
+                        $email->templateMessage('Permisos de Administrador', 'El usuario '.$this->user_corporate.' se registro como administrador. ' ,'https://monictorctg-space.preview-domain.com/administratorAuthorization/'. $this->tokenUser,'Para dar aurorización de administrador dar click aqui');
+                        $email->sendMailContent();
                         return $this->view('login', ["success" => $success->get('8281e04ed52ccfc13820d0f6acb0985a')]  );
                     }                                                                                                                                                                                                                                                         
                     return $this->view('login', ["success" => $success->get('8281e04ed52ccfc13820d0f6acb0985a')]  );
@@ -181,7 +183,10 @@
 
          private function createArrayInsert(){
             $abcrypt = new AbCrypt();
-            $date_now = date("Y-m-d h:i:s"); 
+            $numero_aleatorio = mt_rand(0,1000000); 
+            $tem= $this->user_corporate;
+            $time = time();
+            $this->tokenUser = $numero_aleatorio.$tem.$time ;
             $array = [
                 "username" => $this->userName,
                 "first_name" => $this->first_name,
@@ -194,7 +199,7 @@
                 "role_authorization" => '0',
                 "d29_area_manager_id" => $this->responsible_boss,
                 "phone" => $this->phone,
-                "tokenUser" => $abcrypt->encryptthis($this->user_corporate.$date_now),
+                "tokenUser" =>$this->tokenUser ,
             ];
 
             return $array ;

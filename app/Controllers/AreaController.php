@@ -61,8 +61,6 @@
         $descripcion =  $this->getPost('descripcion');    
         $manager = $areaManager->findValue("area",$name,'*'); 
         
-      var_dump($manager);
-          
         if($validator->validateEmptyParameters(array($name, $descripcion))){
             return $this->view('responsible', $this->createArrayInsert(null , 'a5bcd7089d83f45e17e989fbc86003ed',null));
         }else if(!empty($manager)){
