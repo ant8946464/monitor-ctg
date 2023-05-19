@@ -7,7 +7,11 @@ class Session{
 
     public function __construct(){
         if (session_status() == PHP_SESSION_NONE) {
-           session_start();
+
+          session_set_cookie_params(600, "/");
+          // session_set_cookie_params(60*60*24*2, "/");
+         
+          session_start();
         }
     }
 

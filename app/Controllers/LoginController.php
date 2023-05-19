@@ -54,7 +54,7 @@
             }
 
            $email = new Mail($emailUser,'Reseteo de password',null);
-           $email->templateMessage('Restablecer Password', 'Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. ' ,"https://monictorctg-space.preview-domain.com/formResetPassword/'.$emailUser.'token'.$items[12].'",'Para restablecer da click aqui');
+           $email->templateMessage('Restablecer Password', 'Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. ' ,"https://monictorctg-space.preview-domain.com/formResetPassword/".$emailUser."token".$items[12],'Para restablecer da click aqui');
            $email->sendMailContent();
            return $this->view('login',$this->createArrayFront(null,'HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW'));
          }else{

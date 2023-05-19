@@ -6,13 +6,14 @@
  
    require_once 'Controller.php';
    require_once './classes/Session.php';
+   require_once './classes/Mail.php';
 
    use App\Controllers\Controller;
    use App\Models\Prop;
    use Classes\Success;
+   use Classes\Mail;
+   use Classes\Session;
   
-  
-
 
    class ProcessController extends Controller  {
 
@@ -21,7 +22,7 @@
       private $msgInfo;
      
       public function index(){
-
+       
         $result = $this->validStatus();
         if($result == 1){
          $this->msg='Encendido';
@@ -34,7 +35,8 @@
 
 
       public function changeStatus(){
-
+            $session = new Session();
+            $session->getSessionName('user');
             $status = $this->getPost('status');
             $prop = new Prop();
             if($status=='Encendido'){
@@ -44,6 +46,8 @@
                $this->msg='Encendido';
                $prop->update('id_prop',1, ["value" => 1]);
             }
+            $email = new Mail(constant('GROUP_MAIL'),'Proceso de validación','El usuario '.$session->getSessionName('user').' cambio el estatus del proceso de validacion: '.$this->msg);
+            $email->sendMail();
             $success = new Success();
             $this->msgInfo =  $success->get('aQWdRIYrrlJHCaOGmkdDtE4VXRigwkGmT').'Proceso '.$this->msg ;
               

@@ -16,18 +16,18 @@ class Mail{
     private $messages;
 
 
-    public function __construct($addressee , $subject ,$content) {
+    public function __construct($addressee , $subject ,$messages) {
 
         $this->addressee =$addressee ;
         $this->subject =$subject ;
         $this->headers ='MIME-Version: 1.0' . "\r\n";
         $this->headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $this->content = $content ;
+        $this->messages = $messages ;
        
     }
 
     public function sendMail(){
-        mail( $this->addressee, $this->subject ,$this->content);
+        mail( $this->addressee, $this->subject ,$this->messages);
   }
 
     public function sendMailContent(){

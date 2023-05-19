@@ -69,6 +69,9 @@
                 <li class="menu__item">
                     <a href="/listActivities" class="menu__link">actividades servidor</a>
                 </li>
+                <li class="menu__item">
+                    <a href="/monitoreoServer" class="menu__link">monitoreo</a>
+                </li>
 
             </ul>
             <h1 class="menu__logo" style="color: #f1f3f4;">Bienvenido <?php echo $_SESSION['username'] ?></h1>
