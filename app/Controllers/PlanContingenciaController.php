@@ -8,6 +8,7 @@
    require_once './app/Models/Server.php';
    require_once './classes/Session.php';
    require_once './classes/success.php';
+   require_once './classes/Mail.php';
    
 
    use App\Models\Activitylog;
@@ -15,6 +16,7 @@
    use App\Models\User;
    use App\Models\Server;
    use Classes\Success;
+   use Classes\Mail;
 
 
    class PlanContingenciaController extends Controller  {
@@ -56,7 +58,8 @@
        $statusActivity   = $this->getPost('status');
        $msgFront='';
 
-       $resul = $connectioDb->findValue('user_corporate',$session->getSessionName('user'),'*');
+      $user = $session->getSessionName('user');
+       $resul = $connectioDb->findValue('user_corporate',$user,'*');
 		 $itemsUser = [];
 		 foreach ($resul as $k => $v) {
 					array_push( $itemsUser,$v);
@@ -74,21 +77,30 @@
         if($statusActivity == 0 ){
           $this->activity = 'Reinicio';
           $activitylog->create($this->createArrayInsert());
+          $this->sendMailActities($serverName,$user );
           return $this->view('contigenciaRestart',[ "success" =>$msgFront.$this->activity.' servidor '.$serverName  ]);
         }else if($statusActivity == 1){
          $this->activity = 'Iniciado';
          $server->update('id_ctg',  $this->idServer,["estatus" => 1]);
          $activitylog->create($this->createArrayInsert());
+         $this->sendMailActities($serverName ,$user);
          return $this->view('contigenciaActivity',[ "success" =>$msgFront.$this->activity.' servidor '.$serverName ]);
         }else if($statusActivity == 2){
          $this->activity = 'Detener';
          $server->update('id_ctg',  $this->idServer,["estatus" => 2]);
          $activitylog->create($this->createArrayInsert());
+         $this->sendMailActities($serverName ,$user );
          return $this->view('contigenciaActivity',[ "success" =>$msgFront.$this->activity.' servidor '.$serverName ]);
         }
 
         
       }
+
+
+      private function sendMailActities($nameServer,$user){
+         $email = new Mail(constant('GROUP_MAIL'),'Monitoreo Server','El usuario '.$user.' realizo en el servidor '.$nameServer.' la siguiente actividad: '.$this->activity );
+         $email->sendMail();
+       }
 
    
 
