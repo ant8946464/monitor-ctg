@@ -31,13 +31,13 @@
 <div class="signupFrm">
     <form  class="form"  action="/login-validador"  method="POST">
       <h2 class="title">Bienvenido</h2>
+      <label >Usuario</label> 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="Usuario" value="<?php if(isset($user)){?><?=$user ?> <?php }  ?>" name="usuario_corporate" maxlength="8"  required>
+        <input type="text" class="input"  value="<?php if(isset($user)){?><?=$user ?> <?php }  ?>" name="usuario_corporate" maxlength="8"  required>
       </div>
-
+      <label >Password</label> 
       <div class="inputContainer">
-        <input type="password" placeholder="Password" class="input" name="password" maxlength="8" required>
-
+        <input type="password"  class="input" name="password" maxlength="8" required>
       </div>
       <div style="margin-top: 5%; margin-bottom: 5%;">
           <div class="g-recaptcha gwd-reCAPTCHA_2" data-sitekey="<?php echo constant('DATA_KEY') ?>">

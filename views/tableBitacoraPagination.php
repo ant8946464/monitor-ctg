@@ -22,7 +22,7 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 
 	
 
-	$porPagina = 5;
+	$porPagina = 20;
 	$pagina = 1;
 	if (isset($_POST['paginator'])) {
 		$pagina = $_POST['paginator'];

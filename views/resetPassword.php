@@ -32,9 +32,11 @@
     <form  class="form"  action="/sendMailReset"  method="POST" style="width: 40%; display: grid;;">
       <h2 class="title titleReset">Recupera tú password</h2>
       
-      <div class="inputContainer"    style="margin: auto;">
-        <input type="email" placeholder="Ingresa  tu correo" class="input" name="email"  required>
-
+      <label>Correo</label>
+      <div class="inputContainer" >
+      <div>
+        <input type="email"  class="input" name="email"  required>
+      </div>
       </div>
 
           <div class="g-recaptcha" data-sitekey="<?php echo constant('DATA_KEY') ?>"  style="margin: auto;margin-top: 5%; margin-bottom: 5%;">

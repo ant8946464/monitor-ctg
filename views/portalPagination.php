@@ -11,7 +11,7 @@ use App\Models\Activitylog;
 $actitivy = new Activitylog();
 
 
-$porPagina = 5;
+$porPagina = 20;
 $pagina = 1;
 if (isset($_POST['paginator'])) {
     $pagina = $_POST['paginator'];

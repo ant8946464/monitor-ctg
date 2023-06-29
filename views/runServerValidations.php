@@ -36,10 +36,12 @@
 
 
      function createArrayInsert($server, $status){
+        date_default_timezone_set('America/Mexico_City');
+        $date_now = date("Y-m-d h:i:s");
         $array = [
             "server" => $server,
             "status" => $status,
-            "date_event" => date('d-m-Y H:i:s'),
+            "date_event" =>  $date_now ,
         ];
 
         return $array ;

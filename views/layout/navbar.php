@@ -37,10 +37,10 @@
                                 <a href="/portalmonitor" class="menu__link menu__link--inside">eventos del servidor</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="/area" class="menu__link menu__link--inside">area</a>
+                                <a href="/area" class="menu__link menu__link--inside">departamento</a>
                             </li>
                             <li class="menu__inside">
-                                <a href="/job" class="menu__link menu__link--inside">puesto laboral</a>
+                                <a href="/job" class="menu__link menu__link--inside">puesto de trabajo</a>
                             </li>
                             <li class="menu__inside">
                                 <a href="/listUsers" class="menu__link menu__link--inside">lista usuarios</a>

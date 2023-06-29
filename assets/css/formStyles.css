@@ -23,6 +23,7 @@ h1{
   text-align: center;
 }
 
+
 .form-register{
 
   width: 90%;
@@ -43,19 +44,28 @@ h1{
 }
 
 
-.contenedor-inputs{
+.contenedor-inputs {
   padding: 10px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: 16px;
-  
+
 }
 
-input ,textarea{
-  margin-bottom: 15px;
+label{
+  color:  #0077b6;
+  font-size: 15px; 
+  
+
+}
+
+
+
+input ,textarea  {
+  margin-bottom: 10px;
   padding:10px;
-  width: 45%;
+  width: 95%;
   border-radius: 7px;
   border: 1px solid darkgray;
 }

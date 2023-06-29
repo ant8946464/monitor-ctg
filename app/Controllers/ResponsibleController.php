@@ -28,11 +28,15 @@
       private function createArrayInsert($msgInfo, $msgError, $msg){
         $success = new Success();
         $error = new Errors();
-        $detailError= $error->get($msgError);
-        $detailError.$msg;
+        $detailError = null;
+        if($msgError!= null){
+            $detailError= $error->get($msgError).$msg;
+        }else{
+            $detailError;
+        }
         $array = [
   
-            "msgInfo" => 'En este módulo el administrador podra dar de alta y baja al responsable del área.',
+            "msgInfo" => 'En este módulo el administrador puede dar de alta y baja al responsable del área.',
             "modelo" => 'AreaManager',
             "success" => $success->get($msgInfo),
             "column" => 'manager_name', 
@@ -59,12 +63,12 @@
          $areaManager = new AreaManager();
          $register= new DescritionRegister();
          $date_now = date("Y-m-d h:i:s"); 
-
         $name =  strtoupper($this->getPost('name')); 
         $descripcion =  $this->getPost('descripcion');
         $manager = $areaManager->findValue("manager_name",$name,'*');
-          
-        if($validator->validateEmptyParameters(array($name, $descripcion))){
+        if(preg_match('/^[a-zA-Z, ]*$/',$name) == 0){
+            return $this->view('responsible', $this->createArrayInsert(null , 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Responsable'));
+        }else if($validator->validateEmptyParameters(array($name, $descripcion))){
             return $this->view('responsible', $this->createArrayInsert(null , 'a5bcd7089d83f45e17e989fbc86003ed',null));
         }else if(!empty($manager)){
             return $this->view('responsible',$this->createArrayInsert(null , 'xCp6cfUWVGN17cara71QbGB0DiWMkiRIu' , 'el responsable.') );

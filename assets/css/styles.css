@@ -36,6 +36,12 @@ body {
     color:  #0077b6;
   }
 
+  label{
+    color:  #0077b6;
+    font-size: 22px;
+    
+  }
+
   .titleReset {
     font-size: 30px;
   }

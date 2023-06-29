@@ -26,18 +26,22 @@
       private function createArrayInsert($msgInfo, $msgError, $msg){
         $success = new Success();
         $error = new Errors();
-        $detailError= $error->get($msgError);
-        $detailError.$msg;
+        $detailError = null;
+        if($msgError!= null){
+            $detailError= $error->get($msgError).$msg;
+        }else{
+            $detailError;
+        }
         $array = [
   
-            "msgInfo" => 'En este módulo el administrador podra dar de alta y baja los puestos de empresa.',
+            "msgInfo" => 'En este módulo el administrador puede dar de alta y baja los puestos de empresa.',
             "modelo" => 'Job',
             "success" => $success->get($msgInfo),
             "column" => 'role', 
             "idtable" => 'id_role',
             "nameHeader" => 'Nombre del puesto',
             "tap2Header" => ' Puesto',
-            "error" =>  $detailError,
+            "error" =>  $detailError.$msg,
             "postIndex" => 'role',
             "search_id" => 'id_role',
             "path" => '/addJob',
@@ -58,8 +62,11 @@
         $name = strtoupper($this->getPost('name')); 
         $descripcion = $this->getPost('descripcion');
         $manager = $jobEmplyee->findValue("role",$name,'*');
-          
-        if($validator->validateEmptyParameters(array($name, $descripcion))){
+        if(preg_match('/^[a-zA-Z, ]*$/',$name) == 0){
+            return $this->view('responsible', $this->createArrayInsert(null , 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Puesto laboral'));
+        }else if(is_numeric($descripcion)){
+            return $this->view('responsible', $this->createArrayInsert(null , 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Descripción'));
+        }else if($validator->validateEmptyParameters(array($name, $descripcion))){
             return $this->view('responsible', $this->createArrayInsert(null , 'a5bcd7089d83f45e17e989fbc86003ed',null));
         }else if(!empty($manager)){
             return $this->view('responsible',$this->createArrayInsert(null , 'xCp6cfUWVGN17cara71QbGB0DiWMkiRIu', ' el puesto.') );

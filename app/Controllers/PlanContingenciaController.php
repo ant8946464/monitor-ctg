@@ -107,8 +107,10 @@
       
 
       private function createArrayInsert(){
-   
-         $date_now = date("Y-m-d h:i:s"); 
+
+         date_default_timezone_set('America/Mexico_City');
+         $date_now = date("Y-m-d h:i:s");
+
          $array = [
              "activity" => $this->activity ,
              "event_date" => $date_now,

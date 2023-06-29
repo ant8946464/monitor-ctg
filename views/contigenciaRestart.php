@@ -106,7 +106,7 @@ $monitoreoServer = new MonitoreoServer();
 
                 if (($pagina == 1)) {
                 ?>
-                    <li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1)">
+                    <li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1')">
                             << </a>
                     </li>
 
