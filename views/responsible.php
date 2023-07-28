@@ -23,7 +23,9 @@ if (isset($error)) {
 <?php
 }
 $connectioDb;
+
 require 'layout/navbar.php';
+
 if ($modelo == "AreaManager") {
 	$connectioDb = new AreaManager();
 } else if ($modelo == "Area") {
@@ -40,9 +42,9 @@ if ($modelo == "AreaManager") {
 </div>
 
 
-<fieldset>
-	<div class="tabs">
-		<div class="tab-container">
+<fieldset  style=" margin-top: 0.5%">
+	<div class="formadd tabs ">
+		<div class="tab-container" >
 			<div id="tab2" class="tab">
 				<a href="#tab2">Eliminar </a>
 				<div class="tab-content">
@@ -71,8 +73,10 @@ if ($modelo == "AreaManager") {
 					<form class="form-register" method="post" action="<?php if (isset($path)) { ?><?= $path ?> <?php }  ?>">
 						<h1>Agregar <?php if (isset($tap2Header)) { ?><?= $tap2Header ?> <?php }  ?></h1>
 						<div class="contenedor-inputs">
-							<input style="width: 100%;" type="text" name="name" placeholder="<?php if (isset($tap2Header)) { ?><?= $tap2Header ?> <?php }  ?>" maxlength="50" value="<?php if (isset($userName)) { ?><?= $userName ?> <?php }  ?>" required>
-							<textarea type="text" placeholder="Agrega descripción" name="descripcion"></textarea>
+							<label><?php if (isset($tap2Header)) { ?><?= $tap2Header ?> <?php }  ?></label>
+							<input style="width: 100%;"  type="text" name="name"  maxlength="50" value="<?php if (isset($userName)) { ?><?= $userName ?> <?php }  ?>" required>
+							<label>Agrega descripción</label>
+							<textarea type="text"  name="descripcion"></textarea>
 							<input type="submit" value="Enviar" class="btn-enviar" />
 						</div>
 					</form>
@@ -83,5 +87,5 @@ if ($modelo == "AreaManager") {
 </fieldset>
 
 <?php
-require 'layout/footer.php';
+    require 'layout/footer.php';
 ?>

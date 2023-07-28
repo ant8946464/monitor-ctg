@@ -11,7 +11,7 @@ use App\Models\Activitylog;
 $actitivy = new Activitylog();
 
 
-$porPagina = 20;
+$porPagina = 30;
 $pagina = 1;
 if (isset($_POST['paginator'])) {
     $pagina = $_POST['paginator'];
@@ -33,8 +33,7 @@ $session->setSessionName('reportActivity',1) ;
 ?>
 
 
-
-<section class="content">
+<section class=" formadd content" >
 
     <center>
         <table>

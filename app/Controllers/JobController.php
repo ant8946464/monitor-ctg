@@ -20,7 +20,7 @@
 
       public function index(){
 
-         return $this->view('responsible', $this->createArrayInsert(null,null,null));
+        return $this->view('responsible', $this->createArrayInsert(null,null,null));
       }
 
       private function createArrayInsert($msgInfo, $msgError, $msg){
@@ -41,7 +41,7 @@
             "idtable" => 'id_role',
             "nameHeader" => 'Nombre del puesto',
             "tap2Header" => ' Puesto',
-            "error" =>  $detailError.$msg,
+            "error" =>  $detailError,
             "postIndex" => 'role',
             "search_id" => 'id_role',
             "path" => '/addJob',

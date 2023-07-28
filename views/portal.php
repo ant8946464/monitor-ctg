@@ -25,12 +25,12 @@ if (isset($success)) {
 <div class="spanMsgInfo">
     <span>Se listan las actividades de los servidores. </span>
 </div>
+
+<fieldset >
 <div class="spanFilter">
     <span>Seleccione el filtrado </span>
 </div>
-<fieldset >
-
-    <div class="select-dis">
+    <div class=" select-dis">
         <div class="content-select select-center">
             <select name="userSelect" id="userSelect" onchange="selectView(this.id)" required>
                 <option selected="selected" disabled> Usuario</option>
@@ -57,7 +57,6 @@ if (isset($success)) {
         </div>
 
     </div>
-
 
     </div>
     <center>

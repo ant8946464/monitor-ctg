@@ -29,7 +29,7 @@ $session = new Session();
 $session->setSessionName('reporteUser',1) ;
 
 ?>
-<section class="content">
+<section class=" formadd content "  style="margin-top: -6%; margin-bottom:-13%;">
 	<center>
 
 		<div>

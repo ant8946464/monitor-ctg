@@ -44,6 +44,13 @@
 
 
 
+      public function monitoreo(){
+         return $this->view('monitoreo');
+      }
+      
+
+
+
       
 
       public function activityServer(){

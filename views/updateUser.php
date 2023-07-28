@@ -35,10 +35,10 @@
     <?php } ?>
 
 <div class="spanMsgInfo">
-    <span> En este módulo los usuarios puden actualizar su información.</span>
+    <span> En este módulo los usuarios pueden actualizar su información.</span>
 </div>
 
-<fieldset>
+<fieldset style=" margin-top: 0.5%; margin-bottom: 0.5%; ">
 
   
   <?php    
@@ -54,7 +54,7 @@
     }
   ?>
 
-    <form class="form-register" method="post" action="/updateUser" style="margin-top: 10%;">
+    <form class="form-register formadd" method="post" action="/updateUser" style="margin-bottom: -9.6%">
     <h1 class="form-titulo">Actualiza tus datos</h1>
       <div class="contenedor-inputs">
           <input type="hidden" name="id" value= "<?= $items[0] ?>" /> 
@@ -94,7 +94,7 @@
                       </select>
                 </div>
           </div>
-          <input type="submit"  value="Enviar" class="btn-enviar">
+          <input type="submit"  value="Actualizar" class="btn-enviar">
       </div>
     </form>
 </fieldset>

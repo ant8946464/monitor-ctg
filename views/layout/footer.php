@@ -19,9 +19,9 @@
     <footer class="footer">
         <section class="footer__copy container">
             <div class="footer__social">
-                <a href="#" class="footer__icons"><img src="../assets/images/facebook.svg" class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="../assets/images/twitter.svg" class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="../assets/images/youtube.svg" class="footer__img"></a>
+                <a href="https://www.facebook.com/Telcel?_rdc=2&_rdr" target="_blank" class="footer__icons"><img src="../assets/images/facebook.svg" class="footer__img"></a>
+                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Ftelcel" target="_blank" class="footer__icons"><img src="../assets/images/twitter.svg" class="footer__img"></a>
+                <a href="https://www.youtube.com/user/Telceloficial" target="_blank" class="footer__icons"><img src="../assets/images/youtube.svg" class="footer__img"></a>
             </div>
 
             <h3 class="footer__copyright">Derechos reservados &copy;2023 Radiomóvil Dipsa S.A. de C.V.</h3>

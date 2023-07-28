@@ -45,7 +45,7 @@
       </div>
       <input type="submit" class="submitBtn" value="Enviar">
       <a href="/Registrate" class="sign-up">Registrate</a>
-      <a href="/resetPassword" class="forgot">¿Se te olvido la contraseña?</a>
+      <a href="/resetPassword" class="forgot">¿Se te olvidó la contraseña?</a>
     </form>
   </div>
   <script  type="text/javascript"  src="../assets/js/script.js"></script>

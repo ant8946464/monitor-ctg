@@ -11,7 +11,7 @@ body {
     background-image:url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
   
 .signupFrm {
     display: flex;
@@ -138,8 +138,8 @@ body {
 	background: -webkit-linear-gradient(#fff, #999);
 	background: -o-linear-gradient(#fff, #999);
   -webkit-transition: opacity 400ms ease-in;
--moz-transition: opacity 400ms ease-in;
-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
 }
 .close {
 	background: #606061;

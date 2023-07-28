@@ -115,8 +115,6 @@
     Route::post('/deleteJob', [JobController::class ,'deleteby']);
 
     
-     
- 
 
     Route::get('/listUsers', [UserController::class ,'index']);
 
@@ -183,6 +181,8 @@
     
 
     Route::post('/contigenciaRestart', [PlanContingenciaController::class ,'contigenciaRestart']);
+
+    Route::get('/monitoreo', [PlanContingenciaController::class ,'monitoreo']);
     
      //modulo de reportes
 
@@ -191,7 +191,6 @@
     Route::get('/reportUser', [ReporteController::class ,'reportUser']);
 
     Route::get('/reportEvent', [ReporteController::class ,'reportEvent']);
-
    
     Route::dispacth();
 

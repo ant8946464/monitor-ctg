@@ -60,7 +60,7 @@
       private function createArrayInsert(){
          
          $array = [
-             "msgInfo" => 'En este modulo se prende y apaga el proceso batch que valida los servidores.',
+             "msgInfo" => 'En este módulo se prende y apaga el proceso batch que válida los servidores.',
              "msg" => $this->msg,
             "success" => $this->msgInfo
          ];

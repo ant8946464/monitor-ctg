@@ -117,6 +117,16 @@ fieldset {
 	padding-bottom: 8%;
   }
 
+  .formadd{
+	margin-bottom:-10.4%; 
+	min-height: calc(96vh - 130px - 60px);
+  }
+
+
+  .eventeServer{
+	min-height: calc(96.5vh - 130px - 60px);
+  }
+
   /*
   
  

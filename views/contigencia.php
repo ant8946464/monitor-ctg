@@ -24,11 +24,11 @@ require 'layout/navbar.php';
 
 
 <div class="spanMsgInfo">
-    <span>En este modulo se podra realizar las siguientes actividades en los servidores: reiniciar, iniciar y detener. </span>
+    <span>En este módulo se podrá realizar las siguientes actividades en los servidores: reiniciar, iniciar y detener. </span>
 </div>
 
-<fieldset>
-    <div class="tabs">
+<fieldset style=" margin-top: 0.5%; margin-bottom:0.1%; ">
+    <div class="tabs" >
         <div class="tab-container">
             <div id="tab2" class="tab">
                 <a href="#tab2">Iniciar/Detener </a>

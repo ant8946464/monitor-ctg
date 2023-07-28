@@ -45,8 +45,8 @@ $pages =  ceil(count($resulAll) / $porPagina);
 </div>
 
 
-<fieldset>
-	<div class="tabs">
+<fieldset style="margin-bottom: 0.10%; margin-top: 0.3%;  ">
+	<div class="tabs formadd" style="margin-bottom: -10.5%;  ">
 		<div class="tab-container">
 			<div id="tab2" class="tab">
 				<a href="#tab2">Eliminar </a>
@@ -205,22 +205,26 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 					<form class="form-register" method="post" action="/formServer">
 						<h1>Agregar Servidores</h1>
-						<div class="contenedor-inputs">
-							<input style="width: 80%;margin-left: 40px;" type="text" name="servername" placeholder="Nombre del servidor" maxlength="50" value="<?php if (isset($name)) { ?><?= $name ?> <?php }  ?>" required>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="ip" placeholder="ip" maxlength="12" value="<?php if (isset($ip)) { ?><?= $ip ?> <?php }  ?>" required>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster" placeholder="Cluster" maxlength="15" value="<?php if (isset($cluster)) { ?><?= $cluster ?> <?php }  ?>" required>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="port" placeholder="puerto" maxlength="4" value="<?php if (isset($port)) { ?><?= $port ?> <?php }  ?>" required>
+						<div class="contenedor-inputs" >
+							<label style="width: 80%;margin-left: 40px;">Nombre del servidor</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="servername"  maxlength="50" value="<?php if (isset($name)) { ?><?= $name ?> <?php }  ?>" required>
+							<label style="width: 80%;margin-left: 40px;">Ip</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="ip"  maxlength="12" value="<?php if (isset($ip)) { ?><?= $ip ?> <?php }  ?>" required>
+							<label style="width: 80%;margin-left: 40px;">Cluster</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster"  maxlength="15" value="<?php if (isset($cluster)) { ?><?= $cluster ?> <?php }  ?>" required>
+							<label style="width: 80%;margin-left: 40px;">Puerto</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="port"  maxlength="4" value="<?php if (isset($port)) { ?><?= $port ?> <?php }  ?>" required>
 							<input type="submit" value="Enviar" class="btn-enviar" />
 						</div>
 					</form>
 				</div>
 			</div>
 			<div id="tab3" class="tab">
-				<a href="#tab3">actualizar</a>
+				<a href="#tab3">Actualizar</a>
 				<div class="tab-content">
 					<form class="form-register" method="post" action="/formServer">
 						<h1>Actualizar Servidor</h1>
-						<div class="content-select select-center" style="width: 80%;margin-left: 40px;">
+						<div class="content-select select-center" style="width: 90%;margin-left: 70px;">
 							<select name="updateServerSelect" id="updateServerSelect" onchange="selectView(this.id)" required>
 								<option selected="selected" disabled>Selecciona la ip</option>
 								<?php foreach ($server->getItemColumns('ip', '') as $ser) : ?>
@@ -230,10 +234,14 @@ $pages =  ceil(count($resulAll) / $porPagina);
 						</div>
 
 						<div class="contenedor-inputs">
-							<input style="width: 80%;margin-left: 40px;" type="text" name="servername" placeholder="Nombre del servidor" maxlength="50" value="" disabled>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="ip" placeholder="ip" maxlength="12" value="" disabled>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster" placeholder="Cluster" maxlength="15" value="" disabled>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="port" placeholder="puerto" maxlength="4" value="" disabled>
+						    <label style="width: 80%;margin-left: 40px;">Nombre del servidor</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="servername"  maxlength="50" value="" disabled>
+							<label style="width: 80%;margin-left: 40px;">Ip</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="ip"  maxlength="12" value="" disabled>
+							<label style="width: 80%;margin-left: 40px;">Cluster</label>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster"  maxlength="15" value="" disabled>
+							<label style="width: 80%;margin-left: 40px;">Puerto</label>
+							<input style="width: 80%;margin-left: 40px;" type="number" name="port"  maxlength="4" value="" disabled>
 							<input type="submit" value="Actualizar" class="btn-enviar" disabled />
 						</div>
 					</form>

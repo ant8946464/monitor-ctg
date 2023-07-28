@@ -70,7 +70,7 @@
                     <a href="/listActivities" class="menu__link">actividades servidor</a>
                 </li>
                 <li class="menu__item">
-                    <a href="/monitoreoServer" class="menu__link">monitoreo</a>
+                    <a href="/monitoreo" class="menu__link">monitoreo</a>
                 </li>
 
             </ul>

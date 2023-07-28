@@ -38,11 +38,11 @@ class Success{
     {
         $this->successList = [
            
-            Success::SUCCESS_SIGNUP_NEWUSER    => "Usuario registrado correctamente",
+            Success::SUCCESS_SIGNUP_NEWUSER    => "Usuario registrado correctamente.",
             Success::SUCCESS_CHANGE_STATUS     => "Se cambio correctamente el estatus del proceso",
-            Success::SUCCESS_SERVER_REGISTER   => "El servidor quedo registrado con exito",
+            Success::SUCCESS_SERVER_REGISTER   => "El servidor quedo registrado con exito.",
             Success::SUCCESS_UPDATE_SERVER     => "Se actualizo correctamente el registro.",
-            Success::EMAIL_EXIT                => "Se envio link a su correo para resetear el passwword",
+            Success::EMAIL_EXIT                => "Se envio link a su correo para resetear el password.",
             Success::SUCCESS_ACTIVITY_SEVER    => "Se realizo la actividad con exito: ",
             Success::SUCCESS_PERMI_ADMIN       => "Se autorizaron con exito los permisos. ",
 
@@ -55,11 +55,7 @@ class Success{
             Success::SUCCESS_USER_UPDATEPASSWORD    => "Contraseña actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPHOTO       => "Imagen de usuario actualizada correctamente",
             Success::SUCCESS_SIGNUP_DELETE          => "El registro se elimino correctamente.",
-            
-           
-           
-            
-            
+              
         ];
     }
 

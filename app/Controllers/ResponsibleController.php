@@ -22,8 +22,8 @@
    class ResponsibleController extends Controller  {
 
       public function index(){
-         return $this->view('responsible', $this->createArrayInsert(null,null,null));
-      }
+        return $this->view('responsible', $this->createArrayInsert(null,null,null));
+     }
 
       private function createArrayInsert($msgInfo, $msgError, $msg){
         $success = new Success();
