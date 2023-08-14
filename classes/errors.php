@@ -23,8 +23,7 @@ class Errors{
     const ERROR_EXITS_CONTENT                    = "xCp6cfUWVGN17cara71QbGB0DiWMkiRIu";
     const EMAIL_NOT_EXIT                         = "pishAXQ9ARlaqYd696GXe59kOCzB6V1zu";
     const TEXT_IS_NUMBER                         = "WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH";
-
-    
+    const ERROR_NOT_PORT                         = "9NUL03mioVH6tdGuRe/U+thrDQ1DBN8n7I";
 
     private $errorsList = [];
 
@@ -50,8 +49,8 @@ class Errors{
             Errors::ERROR_NOT_MAIL                          => 'El correo no cuenta con la estructura necesaria.',
             Errors::ERROR_EXITS_CONTENT                     => 'Ya existe: ',
             Errors::EMAIL_NOT_EXIT                          => 'El correo que ingreso no exite.',
-            Errors::TEXT_IS_NUMBER                          => 'NO se permiten ingresar números en el campo : ',
-
+            Errors::TEXT_IS_NUMBER                          => 'NO se permiten ingresar números y/o caractéres en el campo : ',
+            Errors::ERROR_NOT_PORT                          => 'NO se permiten ingresar LETRAS y/o caractéres en el campo :  puerto',
 
             
         ];

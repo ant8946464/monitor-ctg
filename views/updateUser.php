@@ -54,15 +54,21 @@
     }
   ?>
 
-    <form class="form-register formadd" method="post" action="/updateUser" style="margin-bottom: -9.6%">
+    <form class="form-register formadd" method="post" action="/updateUser" style="margin-bottom: -9.5%">
     <h1 class="form-titulo">Actualiza tus datos</h1>
-      <div class="contenedor-inputs">
-          <input type="hidden" name="id" value= "<?= $items[0] ?>" /> 
+      <div class="contenedor-inputs" style="margin-bottom: -9.5%">
+          <input type="hidden" name="id" value= "<?= $items[0] ?>" />
+          <label>Nombre</label> 
           <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php echo $items[1]  ?>" required>
+          <label>Apellido Paterno</label> 
           <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php echo $items[2]  ?>" required>
+          <label>Apellido Materno</label> 
           <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php echo $items[3]  ?>" required>
-          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php echo $items[4]  ?>" required>
+          <label>Usuario Corporativo</label>
+          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php echo $items[4]  ?>"  required>
+          <label>Correo</label>
           <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php echo $items[5]  ?>" required>
+          <label>Teléfono</label>
           <input type="text" name="phone" placeholder="Teléfono" maxlength="10" value="<?php echo $items[11]  ?>" required>
           <div>
                 <div class="content-select" required>

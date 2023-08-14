@@ -4,14 +4,14 @@ var pathDelete='';
 
 $(document).ready(function() {
 setTimeout(function() {
-    $(".info").fadeOut(1500);
-},1000);
+    $(".info").fadeOut(3000);
+},2000);
 });
 
 $(document).ready(function() {
     setTimeout(function() {
         $(".error").fadeOut(1500);
-    },1000);
+    },2000);
 });
 
 
@@ -89,6 +89,26 @@ function asigID(id , path) {
   console.log(id);
   ideliminar = id;
   pathDelete= path;
+}
+
+function selectMonitor(id) {
+  console.log(id);
+  var first_select = document.getElementById(id).value;
+  console.log(first_select);
+  $.ajax({
+    url:'/monitoreoGrafico',
+    type:"POST",
+    data:'selector=' + first_select,
+    beforeSend:function(){
+    $(".solo").html("<span>Eliminando registro</span>");
+    },
+    success:function(data){
+      $(".solo").html(data);
+    }
+});
+
+
+return;
 }
 
 

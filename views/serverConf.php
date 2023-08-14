@@ -10,14 +10,14 @@ require 'layout/navbar.php';
 
 if (isset($error)) {
 ?>
-	<div class="error">
+	<div class="error" style="z-index: 50; margin-top: 1%;">
 		<b><?= $error ?></b>
 	</div>
 <?php
 }
 ?>
 <?php if (isset($success)) { ?>
-	<div class="info">
+	<div class="info" style="z-index: 50;">
 		<b><b><?= $success ?></b></b>
 	</div>
 <?php
@@ -46,9 +46,9 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 
 <fieldset style="margin-bottom: 0.10%; margin-top: 0.3%;  ">
-	<div class="tabs formadd" style="margin-bottom: -10.5%;  ">
+	<div class="tabs " >
 		<div class="tab-container">
-			<div id="tab2" class="tab">
+			<div id="tab2"  class="tab formadd" style="margin-bottom: -80%;">
 				<a href="#tab2">Eliminar </a>
 				<div class="tab-content">
 					<div class="select-dis">
@@ -199,13 +199,12 @@ $pages =  ceil(count($resulAll) / $porPagina);
 </section>
 				</div>
 			</div>
-			<div id="tab1" class="tab">
-				<a href="#tab1">Agregar</a>
-				<div class="tab-content">
-
-					<form class="form-register" method="post" action="/formServer">
+			<div id="tab1" class="tab formadd" style="margin-top: 38%; margin-bottom: -45%;">
+				<a href="#tab1" >Agregar</a>
+				<div class="tab-content"  >
+					<form class="form-register"   method="post" action="/formServer">
 						<h1>Agregar Servidores</h1>
-						<div class="contenedor-inputs" >
+						<div class="contenedor-inputs"  >
 							<label style="width: 80%;margin-left: 40px;">Nombre del servidor</label>
 							<input style="width: 80%;margin-left: 40px;" type="text" name="servername"  maxlength="50" value="<?php if (isset($name)) { ?><?= $name ?> <?php }  ?>" required>
 							<label style="width: 80%;margin-left: 40px;">Ip</label>
@@ -219,9 +218,9 @@ $pages =  ceil(count($resulAll) / $porPagina);
 					</form>
 				</div>
 			</div>
-			<div id="tab3" class="tab">
+			<div id="tab3" class="tab formadd" style="margin-top:3.6%; ">
 				<a href="#tab3">Actualizar</a>
-				<div class="tab-content">
+				<div class="tab-content ">
 					<form class="form-register" method="post" action="/formServer">
 						<h1>Actualizar Servidor</h1>
 						<div class="content-select select-center" style="width: 90%;margin-left: 70px;">

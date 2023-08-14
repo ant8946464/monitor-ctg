@@ -84,8 +84,17 @@
             $this->rol = $this->getPost('rol')?? null;
             $this->responsible_boss =  $this->getPost('responsable')?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
+
+
+
             if($validator->validateEmptyParameters(array($this->userName,$this->first_name,$this->last_name,$this->user_corporate,$this->email,$this->phone,$this->area,$this->rol,$this->responsible_boss))){
                 return $this->view('updateUser',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed',null));
+            }else if(preg_match('/^[a-zA-Z, ]*$/',$this->userName) == 0){
+                return $this->view('updateUser', $this->createArrayFront( 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Nombre'));
+            } else if(preg_match('/^[a-zA-Z, ]*$/',$this->first_name) == 0){
+                return $this->view('updateUser', $this->createArrayFront( 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Apellido paterno'));
+            }else if(preg_match('/^[a-zA-Z, ]*$/',$this->last_name) == 0){
+                return $this->view('updateUser', $this->createArrayFront( 'WFUMLyFQ97HdL1v1OkSGH8TA6saoCL7LH','Apellido Materno'));
             }else if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
                 return $this->view('updateUser',$this->createArrayFront('omY1wv3wZvAMsQp8sJJO8Hj19VZ8u8Opa',null));
             }else if(!is_numeric($this->phone )){

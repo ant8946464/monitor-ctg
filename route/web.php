@@ -183,6 +183,8 @@
     Route::post('/contigenciaRestart', [PlanContingenciaController::class ,'contigenciaRestart']);
 
     Route::get('/monitoreo', [PlanContingenciaController::class ,'monitoreo']);
+
+    Route::post('/monitoreo', [PlanContingenciaController::class ,'monitoreo']);
     
      //modulo de reportes
 
