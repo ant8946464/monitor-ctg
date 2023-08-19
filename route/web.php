@@ -185,6 +185,10 @@
     Route::get('/monitoreo', [PlanContingenciaController::class ,'monitoreo']);
 
     Route::post('/monitoreo', [PlanContingenciaController::class ,'monitoreo']);
+
+    Route::post('/monitoreoGrafico', [PlanContingenciaController::class ,'monitoreoGrafico']);
+
+    Route::get('/monitoreoGrafico', [PlanContingenciaController::class ,'monitoreoGrafico']);
     
      //modulo de reportes
 

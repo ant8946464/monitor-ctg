@@ -42,8 +42,10 @@
          return $this->view('contigenciaRestart');
       }
 
-
-
+      public function monitoreoGrafico(){
+         return $this->view('monitoreoGrafico');
+      }
+      
       public function monitoreo(){
          return $this->view('monitoreo');
       }

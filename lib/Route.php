@@ -50,7 +50,7 @@ namespace Lib;
                 }
              
             }
-            echo  "404 NOT DOUND" ;
+            echo  "404 NOT FOUND" ;
         } 
 
     }
