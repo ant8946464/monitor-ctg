@@ -98,20 +98,26 @@ function selectMonitor(id) {
     console.log(id);
     var first_select = document.getElementById(id).value;
     console.log(first_select);
-    window.location.href = "monitoreo";
+    //window.location.href = "monitoreo";
     //document.getElementById('chartContainer').style.display = 'none';
+
+
    $.ajax({
       url: '/monitoreoGrafico',
       type:"POST",
+      async: true,
       data: 'selector=' + first_select,
       beforeSend:function(){
         //console.log('esperando...');
        // $("#chart").html("<span>BUSCANDO</span>");
+      
       },
       success:function(data){
         console.log(data);
         //document.getElementById('chart').style.display = 'block';
-        //$("#chart").html(data);
+        // document.getElementById('chartContainer').style.display = 'none';
+        $("#chart").html(data);
+        
       }
   });
   return;

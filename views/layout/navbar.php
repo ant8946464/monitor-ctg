@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../assets/css/selectSyles.css">
     <link rel="stylesheet" href="../../assets/css/formStyles.css">
     <link rel="stylesheet" href="../../assets/css/stylesAlert.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="../assets/js/script.js"></script>
