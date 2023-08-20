@@ -9,6 +9,7 @@
 ?>
  
  <?php
+ 
 $monitoreoServer = new MonitoreoServer();
 $data1 = [];
 $data2 = [];
