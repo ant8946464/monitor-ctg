@@ -76,7 +76,11 @@
 	margin-top: 3px;
 } 
 
+.boton-personalizado {
 
+	background-color:#FFD27D;
+}
+  
 .select-dis{
 	display: flex;
 	padding-top: 30px;

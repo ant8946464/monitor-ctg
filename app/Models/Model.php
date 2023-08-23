@@ -26,6 +26,27 @@ use \PDO;
             $this->databases = new Databases(); 
         }
 
+        public function getallFilterDay($value){
+                $items = [];
+                $date_now = date("Y-m-d"); 
+                $nuevaFecha = date("Y-m-d",strtotime ( '-'.$value.' day' , strtotime ( $date_now ) ) );
+            try{
+                $sql = "SELECT * FROM {$this->table} WHERE date_event between '$nuevaFecha 00:00:00' and '$date_now 23:59:59'; ";
+                var_dump( $sql);
+                
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                 }
+                 
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
+
 
         public function findValue($colum, $value, $selectColumn){
            
