@@ -38,7 +38,7 @@ $monitoreoServer = new MonitoreoServer();
             <tbody>
                 <?php
 
-                $porPagina = 10;
+                $porPagina = 25;
                 $pagina = 1;
                 if (isset($_POST['paginator'])) {
                     $pagina = $_POST['paginator'];

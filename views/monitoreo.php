@@ -22,10 +22,10 @@
     foreach ($resul as $k => $v) {
     $ref = str_replace("-2023", "", $v['server']."-".$v['date_event']);
     if ($v['status'] == 1) {
-            $array = ["label" => $ref, "y" => mt_rand(0,1000)];
+            $array = ["label" => $v['server'], "y" => mt_rand(0,1000)];
             array_push($data1, $array);
         } else {
-            $array = ["label" => $ref, "y" => mt_rand(0,10000)];
+            $array = ["label" => $v['server'], "y" => mt_rand(0,10000)];
             array_push($data2, $array);
         }
     }
@@ -55,12 +55,15 @@ foreach ($lastDays as $valor) {
 }
 ?>
 </div>
-<div style="margin-left: 5%;margin-bottom: 5%;">
+<center>
+    <div style="margin-left: 5%;margin-bottom: 5%;margin-top: -4%;">
         <div class="tooltip" >
             <a href="/monitoreo"><img src="/assets/images/limpieza-de-datos.png"></a>
             <span class="tooltiptext">Limpiar el filtrado</span>
         </div>
     </div>
+</center>
+
 <?php
 
 if(count($resul) > 0){

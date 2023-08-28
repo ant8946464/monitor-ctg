@@ -37,7 +37,6 @@
         private $tokenUser;
 
        
-
         public function index(){
             return $this->view('registrationForm');
          }
@@ -69,7 +68,7 @@
 
 
          public function validaUserUpdate(){
-
+            
             $success = new Success();
             $validator = new ValidatorFunctions();
             $userModels = new User();
@@ -80,7 +79,7 @@
             $this->user_corporate =  $this->getPost('user_corporate');
             $this->email =  $this->getPost('email');
             $this->phone =  $this->getPost('phone');
-            $this->area =  $this->getPost('area')?? null;
+            $this->area =  $this->getPost('area')  ?? null;
             $this->rol = $this->getPost('rol')?? null;
             $this->responsible_boss =  $this->getPost('responsable')?? null;
             $this->user_corporate =str_replace(' ', '', $this->user_corporate);
@@ -190,7 +189,6 @@
             }else{
                 $detailError = $error->get($msgError);
             }
-            var_dump($detailError);
             $array = [
                 "error" =>  $detailError,
                 "userName" => $this->userName,

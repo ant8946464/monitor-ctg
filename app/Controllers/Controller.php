@@ -25,12 +25,12 @@
 
       function getGet($name){
          $validator = new ValidatorFunctions();
-         return  $validator->clean_text($_GET[$name]);   
+         return  isset($_GET[$name]) ? $validator->clean_text($_GET[$name]): null ; 
       }
  
      function getPost($name){
          $validator = new ValidatorFunctions();
-         return  $validator->clean_text($_POST[$name]);              
+         return isset($_POST[$name]) ? $validator->clean_text($_POST[$name]): null ;
      }
    }
 ?>

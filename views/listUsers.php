@@ -16,18 +16,8 @@ require 'layout/navbar.php';
 </div>
 
 
-<fieldset style="margin-top: 0.4%;">
-    <div style="float: right; margin-right: 46%; margin-top: 0.2%;">
-        <div class="tooltip" >
-            <a href="/listUsers"><img src="/assets/images/limpieza-de-datos.png"></a>
-            <span class="tooltiptext">Limpiar el filtrado</span>
-        </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="tooltip" >
-            <a type="button" id="btnver" href="/reportUser" target="_blank"><img src="/assets/images/pdf.png"></a>
-            <span class="tooltiptext">Exportar PDF</span>
-        </div>
-    </div>
+<fieldset style="margin-top: 0.4%;  ">
+  
     <div class="spanFilter">
         <span>Seleccione el filtrado </span>
     </div>
@@ -57,14 +47,27 @@ require 'layout/navbar.php';
             </select>
         </div>
     </div>
+   
+    <centrer>
+        <div style="margin-left: 50%;margin-top: -4%; margin-bottom: -9%;">
+            <div class="tooltip" >
+                <a href="/listUsers"><img src="/assets/images/limpieza-de-datos.png"></a>
+                <span class="tooltiptext">Limpiar el filtrado</span>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="tooltip" >
+                <a type="button" id="btnver" href="/reportUser" target="_blank"><img src="/assets/images/pdf.png"></a>
+                <span class="tooltiptext">Exportar PDF</span>
+            </div>
+        </div>
+    </centrer>
 
-   <div>
-   <?php
+ <div   class="formadd">
+ <?php
         require_once 'listUsersPagination.php';
     ?>
-   </div>
-
-    
+ </div>
+  
 
 </fieldset>
 

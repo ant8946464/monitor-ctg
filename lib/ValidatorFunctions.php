@@ -4,7 +4,7 @@
 
 
     class ValidatorFunctions {
-  
+
         function validateEmptyParameters( $array){
             foreach ($array as $var){
                 if(empty($var)){

@@ -59,17 +59,17 @@
       <div class="contenedor-inputs" style="margin-bottom: -9.5%">
           <input type="hidden" name="id" value= "<?= $items[0] ?>" />
           <label>Nombre</label> 
-          <input type="text" name="nameUser" placeholder="Nombre" maxlength="50" value="<?php echo $items[1]  ?>" required>
+          <input type="text" name="nameUser"  maxlength="50" value="<?php echo $items[1]  ?>" required>
           <label>Apellido Paterno</label> 
-          <input type="text" name="apellidoPat" placeholder="Apellido Paterno" maxlength="50" value="<?php echo $items[2]  ?>" required>
+          <input type="text" name="apellidoPat"  maxlength="50" value="<?php echo $items[2]  ?>" required>
           <label>Apellido Materno</label> 
-          <input type="text" name="apellidMat" placeholder="Apellido Materno" maxlength="50" value="<?php echo $items[3]  ?>" required>
+          <input type="text" name="apellidMat"  maxlength="50" value="<?php echo $items[3]  ?>" required>
           <label>Usuario Corporativo</label>
-          <input type="text" name="user_corporate" placeholder="Usuario Corporativo" maxlength="8" value="<?php echo $items[4]  ?>"  required>
+          <input type="text" name="user_corporate"  maxlength="8" value="<?php echo $items[4]  ?>"  required>
           <label>Correo</label>
-          <input type="email" name="email" placeholder="Correo" maxlength="50" value="<?php echo $items[5]  ?>" required>
+          <input type="email" name="email" maxlength="50" value="<?php echo $items[5]  ?>" required>
           <label>Teléfono</label>
-          <input type="text" name="phone" placeholder="Teléfono" maxlength="10" value="<?php echo $items[11]  ?>" required>
+          <input type="text" name="phone"  maxlength="10" value="<?php echo $items[11]  ?>" required>
           <div>
                 <div class="content-select" required>
                       <select name="area">
