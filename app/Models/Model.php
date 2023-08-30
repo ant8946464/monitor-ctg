@@ -4,16 +4,15 @@
     
     require_once './lib/AbCrypt.php';
     require_once './lib/DataBases.php';
-    
+    require_once './lib/ValidatorFunctions.php';
     
 
     use Lib\AbCrypt;
     use Lib\Databases;
-use mysqli;
-use \PDO;
+    use \PDO;
     use \PDOException;
 
-
+   
 
     class Model{
 
@@ -27,24 +26,19 @@ use \PDO;
         }
 
         public function getallFilterDay($value){
-                $items = [];
                 $date_now = date("Y-m-d"); 
                 $nuevaFecha = date("Y-m-d",strtotime ( '-'.$value.' day' , strtotime ( $date_now ) ) );
             try{
                 $sql = "SELECT * FROM {$this->table} WHERE date_event between '$nuevaFecha 00:00:00' and '$date_now 23:59:59'; ";
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+                return $this->executeQueryItems($sql);     
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
 
+
+   
 
         public function findValue($colum, $value, $selectColumn){
            
@@ -79,7 +73,7 @@ use \PDO;
         }
 
 
-
+   
 
         public function getItemColumns($column ,$columnId){
             $items = [];
@@ -118,132 +112,99 @@ use \PDO;
 
 
         public function getallColumnLimit($start , $byPage){
-            $items = [];
+
             try{
                 $sql = "SELECT * FROM {$this->table} LIMIT  $start , $byPage  ";
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
 
-
+    
        
         
         public function getallColumn(){
-            $items = [];
             try{
                 $sql = "SELECT * FROM {$this->table} ";
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
 
+  
 
         public function getallJoinlimit($start , $byPage ){
 
-            $items = [];
             try{
                 $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg LIMIT  $start , $byPage  ";
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
+
+
+     
 
         public function getallJoin(){
 
-            $items = [];
             try{
                 $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg";
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
+
+    
+
 
         public function getallJoinWhereLimit($colum , $value ,$start , $byPage){
-
-            $items = [];
             try{
                 $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg and {$colum}='{$value}'LIMIT  $start , $byPage  ";      
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+             
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
+
+
+   
 
         public function getallJoinWhere($colum , $value ){
-
-            $items = [];
             try{
                 $sql = "SELECT * FROM d29_user_event e JOIN d29_user u JOIN d29_server_ctg c where e.d29_user_id=u.id_user and e.d29_server_ctg_id=c.id_ctg and {$colum}='{$value}'";      
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+             
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
+
+
+   
 
         public function getallWhere($colum , $value ){
-
-            $items = [];
             try{
                 $sql = "SELECT * FROM {$this->table} WHERE {$colum}='{$value}'";      
-                $query = $this->databases->connect()->prepare($sql);  
-                $query->execute();
-                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
-                    array_push( $items,$p);
-                 }
-                 
-                return $items;
+              
+                return $this->executeQueryItems($sql);
             }catch(PDOException $e){
                 echo $e;
                 return null;
             }
         }
+
+   
 
 
         public function delete($idComun ,$value){
@@ -283,6 +244,22 @@ use \PDO;
             $encrip = new AbCrypt();
             return strcmp($passFront, $encrip->decryptthis($passDB));;  
        }
+       
+
+        public function executeQueryItems($sql){
+                $items = [];
+            try{
+                $query = $this->databases->connect()->prepare($sql);  
+                $query->execute();
+                while( $p = $query->fetch(PDO::FETCH_ASSOC)){
+                    array_push( $items,$p);
+                }
+                return $items;
+            }catch(PDOException $e){
+                echo $e;
+                return null;
+            }
+        }
        
     }
 

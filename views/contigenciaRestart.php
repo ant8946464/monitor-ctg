@@ -96,74 +96,14 @@ $monitoreoServer = new MonitoreoServer();
         </table>
     </center>
 
+    <?php
+     $url =  'contigenciaRestart';
+     $html =  'content-1';
 
+     require 'layout/pagination.php';
 
-    <section class="pagination">
-        <center>
-            <ul>
-                <?php
-                $pages =  ceil(count($resulAll) / $porPagina);
-
-                if (($pagina == 1)) {
-                ?>
-                    <li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1')">
-                            << </a>
-                    </li>
-
-                <?php
-
-                } else {
-
-                ?>
-                    <li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaRestart','content-1')"><i class="icon-circle-left"></i></a></li>
-                    <?php
-
-                }
-
-                for ($i = 1; $i <= $pages; $i++) {
-
-                    if ($pagina == $i) {
-
-                    ?>
-
-                        <li><a class="active" onclick="changePagination('<?php echo $i ?>','contigenciaRestart','content-1')"><?php echo $i ?></a></li>
-
-                    <?php
-
-                    } else {
-
-                    ?>
-                        <li><a onclick="changePagination('<?php echo $i ?>','contigenciaRestart','content-1')"><?php echo $i ?></a></li>
-
-                    <?php
-
-                    }
-                }
-
-                if ($pagina == $pages) {
-
-
-                    ?>
-                    <li><a class="no-link" onclick="changePagination('<?php echo ($pagina + 1) ?>','contigenciaRestart','content-1')"><i class="icon-circle-right"></i></a></li>
-                <?php
-
-                } else {
-
-
-                ?>
-
-                    <li><a onclick="changePagination('<?php echo ($pagina + 1) ?>','contigenciaRestart','content-1')">>></a></li>
-                <?php
-
-                }
-
-                ?>
-
-            </ul>
-        </center>
-    </section>
+    ?>
+    
 
 </section>
 
-<script src="../assets/js/app.js"></script>
-<script src="../assets/js/script.js"></script>

@@ -60,35 +60,6 @@ function dataCanvan(data1 , data2){
 
 }
 
-function selectMonitor(id) {
-    console.log(id);
-    var first_select = document.getElementById(id).value;
-    console.log(first_select);
-    //window.location.href = "";
-
-   $(document).ready(function(){
-      $.ajax({
-          url:'/monitoreoGrafico',
-          type:"POST",
-          data: 'selector=' + first_select ,
-            success:function(data){
-              $("#chart").html(data);
-            }
-      });
-    });
-;
-   /* $(document).ready(function(){
-      $.ajax({
-          url:'/monitoreoGrafico',
-          type:"POST",
-          data: 'selector=' + first_select ,
-            success:function(data){
-              $("#chart").html(data);
-            }
-      });
-    });
-;*/
-} 
 
 
 function selectView(element) {
@@ -213,7 +184,6 @@ function changestatusServer(server , actividad) {
 }
 
 function changePagination(page , url ,classhtml ,colum,value) {
-
     $(document).ready(function(){
       $.ajax({
           url:'/'+url,
@@ -224,7 +194,6 @@ function changePagination(page , url ,classhtml ,colum,value) {
             }
       });
   });
- 
   return;
 
 }

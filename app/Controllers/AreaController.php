@@ -60,7 +60,6 @@
         $validator = new ValidatorFunctions();
         $areaManager = new Area();
         $register= new DescritionRegister();
-        $date_now = date("Y-m-d h:i:s"); 
         $name  = strtoupper($this->getPost('name'));          
         $descripcion =  $this->getPost('descripcion');    
         $manager = $areaManager->findValue("area",$name,'*'); 
@@ -71,7 +70,7 @@
         }else if(!empty($manager)){
             return $this->view('responsible',$this->createArrayInsert(null , 'xCp6cfUWVGN17cara71QbGB0DiWMkiRIu' ,' el área') );
         }else{
-            if($register->create(["description" =>  $descripcion, "date_register" => $date_now])){
+            if($register->create(["description" =>  $descripcion, "date_register" =>  $validator->getDateNow("Y-m-d h:i:s")])){
 
                 if($areaManager->create(["area" => $name, "id_descripcion" =>$register->findValue("description",$descripcion,'id')['id']])){
                    

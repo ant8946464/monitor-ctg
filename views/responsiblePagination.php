@@ -68,7 +68,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 			if (($pagina == 1)) {
 			?>
 				<li><a class="no-link" onclick="changePagination('<?php echo ($pagina - 1) ?>','contigenciaStarStop','content-1')">
-						<< </a>
+						 </a>
 				</li>
 
 			<?php
