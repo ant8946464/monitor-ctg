@@ -18,77 +18,7 @@ $(document).ready(function() {
 });
 
 
-function dataCanvan(data1 , data2){
 
-  window.onload = function () {
-    var chart2 = new CanvasJS.Chart("chart", {
-
-	title:{
-		text: "Monitoreo de Servidores"
-	},
-	axisX: {
-		title:"Server",
-        labelFontSize: 8
-	},
-	axisY:{
-		title: "Response Time (in ms)"
-      
-	},
-
-	data: [
-        {
-            type: "scatter",
-            toolTipContent: "<span style=\"color:#4F81BC \"><b>{name}</b></span><br/><b> Load:</b> {x} TPS<br/><b> Response Time:</b></span> {y} ms ",
-            name: "Server ok",
-            markerType: "square",
-            showInLegend: true,
-            dataPoints: data1
-        },
-        {
-            type: "scatter",
-            name: "Server Error",
-            markerType: "triangle",
-            showInLegend: true, 
-            toolTipContent: "<span style=\"color:#C0504E \"><b>{name}</b></span><br/><b> Load:</b> {x} TPS<br/><b> Response Time:</b></span> {y} ms",
-            dataPoints: data2
-        }
-	]
-});
- 
-    chart2.render();
-}
-
-}
-
-function selectMonitor(id) {
-    console.log(id);
-    var first_select = document.getElementById(id).value;
-    console.log(first_select);
-    //window.location.href = "";
-
-   $(document).ready(function(){
-      $.ajax({
-          url:'/monitoreoGrafico',
-          type:"POST",
-          data: 'selector=' + first_select ,
-            success:function(data){
-              $("#chart").html(data);
-            }
-      });
-    });
-;
-   /* $(document).ready(function(){
-      $.ajax({
-          url:'/monitoreoGrafico',
-          type:"POST",
-          data: 'selector=' + first_select ,
-            success:function(data){
-              $("#chart").html(data);
-            }
-      });
-    });
-;*/
-} 
 
 
 function selectView(element) {
@@ -164,7 +94,34 @@ function asigID(id , path) {
   pathDelete= path;
 }
 
+function selectMonitor(id) {
+    console.log(id);
+    var first_select = document.getElementById(id).value;
+    console.log(first_select);
+    //window.location.href = "monitoreo";
+    //document.getElementById('chartContainer').style.display = 'none';
 
+
+   $.ajax({
+      url: '/monitoreoGrafico',
+      type:"POST",
+      async: true,
+      data: 'selector=' + first_select,
+      beforeSend:function(){
+        //console.log('esperando...');
+       // $("#chart").html("<span>BUSCANDO</span>");
+      
+      },
+      success:function(data){
+        console.log(data);
+        //document.getElementById('chart').style.display = 'block';
+        // document.getElementById('chartContainer').style.display = 'none';
+        $("#chart").html(data);
+        
+      }
+  });
+  return;
+}
 
 
 
@@ -213,7 +170,11 @@ function changestatusServer(server , actividad) {
 }
 
 function changePagination(page , url ,classhtml ,colum,value) {
-
+  console.log(page);
+  console.log(url); 
+  console.log(classhtml); 
+  console.log(colum); 
+  console.log(value); 
     $(document).ready(function(){
       $.ajax({
           url:'/'+url,

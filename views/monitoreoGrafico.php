@@ -9,8 +9,7 @@
 ?>
  
  <?php
-
-var_dump('MONITOR ');
+ 
 $monitoreoServer = new MonitoreoServer();
 $data1 = [];
 $data2 = [];
@@ -52,6 +51,7 @@ if ($v['status'] == 1) {
 
         $monitoreoServer = new MonitoreoServer();
        
+
         $resul = $monitoreoServer->getallColumn();
         
         foreach ($resul as $k => $v) {
@@ -70,6 +70,7 @@ if ($v['status'] == 1) {
 
 <script >
 var value;
+var value;
 $(function(){
     var $tabla = $('#idSelectHour');
     $('#idSelectHour').change(function(){
@@ -82,7 +83,7 @@ $(function(){
             window.location.href = "monitoreoGrafico";
         }
     });
-})    
+})  
 
 deleteTableId();
 
@@ -90,7 +91,7 @@ function deleteTableId() {
   
    
     window.onload = function () {
-    var chart2 = new CanvasJS.Chart("chart", {
+    var chart2 = new CanvasJS.Chart("chartMonitor", {
 
 	title:{
 		text: "Monitoreo de Servidores"
@@ -132,9 +133,13 @@ function deleteTableId() {
 
 </script>
 
-<div class="formadd " id="chart" style="width:90%;margin-left: 5%;margin-bottom: 1%;margin-top: -4%;"></div>
 
+<div class="formadd " id="chartMonitor" style="width:90%;margin-left: 5%;margin-bottom: 1%;margin-top: -4%;"></div>
+
+
+  
 <?php
+   // require 'monitoreoGrafico.php';
     require 'layout/footer.php';
 ?>
 
