@@ -33,7 +33,7 @@ $session->setSessionName('reportActivity',1) ;
 ?>
 
 
-<section class=" formadd content" >
+<section class="content" >
 
     <center>
         <table>
@@ -133,3 +133,5 @@ $session->setSessionName('reportActivity',1) ;
                 </ul>
             </center>
         </section>
+    </center>
+</section>

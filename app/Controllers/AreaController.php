@@ -24,6 +24,11 @@
          return $this->view('responsible', $this->createArrayInsert(null,null,null));
       }
 
+      public function responsiblePagination(){
+        return $this->view('responsiblePagination', $this->createArrayInsert(null,null,null));
+     }
+
+
       private function createArrayInsert($msgInfo, $msgError, $msg){
         $success = new Success();
         $error = new Errors();
@@ -48,6 +53,8 @@
             "path" => '/addArea',
             "pathDelete" => 'deleteArea',
             "selectName" => 'areaSelect',
+            "pathPagination" => 'areaPagination',
+            
         ];
 
         return $array ;

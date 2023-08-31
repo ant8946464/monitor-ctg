@@ -43,7 +43,7 @@ if ($modelo == "AreaManager") {
 
 
 <fieldset  style=" margin-top: 0.5%">
-	<div class="formadd tabs ">
+	<div class=" tabs ">
 		<div class="tab-container" >
 			<div id="tab2" class="tab">
 				<a href="#tab2">Eliminar </a>
@@ -62,7 +62,8 @@ if ($modelo == "AreaManager") {
 							</select>
 						</div>
 					</div>
-				<?php	
+				<?php
+					
 			      require_once 'responsiblePagination.php';
 				?>
 				</div>

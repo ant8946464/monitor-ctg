@@ -88,6 +88,8 @@
 
     Route::post('/deleteResponse', [ResponsibleController::class ,'deleteby']);
 
+    Route::post('/responsiblePagination', [ResponsibleController::class ,'responsiblePagination']);
+
     //modulo area
     
     Route::get('/area', [AreaController::class ,'index']);
@@ -100,6 +102,8 @@
 
 
     Route::post('/deleteArea', [AreaController::class ,'deleteby']);
+
+    Route::post('/areaPagination', [AreaController::class ,'responsiblePagination']);
 
     //modulo puesto de trabajo
     
@@ -114,7 +118,9 @@
 
     Route::post('/deleteJob', [JobController::class ,'deleteby']);
 
-    
+    Route::post('/jobPagination', [JobController::class ,'responsiblePagination']);
+
+       //modulo listar usuarios
 
     Route::get('/listUsers', [UserController::class ,'index']);
 
