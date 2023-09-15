@@ -1,36 +1,35 @@
 <?php
-require_once dirname( __DIR__ ) . '/app/Models/AreaManager.php';
-require_once dirname( __DIR__ ) . '/app/Models/DescritionRegister.php';
-require_once dirname( __DIR__ ) . '/app/Models/Area.php';
-require_once dirname( __DIR__ ) . '/app/Models/Job.php';
-        use App\Models\AreaManager;
-        use App\Models\DescritionRegister;
-        use App\Models\Area;
-        use App\Models\Job;
+require_once dirname(__DIR__) . '/app/Models/AreaManager.php';
+require_once dirname(__DIR__) . '/app/Models/DescritionRegister.php';
+require_once dirname(__DIR__) . '/app/Models/Area.php';
+
+use App\Models\AreaManager;
+use App\Models\DescritionRegister;
+use App\Models\Area;
+use App\Models\Job;
 
 
-        $id = $_POST['request'];
-        if($modelo == "AreaManager"){
-          $connectioDb = new AreaManager();
-         }else if($modelo == "Area"){
-            $connectioDb = new Area();
-         }else if($modelo == "Job"){
-          $connectioDb = new Job();
-          }
-          
-        $result = $connectioDb->findValue($idtable,$id,'*');
-        $items = [];
-        if(!empty( $result)){
-             foreach ($result as $k => $v) {
-                        array_push( $items,$v);
-             }
-             $register= new DescritionRegister();
-             $register->delete('id', $items[2]);
-             $connectioDb->delete($search_id,$id);
-            
-        }
+  $id = $_POST['request'];
+  if ($modelo == "AreaManager") {
+    $connectioDb = new AreaManager();
+  } elseif ($modelo == "Area") {
+    $connectioDb = new Area();
+  } else{
+    $connectioDb = new Job();
+  }
 
- 
+  $result = $connectioDb->findValue($idtable, $id, '*');
+  $items = [];
+  if (!empty($result)) {
+    foreach ($result as $k => $v) {
+      array_push($items, $v);
+    }
+    $register = new DescritionRegister();
+    $register->delete('id', $items[2]);
+    $connectioDb->delete($search_id, $id);
+  }
+
+
 ?>
     
       <section class="content">   
@@ -71,6 +70,6 @@ require_once dirname( __DIR__ ) . '/app/Models/Job.php';
                           </div>
                         </section>
 
-                        
 
-
+  </div>
+</section>

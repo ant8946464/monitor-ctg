@@ -31,7 +31,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 ?>
 
-<section class="content">
+<section class="content"  >
 
 	<center>
 	<div>
@@ -39,7 +39,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 
 		if (!empty($connectioDb->getItemColumns($column, $idtable))) {
 		?>
-			<table>
+			<table >
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -76,7 +76,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 	</div>
 
 
-		<section class="pagination">
+		<section class="pagination" >
 			<center>
 				<ul>
 					<?php

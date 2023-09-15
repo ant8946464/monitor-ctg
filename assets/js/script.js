@@ -190,6 +190,7 @@ function changePagination(page , url ,classhtml ,colum,value) {
           type:"POST",
           data:{ paginator: page, colum : colum, value:value } ,
             success:function(data){
+              console.log(data);
               $("."+classhtml).html(data);
             }
       });

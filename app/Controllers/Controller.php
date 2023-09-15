@@ -15,7 +15,7 @@
          $route = str_replace('.','/',$route);
          if(file_exists("views/{$route}.php")){
             ob_start();
-            include "views/{$route}.php";
+            include_once "views/{$route}.php";
             $conten = ob_get_clean();
             return $conten;
          }else {
@@ -23,12 +23,12 @@
          }  
       }
 
-      function getGet($name){
+      public  function getGet($name){
          $validator = new ValidatorFunctions();
          return  isset($_GET[$name]) ? $validator->clean_text($_GET[$name]): null ; 
       }
  
-     function getPost($name){
+      public  function getPost($name){
          $validator = new ValidatorFunctions();
          return isset($_POST[$name]) ? $validator->clean_text($_POST[$name]): null ;
      }

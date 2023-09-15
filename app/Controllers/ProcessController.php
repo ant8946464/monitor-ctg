@@ -53,7 +53,6 @@
               
             return $this->view('procesBatch' ,$this->createArrayInsert());
     
-         
       }
 
 
@@ -64,8 +63,6 @@
              "msg" => $this->msg,
             "success" => $this->msgInfo
          ];
- 
-         return $array ;
       }
 
 
@@ -85,7 +82,6 @@
       public function ejectValidad(){
       
          return $this->view('runServerValidations' );
-	
       }
  
    }

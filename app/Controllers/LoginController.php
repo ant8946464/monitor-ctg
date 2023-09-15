@@ -46,15 +46,13 @@
 
          if(!$captcha->getCaptcha()){
             return $this->view('resetPassword',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy',null));
-         }
-         if(!empty($user)){
+         }elseif(!empty($user)){
             $items = [];
             foreach ($user as $k => $v) {
                array_push( $items,$v);
             }
-
            $email = new Mail($emailUser,'Reseteo de password',null);
-           $email->templateMessage('Restablecer Password', 'Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. ' ,"https://monictorctg-space.preview-domain.com/formResetPassword/".$emailUser."token".$items[12],'Para restablecer da click aqui');
+           $email->templateMessage(constant('TITLE_MAIL'), 'Estimado  '.$items[1].', se recibio una solicitud para restablecer su contraseña en el portal. ' ,constant('URL_RESET').$emailUser."token".$items[12],'Para restablecer da click aqui');
            $email->sendMailContent();
            return $this->view('login',$this->createArrayFront(null,'HyDTdr1kfmwDtZR+GXPRoTuhvRQZFxPxW'));
          }else{
@@ -65,16 +63,14 @@
 
 
       public function validateLogin(){
-         $userModels = new User();
          $captcha = new Captcha();
          $this->userCorporate = $this->getPost('usuario_corporate');    
          $this->userCorporate =str_replace(' ', '', $this->userCorporate);
          $password = $this->getPost('password'); 
+
          if(!$captcha->getCaptcha()){
             return $this->view('login',$this->createArrayFront('SJ9q4HUCgeOoFx4ruNVkMUQS6k44diaAy',null));
-         }
-
-         if(empty( $this->userCorporate ) or empty($password)){
+         }elseif(empty( $this->userCorporate ) || empty($password)){
             return $this->view('login',$this->createArrayFront('a5bcd7089d83f45e17e989fbc86003ed',null)); 
          }else{
             $userModels = new User();
@@ -88,12 +84,11 @@
                  $session->setSessionName('d29_role_id',$user['d29_role_id']);
                  $session->setSessionName('role_authorization',$user['role_authorization']);    
                   return $this->view('portal');
-
                }else{
                   return $this->view('login',$this->createArrayFront('bcbe63ed8464684af6945ad8a89f76f8',null)); 
                }
             }else{
-            return $this->view('login',$this->createArrayFront('dkijud26e06d01g56610952678cf3sde',null));    
+               return $this->view('login',$this->createArrayFront('dkijud26e06d01g56610952678cf3sde',null));    
             }
         }
       }

@@ -13,15 +13,10 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 		$Colum = $_POST['colum'];
 		
     } 
-	
 	if(isset($_POST['value'])){
 
 		$value = $_POST['value'];
-		
     }
-
-	
-
 	$porPagina = 20;
 	$pagina = 1;
 	if (isset($_POST['paginator'])) {
@@ -41,7 +36,7 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 	?>
 	<section class="content">
 	
-	<center>
+	<div style="text-align: center;">
 	<table>
 		<thead>
 			<tr>
@@ -72,7 +67,7 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 	</table>
 
 	<section class="pagination">
-				<center>
+			
 					<ul>
 						<?php
 						$pages =  ceil(count($resulAll) / $porPagina);
@@ -132,9 +127,9 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 						?>
 
 					</ul>
-				</center>
+			
 			</section>
 
-	</center>
+					</div>
 	</section>';
 

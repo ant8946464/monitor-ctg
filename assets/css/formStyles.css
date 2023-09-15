@@ -53,6 +53,15 @@ h1{
 
 }
 
+.contenedor-inputs1 {
+  padding: 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+
+}
+
 label{
   color:  #0077b6;
   font-size: 15px; 

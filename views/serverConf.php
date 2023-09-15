@@ -204,15 +204,15 @@ $pages =  ceil(count($resulAll) / $porPagina);
 				<div class="tab-content"  >
 					<form class="form-register"   method="post" action="/formServer">
 						<h1>Agregar Servidores</h1>
-						<div class="contenedor-inputs"  >
+						<div class="contenedor-inputs1"  >
 							<label style="width: 80%;margin-left: 40px;">Nombre del servidor</label>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="servername"  maxlength="50" value="<?php if (isset($name)) { ?><?= $name ?> <?php }  ?>" required>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="servername"  maxlength="50" value="" required>
 							<label style="width: 80%;margin-left: 40px;">Ip</label>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="ip"  maxlength="12" value="<?php if (isset($ip)) { ?><?= $ip ?> <?php }  ?>" required>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="ip"  maxlength="12" value="" required>
 							<label style="width: 80%;margin-left: 40px;">Cluster</label>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster"  maxlength="15" value="<?php if (isset($cluster)) { ?><?= $cluster ?> <?php }  ?>" required>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="cluster"  maxlength="15" value="" required>
 							<label style="width: 80%;margin-left: 40px;">Puerto</label>
-							<input style="width: 80%;margin-left: 40px;" type="text" name="port"  maxlength="4" value="<?php if (isset($port)) { ?><?= $port ?> <?php }  ?>" required>
+							<input style="width: 80%;margin-left: 40px;" type="text" name="port"  maxlength="4" value="" required>
 							<input type="submit" value="Enviar" class="btn-enviar" />
 						</div>
 					</form>
@@ -251,5 +251,5 @@ $pages =  ceil(count($resulAll) / $porPagina);
 </fieldset>
 
 <?php
-require 'layout/footer.php';
+require_once 'layout/footer.php';
 ?>

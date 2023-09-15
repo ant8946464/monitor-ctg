@@ -58,42 +58,33 @@
          $this->ip =  $this->getPost('ip');
          $this->cluster =  $this->getPost('cluster');
          $this->port = $this->getPost('port');
-
          $name = $server->findValue("name",$this->servername,'*');
-
          $ip = $server->findValue("ip",$this->ip,'*');
          $id = $_POST['id']?? null;
 
-   
-         if($id != null){
-            $id = $_POST['id'];
-            if($validator->validateEmptyParameters(array($this->servername,$this->ip,$this->cluster,$this->port))){
-               return $this->view('serverConf',$this->createArrayFront(null,'a5bcd7089d83f45e17e989fbc86003ed'));
-            }else if(preg_match($ip_preg, $this->ip) == 0 ){
-                   return $this->view('serverConf',$this->createArrayFront(null,'x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt'));
-            }else if(!is_numeric($this->port )){
-                  return $this->view('serverConf',$this->createArrayFront(null,'9NUL03mioVH6tdGuRe/U+thrDQ1DBN8n7I'));
-            }else{
-               $server->update('id_ctg',$id,$this->createArrayInsert());
-               return $this->view('portal',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);
+         if($validator->validateEmptyParameters(array($this->servername,$this->ip,$this->cluster,$this->port))){
+            return $this->view('serverConf',$this->createArrayFront(null,'a5bcd7089d83f45e17e989fbc86003ed'));
+         }elseif(preg_match($ip_preg, $this->ip) == 0 ){
+            return $this->view('serverConf',$this->createArrayFront(null,'x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt'));
+         }elseif(!is_numeric($this->port )){
+            return $this->view('serverConf',$this->createArrayFront(null,'9NUL03mioVH6tdGuRe/U+thrDQ1DBN8n7I'));
+         }else{
+            if($id != null){
+               $id = $_POST['id'];
+                  $server->update('id_ctg',$id,$this->createArrayInsert());
+                  return $this->view('portal',["success" => $success->get('YEqzEuBE9KJLiR73eeI2q+ynksjJuq4d')]);     
+            }else {
+              if(!empty($ip)  || !empty( $name)) {
+                  return $this->view('serverConf',$this->createArrayFront(null,'GTF2LcSrh+8kXQ7T3y44fMTP9VEV3lDbl'));
+               }else{
+                     $server->create($this->createArrayInsert());
+                     return $this->view('serverConf',["success" => $success->get('qrNetDEjGRg4AFdpch2bn4xnTOm8zhAg')]);
+               }
+             
             }
-           
-         }else {
-            if($validator->validateEmptyParameters(array($this->servername,$this->ip,$this->cluster,$this->port))){
-               return $this->view('serverConf',$this->createArrayFront(null,'a5bcd7089d83f45e17e989fbc86003ed'));
-            }else if(!empty($ip)  || !empty( $name)) {
-               return $this->view('serverConf',$this->createArrayFront(null,'GTF2LcSrh+8kXQ7T3y44fMTP9VEV3lDbl'));
-            }else if(preg_match($ip_preg, $this->ip) == 0 ){
-                   return $this->view('serverConf',$this->createArrayFront(null,'x5V1OITn7olzdb+7q2kjhV4Fmy0yRQ3yt'));
-            }else if(!is_numeric($this->port )){
-               return $this->view('serverConf',$this->createArrayFront(null,'9NUL03mioVH6tdGuRe/U+thrDQ1DBN8n7I'));
-            }else{
-                  $server->create($this->createArrayInsert());
-                  return $this->view('serverConf',["success" => $success->get('qrNetDEjGRg4AFdpch2bn4xnTOm8zhAg')]);
-              
-            }
-            
          }
+
+        
          }
 
       

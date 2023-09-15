@@ -27,7 +27,6 @@ class Errors{
 
     private $errorsList = [];
 
-    private $messageError = '';
 
     public function __construct()
     {
@@ -37,7 +36,7 @@ class Errors{
             Errors::ERROR_USER_UPDATEPASSWORD_ISNOTTHESAME  => 'Los passwords no coinciden.',
             Errors::ERROR_SIGNUP_NEWUSER_EXISTS             => 'El nombre de usuario ya existe.',
             Errors::ERROR_SIGNUP_NEWUSER                    => 'Hubo un error al intentar al enviar los datos. Intenta de nuevo más tardes.',
-            Errors::ERROR_SIGNUP_NEWUSER_PASSWORD           => 'La contraseña debe de contener Mayuscula, minusculas, números y caracteres. Maximo 8 de longuitud',
+            Errors::ERROR_SIGNUP_NEWUSER_PASSWORD           => 'La contraseña debe de contener Mayuscula, minusculas, números y caracteres. Maximo 8 de longuitud.',
             Errors::ERROR_SIGNUP_NEWUSER_LENGHT             => 'El usuario de red debe de tener 8 caracteres.',
             Errors::ERROR_USER_NOT_EXIST                    => 'El usuario no se encuentra registrado.',
             Errors::ERROR_USER_NOT_EX                       => 'El usuario no es valido.',
@@ -45,7 +44,7 @@ class Errors{
             Errors::ERROR_SERVER_IP_EXIT                    => 'El nombre del servidor y/o ip ya estan registrado.',
             Errors::ERROR_IP_INVALID                        => 'La ip tiene un formato invalido.',
             Errors::ERROR_CAPTCHA_INVALID                   => 'Validar la captcha.',
-            Errors::ERROR_NOT_TELEFONO                      => 'El teléfono  contiene caracteres que No son numericos.',
+            Errors::ERROR_NOT_TELEFONO                      => 'El teléfono  contiene caracteres que No son numéricos.',
             Errors::ERROR_NOT_MAIL                          => 'El correo no cuenta con la estructura necesaria.',
             Errors::ERROR_EXITS_CONTENT                     => 'Ya existe: ',
             Errors::EMAIL_NOT_EXIT                          => 'El correo que ingreso no exite.',
@@ -56,14 +55,14 @@ class Errors{
         ];
     }
 
-    function get($hash){
+    public function get($hash){
         if($hash == null){
             return null;
         }
         return $this->errorsList[$hash];
     }
 
-    function existsKey($key){
+    public function existsKey($key){
         if(array_key_exists($key, $this->errorsList)){
             return true;
         }else{

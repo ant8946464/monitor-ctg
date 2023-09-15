@@ -13,13 +13,13 @@ if (isset($_POST['name'])) {
 
 	$value = $_POST['name'];
 	$Colum = 'name';
-} else if (isset($_POST['ip'])) {
+} elseif (isset($_POST['ip'])) {
 	$value = $_POST['ip'];
 	$Colum = 'ip';
-} else if (isset($_POST['cluster'])) {
+} elseif (isset($_POST['cluster'])) {
 	$value = $_POST['cluster'];
 	$Colum = 'cluster';
-} else if (isset($_POST['puerto'])) {
+} elseif (isset($_POST['puerto'])) {
 	$value = $_POST['puerto'];
 	$Colum = 'puerto';
 }

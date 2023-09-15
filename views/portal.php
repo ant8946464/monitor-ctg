@@ -26,7 +26,7 @@ if (isset($success)) {
     <span>Se listan las actividades de los servidores. </span>
 </div>
 
-<fieldset >
+<fieldset style=" margin-bottom: 0.5%; ">
 <div class="spanFilter">
     <span>Seleccione el filtrado </span>
 </div>
@@ -59,7 +59,7 @@ if (isset($success)) {
     </div>
 
     </div>
-    <center>
+    <div style="text-align:center">
         <div class="tooltip">
             <a href="/portalmonitor"><img src="/assets/images/limpieza-de-datos.png"></a>
             <span class="tooltiptext">Limpiar el filtrado</span>
@@ -68,10 +68,9 @@ if (isset($success)) {
             <a type="button"   id="btnver" href="/reporte" target="_blank"><img src="/assets/images/pdf.png"></a>
                 <span class="tooltiptext">Exportar PDF</span>
             </div>
-    </center>
+    </div>
     
-      
-
+    
     <?php
     if (isset($_POST['pagination'])) {
         $pagina = $_POST['pagination'];
@@ -86,5 +85,5 @@ if (isset($success)) {
 
 <?php
 
-require 'layout/footer.php';
+require_once 'layout/footer.php';
 ?>

@@ -19,4 +19,8 @@
 
     define('GROUP_MAIL', 'j.antonio.bermudez80@gmail.com');
 
-?>
+    define('URL_AUTHORIZATION', 'https://monictorctg-space.preview-domain.com/administratorAuthorization/');
+    define('URL_RESET', 'https://monictorctg-space.preview-domain.com/formResetPassword/');
+    define('TITLE_MAIL', 'Restablecer Password');
+
+
