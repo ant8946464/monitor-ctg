@@ -41,8 +41,8 @@ if ($modelo == "AreaManager") {
 	<span> <?= $msgInfo ?> </span>
 </div>
 
-
-<fieldset  style=" margin-top: 0.5%">
+<div class="eventeServer">
+<fieldset  >
 	<div class=" tabs ">
 		<div class="tab-container" >
 			<div id="tab2" class="tab">
@@ -86,7 +86,8 @@ if ($modelo == "AreaManager") {
 		</div>
 	</div>
 </fieldset>
-
 <?php
     require 'layout/footer.php';
 ?>
+</div>
+

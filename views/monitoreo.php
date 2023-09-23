@@ -84,7 +84,7 @@ if(count($resul) > 0){
 ?>   
 
 
-<div class="formadd " id="chart" style="width:90%;margin-left: 5%;margin-bottom: 1%;margin-top: -4%;"></div>
+<div class="eventeServer " id="chart" style="width:90%;margin-left: 5%;margin-bottom: 1%;margin-top: -4%;"></div>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <?php
     require 'layout/footer.php';

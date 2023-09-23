@@ -77,7 +77,7 @@
       <div>
         <label>Confirma password</label>
         <div>
-        <input type="password" name="confirmpassword" placeholder="" required>
+        <input type="password" name="confirmpassword" maxlength="8"  required>
         </div>
       </div>
 

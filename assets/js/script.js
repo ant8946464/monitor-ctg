@@ -216,15 +216,3 @@ function dataReport(dataQuery) {
   return;
 
 }
-
-
-
-
- 
-
-
-
-
-
-
-

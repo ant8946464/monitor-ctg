@@ -27,11 +27,9 @@ $pages =  ceil(count($resulAll) / $porPagina);
 $session = new Session();
 
 $session->setSessionName('reporteUser',1) ;
-
 ?>
-<section class=" formadd content "  style="margin-top: -6%; margin-bottom:-13%;">
+<section class="content "ia >
 	<center>
-
 		<div>
 			<table>
 				<thead>
@@ -89,7 +87,7 @@ $session->setSessionName('reporteUser',1) ;
 					} else {
 
 					?>
-						<li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','userPagination','content')"><i class="icon-circle-left"></i></a></li>
+						<li><a onclick="changePagination('<?php echo ($pagina - 1) ?>','','content')"><i class="icon-circle-left"></i></a></li>
 						<?php
 
 					}

@@ -48,7 +48,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 <fieldset style="margin-bottom: 0.10%; margin-top: 0.3%;  ">
 	<div class="tabs " >
 		<div class="tab-container">
-			<div id="tab2"  class="tab formadd" style="margin-bottom: -80%;">
+			<div id="tab2"  class="tab " style="">
 				<a href="#tab2">Eliminar </a>
 				<div class="tab-content">
 					<div class="select-dis">
@@ -199,7 +199,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 </section>
 				</div>
 			</div>
-			<div id="tab1" class="tab formadd" style="margin-top: 38%; margin-bottom: -45%;">
+			<div id="tab1" class="tab " style="">
 				<a href="#tab1" >Agregar</a>
 				<div class="tab-content"  >
 					<form class="form-register"   method="post" action="/formServer">
@@ -218,7 +218,7 @@ $pages =  ceil(count($resulAll) / $porPagina);
 					</form>
 				</div>
 			</div>
-			<div id="tab3" class="tab formadd" style="margin-top:3.6%; ">
+			<div id="tab3" class="tab " style="">
 				<a href="#tab3">Actualizar</a>
 				<div class="tab-content ">
 					<form class="form-register" method="post" action="/formServer">

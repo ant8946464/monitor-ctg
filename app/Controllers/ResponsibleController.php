@@ -30,6 +30,12 @@
      }
 
 
+     public function idtableResponsable($id){
+        if($id > 0){
+          return  true;
+        }
+        return false;
+     }
      
 
       private function createArrayInsert($msgInfo, $msgError, $msg){
@@ -41,8 +47,7 @@
         }else{
             $detailError;
         }
-        $array = [
-  
+        return [
             "msgInfo" => 'En este módulo el administrador puede dar de alta y baja al responsable del área.',
             "modelo" => 'AreaManager',
             "success" => $success->get($msgInfo),
@@ -57,11 +62,7 @@
             "pathDelete" => 'deleteResponse',
             "selectName" => 'managerSelect',
             "pathPatination" => 'responsiblePagination',
-
-
-        ];
-
-        return $array ;
+        ]; ;
      }
 
 

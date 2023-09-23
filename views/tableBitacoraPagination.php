@@ -32,9 +32,8 @@ require_once dirname( __DIR__ ) . '/app/Models/Activitylog.php';
 	$pages =  ceil(count($resulAll) / $porPagina);
 
 	
-	
 	?>
-	<section class="content">
+	<section class="content"  style="margin-bottom: 6%;">
 	
 	<div style="text-align: center;">
 	<table>

@@ -54,7 +54,7 @@
     }
   ?>
 
-    <form class="form-register formadd" method="post" action="/updateUser" style="margin-bottom: -9.5%">
+    <form class="form-register " method="post" action="/updateUser" style="margin-bottom: -9.5%">
     <h1 class="form-titulo">Actualiza tus datos</h1>
       <div class="contenedor-inputs" style="margin-bottom: -9.5%">
           <input type="hidden" name="id" value= "<?= $items[0] ?>" />

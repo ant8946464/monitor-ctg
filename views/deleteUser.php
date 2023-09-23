@@ -14,9 +14,9 @@
 			$value = $_POST['request'];
 
 		} 
-
+       
+		$connectioDb->delete($Colum,$value);
 		
-        $connectioDb->delete($Colum,$value);
             
 
 ?>
@@ -73,7 +73,7 @@
             <span>NO EXISTEN REGISTROS</span>
     <?php
 		}
-
+		
 	?>
 
         

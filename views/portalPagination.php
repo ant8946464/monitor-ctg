@@ -29,7 +29,6 @@ $pages =  ceil(count($resulAll) / $porPagina);
 $session = new Session();
 
 $session->setSessionName('reportActivity',1) ;
-
 ?>
 
 

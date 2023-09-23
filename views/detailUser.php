@@ -39,7 +39,7 @@ use Classes\Session;
 			
 		?>
 
-	<table>
+	<table style="margin-bottom: 10%;">
 		<thead>
 			<tr>
 			   <th>Id</th>
