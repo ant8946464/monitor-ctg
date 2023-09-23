@@ -203,7 +203,6 @@
          private function createArrayInsert(){
             $abcrypt = new AbCrypt();
             $this->tokenUser = mt_rand(0,1000000).$this->user_corporate.time() ;
-            var_dump( $this->tokenUser);
             return [
                 "username" => $this->userName,
                 "first_name" => $this->first_name,
