@@ -198,21 +198,3 @@ function changePagination(page , url ,classhtml ,colum,value) {
   return;
 
 }
-
-
-function dataReport(dataQuery) {
-  console.log(dataQuery);
-    $(document).ready(function(){
-      $.ajax({
-          url:'/reporte',
-          type:"POST",
-          data: dataQuery ,
-            success:function(data){
-               console.log("OK");
-            }
-      });
-  });
-  
-  return;
-
-}

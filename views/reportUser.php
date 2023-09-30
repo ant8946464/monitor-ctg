@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__DIR__) . '/assets/tcpdf/include/tcpdf_include.php';;
+require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/tcpdf/include/tcpdf_include.php';
 // extend TCPF with custom functions
 class MYPDF extends TCPDF
 {
@@ -124,5 +124,3 @@ $pdf->ColoredTable($header,  $resul);
 
 // close and output PDF document
 $pdf->Output('Reporte_Usarios'.date('Y-m-d').'.pdf', 'I');
-
-?>
