@@ -22,12 +22,14 @@ if (isset($success)) {
 <?php
 }
 ?>
+
 <div class="spanMsgInfo">
     <span>Se listan las actividades de los servidores. </span>
 </div>
 
+<div class="eventeServer">
+    <fieldset>
 
-    <fieldset style=" margin-bottom: 0.5%; ">
         <div class="spanFilter">
             <span>Seleccione el filtrado </span>
         </div>
@@ -58,31 +60,26 @@ if (isset($success)) {
             </div>
 
         </div>
+        <div style="text-align:center">
+            <div class="tooltip">
+                <a href="/portalmonitor"><img src="/assets/images/limpieza-de-datos.png"></a>
+                <span class="tooltiptext">Limpiar el filtrado</span>
+            </div>
+            <div class="tooltip" style="margin-left: 5%;">
+                <a type="button" id="btnver" href="/reporte" target="_blank"><img src="/assets/images/pdf.png"></a>
+                <span class="tooltiptext">Exportar PDF</span>
+            </div>
+        </div>
+        <?php
+        if (isset($_POST['pagination'])) {
+            $pagina = $_POST['pagination'];
+        }
+        require_once 'portalPagination.php';
 
+        ?>
 </div>
-<div style="text-align:center">
-    <div class="tooltip">
-        <a href="/portalmonitor"><img src="/assets/images/limpieza-de-datos.png"></a>
-        <span class="tooltiptext">Limpiar el filtrado</span>
-    </div>
-    <div class="tooltip" style="margin-left: 5%;">
-        <a type="button" id="btnver" href="/reporte" target="_blank"><img src="/assets/images/pdf.png"></a>
-        <span class="tooltiptext">Exportar PDF</span>
-    </div>
-</div>
-
-
-<?php
-if (isset($_POST['pagination'])) {
-    $pagina = $_POST['pagination'];
-}
-
-require_once 'portalPagination.php';
-
-?>
-
 </fieldset>
-
+</div>
 <?php
 
 require_once 'layout/footer.php';

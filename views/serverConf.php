@@ -44,11 +44,11 @@ $pages =  ceil(count($resulAll) / $porPagina);
 	<span>En este módulo se podra dar de alta, baja y actualizar los servidores.</span>
 </div>
 
-
+<div class="eventeServer">
 <fieldset style="margin-bottom: 0.10%; margin-top: 0.3%;  ">
 	<div class="tabs " >
 		<div class="tab-container">
-			<div id="tab2"  class="tab " style="">
+			<div id="tab2"  class="tab " >
 				<a href="#tab2">Eliminar </a>
 				<div class="tab-content">
 					<div class="select-dis">
@@ -249,7 +249,8 @@ $pages =  ceil(count($resulAll) / $porPagina);
 		</div>
 	</div>
 </fieldset>
-
+</div>
 <?php
 require_once 'layout/footer.php';
 ?>
+

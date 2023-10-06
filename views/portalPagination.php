@@ -33,7 +33,6 @@ $session->setSessionName('reportActivity',1) ;
 
 
 <section class="content" >
-
     <center>
         <table>
             <thead>

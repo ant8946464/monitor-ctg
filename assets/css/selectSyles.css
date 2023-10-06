@@ -128,15 +128,6 @@ fieldset {
 	min-height: calc(96.5vh - 130px - 60px);
   }
 
-  /*
-  
- 
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-
-  */
   
   legend {
 	background-color:#ada8a8;

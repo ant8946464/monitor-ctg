@@ -28,9 +28,9 @@ require 'layout/navbar.php';
 
 if ($modelo == "AreaManager") {
 	$connectioDb = new AreaManager();
-} else if ($modelo == "Area") {
+} elseif ($modelo == "Area") {
 	$connectioDb = new Area();
-} else if ($modelo == "Job") {
+} elseif ($modelo == "Job") {
 	$connectioDb = new Job();
 }
 
@@ -43,7 +43,7 @@ if ($modelo == "AreaManager") {
 
 <div class="eventeServer">
 <fieldset  >
-	<div class=" tabs ">
+	<div class="tabs">
 		<div class="tab-container" >
 			<div id="tab2" class="tab">
 				<a href="#tab2">Eliminar </a>
@@ -86,8 +86,10 @@ if ($modelo == "AreaManager") {
 		</div>
 	</div>
 </fieldset>
+
+</div>
 <?php
     require 'layout/footer.php';
 ?>
-</div>
+
 
